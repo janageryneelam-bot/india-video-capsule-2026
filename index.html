@@ -9,28 +9,28 @@
   <style>
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
     }
 
     body {
+      margin: 0;
       font-family: Arial, Helvetica, sans-serif;
       background: #f7f5f0;
       color: #111;
     }
 
-    .hero {
-      min-height: 90vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 60px 20px;
+    .container {
+      width: min(1200px, 90%);
+      margin: auto;
     }
 
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
+    /* HERO */
+
+    .hero {
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      padding: 80px 20px;
     }
 
     .hero-inner {
@@ -40,206 +40,195 @@
 
     .eyebrow {
       font-size: 13px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 25px;
-      font-weight: bold;
+      letter-spacing: 4px;
+      color: #777;
+      margin-bottom: 28px;
     }
 
     h1 {
-      font-size: clamp(50px, 10vw, 110px);
-      line-height: 0.9;
-      letter-spacing: -5px;
-      margin-bottom: 30px;
+      font-size: clamp(48px, 8vw, 92px);
+      line-height: 0.95;
+      margin: 0;
+      letter-spacing: -4px;
+      font-weight: 700;
     }
 
     .tagline {
-      font-size: clamp(24px, 4vw, 42px);
-      line-height: 1.2;
-      margin-bottom: 25px;
+      font-size: clamp(22px, 3vw, 34px);
+      margin: 35px 0 20px;
+      font-weight: 500;
     }
 
-    .description {
-      max-width: 680px;
-      margin: 0 auto 40px;
-      font-size: 18px;
-      line-height: 1.6;
-      color: #555;
+    .hero-description {
+      max-width: 650px;
+      margin: 0 auto 38px;
+      color: #666;
+      font-size: 17px;
+      line-height: 1.7;
     }
 
     .cta {
       display: inline-block;
       background: #111;
       color: white;
-      padding: 18px 30px;
       text-decoration: none;
+      padding: 17px 28px;
+      font-size: 13px;
+      letter-spacing: 1.5px;
       font-weight: bold;
-      letter-spacing: 1px;
     }
 
-    .freeze {
+    .cta:hover {
+      opacity: 0.8;
+    }
+
+    .closing-note {
       margin-top: 22px;
-      font-size: 13px;
-      color: #777;
+      color: #888;
+      font-size: 12px;
     }
 
-    /* CAPSULE */
+    /* INTRO */
 
-    .capsule-section {
-      padding: 100px 20px;
-      border-top: 1px solid #ddd;
+    .intro {
+      padding: 80px 0 50px;
+      text-align: center;
     }
 
-    .section-header {
-      margin-bottom: 50px;
+    .intro h2 {
+      font-size: clamp(32px, 5vw, 54px);
+      margin: 0 0 20px;
+      letter-spacing: -2px;
     }
 
-    .section-label {
-      font-size: 13px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      font-weight: bold;
-      margin-bottom: 15px;
-    }
-
-    .section-title {
-      font-size: clamp(35px, 6vw, 65px);
-      letter-spacing: -3px;
-      margin-bottom: 15px;
-    }
-
-    .section-description {
+    .intro p {
       max-width: 650px;
+      margin: auto;
       color: #666;
-      line-height: 1.6;
+      line-height: 1.7;
       font-size: 17px;
     }
 
-    /* CATEGORY CARDS */
+    /* ARCHIVE */
 
-    .categories {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 10px;
-      margin-bottom: 70px;
+    .archive {
+      padding: 40px 0 100px;
     }
 
-    .category {
-      background: white;
-      border: 1px solid #ddd;
-      padding: 22px 15px;
+    .archive-heading {
+      margin-bottom: 35px;
     }
 
-    .category-name {
-      font-size: 13px;
-      font-weight: bold;
-      letter-spacing: 1px;
-      margin-bottom: 12px;
+    .archive-heading h2 {
+      font-size: 28px;
+      margin: 0 0 10px;
+      letter-spacing: -1px;
     }
 
-    .category-count {
-      font-size: 25px;
-      margin-bottom: 5px;
-    }
-
-    .category-status {
-      font-size: 12px;
+    .archive-heading p {
       color: #777;
+      margin: 0;
     }
 
-    /* GRID */
-
-    .grid-title {
-      font-size: 20px;
-      font-weight: bold;
-      margin-bottom: 20px;
-    }
-
-    .capsule-grid {
+    .moments-grid {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      gap: 10px;
+      gap: 12px;
     }
 
-    .tile {
-      aspect-ratio: 1 / 1;
-      background: #e9e6df;
+    .moment {
+      min-height: 300px;
+      background: #e9e6de;
+      padding: 20px;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      padding: 18px;
-      position: relative;
-      overflow: hidden;
     }
 
-    .tile-number {
+    .moment-number {
       font-size: 11px;
-      letter-spacing: 2px;
+      letter-spacing: 3px;
       color: #777;
+      margin-bottom: 12px;
+    }
+
+    .moment-title {
+      font-size: 18px;
+      font-weight: bold;
+      line-height: 1.15;
       margin-bottom: 8px;
     }
 
-    .tile-title {
-      font-size: 15px;
-      font-weight: bold;
+    .moment-status {
+      font-size: 12px;
+      color: #888;
     }
 
-    .tile-status {
-      font-size: 11px;
-      color: #777;
-      margin-top: 5px;
-    }
+    /* MESSAGE */
 
-    /* FINAL CTA */
-
-    .final-section {
-      padding: 120px 20px;
+    .message {
+      padding: 100px 20px;
       text-align: center;
-      border-top: 1px solid #ddd;
+      background: #111;
+      color: white;
     }
 
-    .final-section h2 {
-      font-size: clamp(40px, 7vw, 75px);
-      letter-spacing: -4px;
-      margin-bottom: 25px;
+    .message h2 {
+      max-width: 800px;
+      margin: auto;
+      font-size: clamp(34px, 6vw, 64px);
+      line-height: 1;
+      letter-spacing: -2px;
     }
 
-    .final-section p {
-      color: #666;
-      margin-bottom: 35px;
-      font-size: 17px;
+    .message p {
+      max-width: 600px;
+      margin: 28px auto 35px;
+      color: #aaa;
+      line-height: 1.7;
+    }
+
+    .message .cta {
+      background: white;
+      color: #111;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 35px 20px;
+      text-align: center;
+      font-size: 12px;
+      color: #888;
+      background: #111;
+      border-top: 1px solid #333;
     }
 
     /* MOBILE */
 
-    @media (max-width: 800px) {
-
-      .categories {
+    @media (max-width: 900px) {
+      .moments-grid {
         grid-template-columns: repeat(2, 1fr);
       }
-
-      .capsule-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
     }
 
-    @media (max-width: 500px) {
+    @media (max-width: 550px) {
+      h1 {
+        letter-spacing: -2px;
+      }
 
-      .categories {
+      .hero {
+        min-height: 80vh;
+      }
+
+      .moments-grid {
         grid-template-columns: 1fr;
       }
 
-      .capsule-grid {
-        grid-template-columns: repeat(2, 1fr);
+      .moment {
+        min-height: 240px;
       }
-
-      h1 {
-        letter-spacing: -3px;
-      }
-
     }
-
   </style>
 </head>
 
@@ -248,203 +237,203 @@
   <!-- HERO -->
 
   <section class="hero">
-
-    <div class="container hero-inner">
+    <div class="hero-inner">
 
       <div class="eyebrow">
-        India · 2026
+        INDIA • 2026 • DIGITAL TIME CAPSULE
       </div>
 
       <h1>
-        INDIA<br>
-        VIDEO<br>
-        CAPSULE
+        INDIA VIDEO<br>
+        CAPSULE 2026
       </h1>
 
       <div class="tagline">
-        Your 2026 Moment.<br>
-        Frozen in Time.
+        Your 2026 Moment. Frozen in Time.
       </div>
 
-      <p class="description">
-        A digital time capsule preserving the people,
-        achievements, startups, brands and moments
-        that made India's 2026.
+      <p class="hero-description">
+        India had millions of moments in 2026.
+        We are preserving some of them —
+        from people, achievements, businesses, brands and everything in between.
       </p>
 
       <a href="claim.html" class="cta">
-        PRESERVE MY 2026 MOMENT
+        PRESERVE YOUR 2026 MOMENT
       </a>
 
-      <div class="freeze">
-        Entries close permanently on December 31, 2026.
+      <div class="closing-note">
+        The capsule closes permanently on December 31, 2026.
       </div>
 
     </div>
+  </section>
+
+
+  <!-- INTRO -->
+
+  <section class="intro container">
+
+    <h2>
+      One year.<br>
+      Many moments.
+    </h2>
+
+    <p>
+      A creator's breakthrough.
+      A company's first big milestone.
+      A new business.
+      A personal achievement.
+      A moment worth remembering.
+      Different stories — one year in India's history.
+    </p>
 
   </section>
 
 
-  <!-- CAPSULE -->
+  <!-- ARCHIVE -->
 
-  <section class="capsule-section">
+  <section class="archive container">
 
-    <div class="container">
-
-      <div class="section-header">
-
-        <div class="section-label">
-          The Archive
-        </div>
-
-        <div class="section-title">
-          INDIA'S 2026 CAPSULE
-        </div>
-
-        <p class="section-description">
-          A growing collection of the people, achievements,
-          startups and brands that were part of India's 2026 story.
-        </p>
-
-      </div>
-
-
-      <!-- CATEGORY COUNTERS -->
-
-      <div class="categories">
-
-        <div class="category">
-          <div class="category-name">CREATORS</div>
-          <div class="category-count">0 / 15</div>
-          <div class="category-status">Limited forever</div>
-        </div>
-
-        <div class="category">
-          <div class="category-name">ACHIEVEMENTS</div>
-          <div class="category-count">0 / 50</div>
-          <div class="category-status">50 moments</div>
-        </div>
-
-        <div class="category">
-          <div class="category-name">STARTUPS</div>
-          <div class="category-count">0 / 60</div>
-          <div class="category-status">Limited collection</div>
-        </div>
-
-        <div class="category">
-          <div class="category-name">BRANDS</div>
-          <div class="category-count">OPEN</div>
-          <div class="category-status">Until Dec 31</div>
-        </div>
-
-        <div class="category">
-          <div class="category-name">BIG BRANDS</div>
-          <div class="category-count">OPEN</div>
-          <div class="category-status">Curated</div>
-        </div>
-
-      </div>
-
-
-      <!-- TILE GRID -->
-
-      <div class="grid-title">
-        THE FIRST MOMENTS
-      </div>
-
-      <div class="capsule-grid">
-
-        <div class="tile">
-          <div class="tile-number">CREATOR 01</div>
-          <div class="tile-title">Waiting for a 2026 Moment</div>
-          <div class="tile-status">Available</div>
-        </div>
-
-        <div class="tile">
-          <div class="tile-number">CREATOR 02</div>
-          <div class="tile-title">Waiting for a 2026 Moment</div>
-          <div class="tile-status">Available</div>
-        </div>
-
-        <div class="tile">
-          <div class="tile-number">ACHIEVEMENT 01</div>
-          <div class="tile-title">Waiting for a 2026 Moment</div>
-          <div class="tile-status">Available</div>
-        </div>
-
-        <div class="tile">
-          <div class="tile-number">ACHIEVEMENT 02</div>
-          <div class="tile-title">Waiting for a 2026 Moment</div>
-          <div class="tile-status">Available</div>
-        </div>
-
-        <div class="tile">
-          <div class="tile-number">STARTUP 01</div>
-          <div class="tile-title">Waiting for a 2026 Moment</div>
-          <div class="tile-status">Available</div>
-        </div>
-
-        <div class="tile">
-          <div class="tile-number">STARTUP 02</div>
-          <div class="tile-title">Waiting for a 2026 Moment</div>
-          <div class="tile-status">Available</div>
-        </div>
-
-        <div class="tile">
-          <div class="tile-number">BRAND 01</div>
-          <div class="tile-title">Waiting for a 2026 Moment</div>
-          <div class="tile-status">Available</div>
-        </div>
-
-        <div class="tile">
-          <div class="tile-number">BRAND 02</div>
-          <div class="tile-title">Waiting for a 2026 Moment</div>
-          <div class="tile-status">Available</div>
-        </div>
-
-        <div class="tile">
-          <div class="tile-number">BIG BRAND 01</div>
-          <div class="tile-title">Waiting for a 2026 Moment</div>
-          <div class="tile-status">Available</div>
-        </div>
-
-        <div class="tile">
-          <div class="tile-number">BIG BRAND 02</div>
-          <div class="tile-title">Waiting for a 2026 Moment</div>
-          <div class="tile-status">Available</div>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- FINAL CTA -->
-
-  <section class="final-section">
-
-    <div class="container">
-
-      <h2>
-        WHAT WILL<br>
-        YOUR 2026<br>
-        LOOK LIKE?
-      </h2>
+    <div class="archive-heading">
+      <h2>THE 2026 MOMENTS</h2>
 
       <p>
-        One moment. One video. Part of history.
+        The first moments of a year worth remembering.
       </p>
+    </div>
 
-      <a href="claim.html" class="cta">
-        PRESERVE MY 2026 MOMENT
-      </a>
+
+    <div class="moments-grid">
+
+      <div class="moment">
+        <div class="moment-number">2026 MOMENT 001</div>
+        <div class="moment-title">
+          Waiting for a moment worth remembering.
+        </div>
+        <div class="moment-status">
+          This space is waiting for you.
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-number">2026 MOMENT 002</div>
+        <div class="moment-title">
+          Waiting for a moment worth remembering.
+        </div>
+        <div class="moment-status">
+          This space is waiting for you.
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-number">2026 MOMENT 003</div>
+        <div class="moment-title">
+          Waiting for a moment worth remembering.
+        </div>
+        <div class="moment-status">
+          This space is waiting for you.
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-number">2026 MOMENT 004</div>
+        <div class="moment-title">
+          Waiting for a moment worth remembering.
+        </div>
+        <div class="moment-status">
+          This space is waiting for you.
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-number">2026 MOMENT 005</div>
+        <div class="moment-title">
+          Waiting for a moment worth remembering.
+        </div>
+        <div class="moment-status">
+          This space is waiting for you.
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-number">2026 MOMENT 006</div>
+        <div class="moment-title">
+          Waiting for a moment worth remembering.
+        </div>
+        <div class="moment-status">
+          This space is waiting for you.
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-number">2026 MOMENT 007</div>
+        <div class="moment-title">
+          Waiting for a moment worth remembering.
+        </div>
+        <div class="moment-status">
+          This space is waiting for you.
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-number">2026 MOMENT 008</div>
+        <div class="moment-title">
+          Waiting for a moment worth remembering.
+        </div>
+        <div class="moment-status">
+          This space is waiting for you.
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-number">2026 MOMENT 009</div>
+        <div class="moment-title">
+          Waiting for a moment worth remembering.
+        </div>
+        <div class="moment-status">
+          This space is waiting for you.
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-number">2026 MOMENT 010</div>
+        <div class="moment-title">
+          Waiting for a moment worth remembering.
+        </div>
+        <div class="moment-status">
+          This space is waiting for you.
+        </div>
+      </div>
 
     </div>
 
   </section>
 
+
+  <!-- FINAL MESSAGE -->
+
+  <section class="message">
+
+    <h2>
+      What will your 2026 be remembered for?
+    </h2>
+
+    <p>
+      You have one moment.
+      Make it something worth preserving.
+    </p>
+
+    <a href="claim.html" class="cta">
+      PRESERVE YOUR 2026 MOMENT
+    </a>
+
+  </section>
+
+
+  <footer>
+    INDIA VIDEO CAPSULE 2026 · A digital time capsule of India's 2026
+  </footer>
 
 </body>
 </html>
