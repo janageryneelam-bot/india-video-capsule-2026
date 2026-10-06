@@ -4,79 +4,84 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Claim Your 2026 Moment — India Video Capsule 2026</title>
+  <title>Claim Your 2026 Moment</title>
 
   <style>
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
     }
 
     body {
+      margin: 0;
       font-family: Arial, Helvetica, sans-serif;
       background: #f7f5f0;
       color: #111;
     }
 
-    .page {
-      min-height: 100vh;
-      padding: 50px 20px;
-    }
-
     .container {
-      max-width: 900px;
-      margin: 0 auto;
+      width: min(1000px, 90%);
+      margin: auto;
     }
 
     .back {
       display: inline-block;
-      color: #555;
+      margin-top: 30px;
+      color: #777;
       text-decoration: none;
-      font-size: 14px;
-      margin-bottom: 70px;
+      font-size: 13px;
+    }
+
+    .hero {
+      padding: 70px 0 45px;
     }
 
     .eyebrow {
-      font-size: 13px;
+      font-size: 12px;
       letter-spacing: 3px;
-      text-transform: uppercase;
-      font-weight: bold;
+      color: #777;
       margin-bottom: 20px;
     }
 
     h1 {
-      font-size: clamp(42px, 8vw, 80px);
+      font-size: clamp(42px, 7vw, 72px);
       line-height: 0.95;
       letter-spacing: -3px;
-      margin-bottom: 25px;
+      margin: 0 0 25px;
     }
 
     .intro {
-      font-size: 21px;
-      line-height: 1.5;
-      color: #555;
-      max-width: 680px;
-      margin-bottom: 55px;
+      max-width: 650px;
+      color: #666;
+      font-size: 17px;
+      line-height: 1.7;
     }
 
-    .section-title {
-      font-size: 18px;
-      font-weight: bold;
-      margin-bottom: 20px;
+    .section {
+      border-top: 1px solid #d8d5ce;
+      padding: 45px 0;
+    }
+
+    .section h2 {
+      font-size: 25px;
+      margin: 0 0 10px;
+    }
+
+    .section-description {
+      color: #777;
+      line-height: 1.6;
+      margin-bottom: 28px;
     }
 
     .options {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
-      margin-bottom: 55px;
+      gap: 12px;
     }
 
     .option {
-      border: 1px solid #ccc;
-      background: white;
-      padding: 25px;
+      border: 1px solid #d8d5ce;
+      background: #fff;
+      padding: 28px;
       cursor: pointer;
       transition: 0.2s;
     }
@@ -86,63 +91,94 @@
       transform: translateY(-2px);
     }
 
-    .option h2 {
+    .option.selected {
+      border: 2px solid #111;
+      padding: 27px;
+    }
+
+    .option h3 {
+      margin: 0 0 10px;
       font-size: 20px;
-      margin-bottom: 8px;
     }
 
     .option p {
-      color: #666;
+      margin: 0;
+      color: #777;
       line-height: 1.5;
       font-size: 14px;
     }
 
-    .moment {
-      border-top: 1px solid #ccc;
-      padding-top: 35px;
-      margin-bottom: 40px;
+    .price-box {
+      display: none;
+      margin-top: 30px;
+      background: #111;
+      color: white;
+      padding: 30px;
     }
 
-    .moment p {
-      font-size: 18px;
-      line-height: 1.6;
-      color: #444;
+    .price-box.show {
+      display: block;
+    }
+
+    .price-label {
+      font-size: 12px;
+      letter-spacing: 2px;
+      color: #aaa;
+      margin-bottom: 10px;
     }
 
     .price {
-      font-size: 28px;
+      font-size: 38px;
       font-weight: bold;
-      margin: 15px 0 25px;
+      margin-bottom: 10px;
     }
 
-    .button {
-      display: inline-block;
-      background: #111;
-      color: white;
-      text-decoration: none;
-      padding: 18px 30px;
+    .price-description {
+      color: #aaa;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .continue {
+      display: none;
+      margin-top: 25px;
+      background: white;
+      color: #111;
+      border: none;
+      padding: 16px 25px;
+      font-size: 13px;
       font-weight: bold;
       letter-spacing: 1px;
+      cursor: pointer;
     }
 
-    .note {
-      margin-top: 20px;
-      color: #777;
-      font-size: 13px;
-      line-height: 1.5;
+    .continue.show {
+      display: inline-block;
+    }
+
+    .moment-box {
+      background: #e9e6de;
+      padding: 30px;
+      line-height: 1.7;
+      color: #555;
+    }
+
+    .moment-box strong {
+      color: #111;
+    }
+
+    footer {
+      margin-top: 50px;
+      padding: 30px;
+      text-align: center;
+      border-top: 1px solid #d8d5ce;
+      color: #888;
+      font-size: 12px;
     }
 
     @media (max-width: 650px) {
       .options {
         grid-template-columns: 1fr;
-      }
-
-      .page {
-        padding: 30px 20px;
-      }
-
-      .back {
-        margin-bottom: 45px;
       }
     }
   </style>
@@ -150,16 +186,17 @@
 
 <body>
 
-  <main class="page">
+  <div class="container">
 
-    <div class="container">
+    <a href="index.html" class="back">← Back to the Capsule</a>
 
-      <a href="index.html" class="back">
-        ← Back to India Video Capsule
-      </a>
+
+    <!-- HEADER -->
+
+    <section class="hero">
 
       <div class="eyebrow">
-        India Video Capsule · 2026
+        INDIA VIDEO CAPSULE 2026
       </div>
 
       <h1>
@@ -168,92 +205,213 @@
       </h1>
 
       <p class="intro">
-        Some moments happen once.
-        Preserve yours inside a permanent digital time capsule
-        of the people, achievements, brands and stories of 2026.
+        Everyone has a different reason to remember 2026.
+        Tell us what your moment is, and we'll show you the
+        right way to preserve it in the Capsule.
+      </p>
+
+    </section>
+
+
+    <!-- CATEGORY -->
+
+    <section class="section">
+
+      <h2>
+        What are you preserving?
+      </h2>
+
+      <p class="section-description">
+        Choose the option that best describes your 2026 moment.
+        Your selection determines the type of Capsule placement available to you.
       </p>
 
 
-      <div class="section-title">
-        What are you preserving?
-      </div>
-
       <div class="options">
 
-        <div class="option">
-          <h2>Creator</h2>
+        <div class="option" onclick="selectOption(this, 'creator')">
+          <h3>Creator / Public Figure</h3>
           <p>
-            Your journey, milestone, audience or signature moment
-            as a creator in 2026.
+            Your career, audience, achievement, launch,
+            collaboration or defining personal moment from 2026.
           </p>
         </div>
 
-        <div class="option">
-          <h2>Achievement</h2>
+
+        <div class="option" onclick="selectOption(this, 'achievement')">
+          <h3>Personal Achievement</h3>
           <p>
-            An engagement, award, career milestone,
-            personal achievement or unforgettable moment.
+            A milestone, breakthrough, celebration or
+            life moment that made 2026 special.
           </p>
         </div>
 
-        <div class="option">
-          <h2>Startup</h2>
+
+        <div class="option" onclick="selectOption(this, 'startup')">
+          <h3>Startup / Business</h3>
           <p>
             Your startup, product, launch, milestone or
             the people building it in 2026.
           </p>
         </div>
 
-        <div class="option">
-          <h2>Brand</h2>
+
+        <div class="option" onclick="selectOption(this, 'brand')">
+          <h3>Brand</h3>
           <p>
             Your brand, product, campaign or defining
             business moment from 2026.
           </p>
         </div>
 
-      </div>
 
-
-      <div class="moment">
-
-        <div class="section-title">
-          The 2026 Moment
+        <div class="option" onclick="selectOption(this, 'premium')">
+          <h3>Established / Major Brand</h3>
+          <p>
+            For established companies and organisations
+            seeking a curated presence in the Capsule.
+          </p>
         </div>
-
-        <p>
-          You'll submit one original 3–5 second video that represents
-          your 2026 moment. Your video will be reviewed before it
-          becomes part of the public Capsule.
-        </p>
 
       </div>
 
 
-      <div class="moment">
+      <!-- PRICE REVEAL -->
 
-        <div class="section-title">
-          Founding Creator / Participant
+      <div class="price-box" id="priceBox">
+
+        <div class="price-label">
+          YOUR CAPSULE PLACEMENT
         </div>
 
-        <div class="price">
-          ₹2999
+        <div class="price" id="price">
         </div>
 
-        <a href="#" class="button">
+        <div class="price-description" id="priceDescription">
+        </div>
+
+        <button class="continue" id="continueButton">
           CONTINUE
-        </a>
-
-        <div class="note">
-          Your slot is not confirmed until payment and video submission
-          are completed. Entries close permanently on December 31, 2026.
-        </div>
+        </button>
 
       </div>
 
-    </div>
+    </section>
 
-  </main>
+
+    <!-- THE MOMENT -->
+
+    <section class="section">
+
+      <h2>
+        Your 2026 Moment
+      </h2>
+
+      <div class="moment-box">
+
+        <strong>Your moment will be represented by a 3–5 second video.</strong>
+
+        <br><br>
+
+        The video becomes part of your Capsule tile.
+        When someone clicks your tile, they can be taken to
+        the story behind it — your website, social profile,
+        YouTube video, LinkedIn post, product page or another
+        destination you choose.
+
+        <br><br>
+
+        You'll also tell us briefly what the moment represents.
+        Every submission is reviewed before becoming part of
+        the public Capsule.
+
+      </div>
+
+    </section>
+
+
+    <footer>
+      The Capsule closes permanently on December 31, 2026.
+    </footer>
+
+  </div>
+
+
+  <script>
+
+    function selectOption(element, type) {
+
+      const options = document.querySelectorAll('.option');
+
+      options.forEach(function(option) {
+        option.classList.remove('selected');
+      });
+
+      element.classList.add('selected');
+
+
+      const priceBox = document.getElementById('priceBox');
+      const price = document.getElementById('price');
+      const description = document.getElementById('priceDescription');
+      const continueButton = document.getElementById('continueButton');
+
+
+      if (type === 'creator') {
+
+        price.textContent = '₹2,999';
+
+        description.textContent =
+          'Creator / Public Figure placement. Your 2026 moment becomes part of the permanent Capsule archive.';
+
+      }
+
+
+      if (type === 'achievement') {
+
+        price.textContent = '₹2,999';
+
+        description.textContent =
+          'Personal Achievement placement. Preserve a milestone or special moment that defined your 2026.';
+
+      }
+
+
+      if (type === 'startup') {
+
+        price.textContent = '₹4,999';
+
+        description.textContent =
+          'Startup / Business placement. Preserve the moment that represents your company in 2026.';
+
+      }
+
+
+      if (type === 'brand') {
+
+        price.textContent = '₹9,999';
+
+        description.textContent =
+          'Brand placement. Preserve a defining product, campaign or business moment from 2026.';
+
+      }
+
+
+      if (type === 'premium') {
+
+        price.textContent = '₹24,999+';
+
+        description.textContent =
+          'Curated placement for established brands and organisations. Final placement is subject to review.';
+
+      }
+
+
+      priceBox.classList.add('show');
+      continueButton.classList.add('show');
+
+    }
+
+  </script>
 
 </body>
 </html>
