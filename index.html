@@ -20,20 +20,26 @@
     }
 
     .hero {
-      min-height: 100vh;
+      min-height: 90vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 40px 20px;
+      padding: 60px 20px;
     }
 
     .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .hero-inner {
       max-width: 850px;
+      margin: auto;
     }
 
     .eyebrow {
-      font-size: 14px;
+      font-size: 13px;
       letter-spacing: 3px;
       text-transform: uppercase;
       margin-bottom: 25px;
@@ -41,19 +47,20 @@
     }
 
     h1 {
-      font-size: clamp(45px, 9vw, 100px);
-      line-height: 0.95;
-      letter-spacing: -4px;
-      margin-bottom: 25px;
+      font-size: clamp(50px, 10vw, 110px);
+      line-height: 0.9;
+      letter-spacing: -5px;
+      margin-bottom: 30px;
     }
 
     .tagline {
-      font-size: clamp(22px, 4vw, 38px);
+      font-size: clamp(24px, 4vw, 42px);
+      line-height: 1.2;
       margin-bottom: 25px;
     }
 
     .description {
-      max-width: 650px;
+      max-width: 680px;
       margin: 0 auto 40px;
       font-size: 18px;
       line-height: 1.6;
@@ -67,23 +74,182 @@
       padding: 18px 30px;
       text-decoration: none;
       font-weight: bold;
-      border-radius: 4px;
       letter-spacing: 1px;
     }
 
     .freeze {
-      margin-top: 25px;
-      font-size: 14px;
+      margin-top: 22px;
+      font-size: 13px;
       color: #777;
     }
+
+    /* CAPSULE */
+
+    .capsule-section {
+      padding: 100px 20px;
+      border-top: 1px solid #ddd;
+    }
+
+    .section-header {
+      margin-bottom: 50px;
+    }
+
+    .section-label {
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .section-title {
+      font-size: clamp(35px, 6vw, 65px);
+      letter-spacing: -3px;
+      margin-bottom: 15px;
+    }
+
+    .section-description {
+      max-width: 650px;
+      color: #666;
+      line-height: 1.6;
+      font-size: 17px;
+    }
+
+    /* CATEGORY CARDS */
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      margin-bottom: 70px;
+    }
+
+    .category {
+      background: white;
+      border: 1px solid #ddd;
+      padding: 22px 15px;
+    }
+
+    .category-name {
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+
+    .category-count {
+      font-size: 25px;
+      margin-bottom: 5px;
+    }
+
+    .category-status {
+      font-size: 12px;
+      color: #777;
+    }
+
+    /* GRID */
+
+    .grid-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .capsule-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+    }
+
+    .tile {
+      aspect-ratio: 1 / 1;
+      background: #e9e6df;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 18px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tile-number {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: #777;
+      margin-bottom: 8px;
+    }
+
+    .tile-title {
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    .tile-status {
+      font-size: 11px;
+      color: #777;
+      margin-top: 5px;
+    }
+
+    /* FINAL CTA */
+
+    .final-section {
+      padding: 120px 20px;
+      text-align: center;
+      border-top: 1px solid #ddd;
+    }
+
+    .final-section h2 {
+      font-size: clamp(40px, 7vw, 75px);
+      letter-spacing: -4px;
+      margin-bottom: 25px;
+    }
+
+    .final-section p {
+      color: #666;
+      margin-bottom: 35px;
+      font-size: 17px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
+      .categories {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .capsule-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+    }
+
+    @media (max-width: 500px) {
+
+      .categories {
+        grid-template-columns: 1fr;
+      }
+
+      .capsule-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      h1 {
+        letter-spacing: -3px;
+      }
+
+    }
+
   </style>
 </head>
 
 <body>
 
+  <!-- HERO -->
+
   <section class="hero">
 
-    <div class="container">
+    <div class="container hero-inner">
 
       <div class="eyebrow">
         India · 2026
@@ -102,8 +268,8 @@
 
       <p class="description">
         A digital time capsule preserving the people,
-        achievements, brands, startups and moments
-        that made India’s 2026.
+        achievements, startups, brands and moments
+        that made India's 2026.
       </p>
 
       <a href="claim.html" class="cta">
@@ -117,6 +283,168 @@
     </div>
 
   </section>
+
+
+  <!-- CAPSULE -->
+
+  <section class="capsule-section">
+
+    <div class="container">
+
+      <div class="section-header">
+
+        <div class="section-label">
+          The Archive
+        </div>
+
+        <div class="section-title">
+          INDIA'S 2026 CAPSULE
+        </div>
+
+        <p class="section-description">
+          A growing collection of the people, achievements,
+          startups and brands that were part of India's 2026 story.
+        </p>
+
+      </div>
+
+
+      <!-- CATEGORY COUNTERS -->
+
+      <div class="categories">
+
+        <div class="category">
+          <div class="category-name">CREATORS</div>
+          <div class="category-count">0 / 15</div>
+          <div class="category-status">Limited forever</div>
+        </div>
+
+        <div class="category">
+          <div class="category-name">ACHIEVEMENTS</div>
+          <div class="category-count">0 / 50</div>
+          <div class="category-status">50 moments</div>
+        </div>
+
+        <div class="category">
+          <div class="category-name">STARTUPS</div>
+          <div class="category-count">0 / 60</div>
+          <div class="category-status">Limited collection</div>
+        </div>
+
+        <div class="category">
+          <div class="category-name">BRANDS</div>
+          <div class="category-count">OPEN</div>
+          <div class="category-status">Until Dec 31</div>
+        </div>
+
+        <div class="category">
+          <div class="category-name">BIG BRANDS</div>
+          <div class="category-count">OPEN</div>
+          <div class="category-status">Curated</div>
+        </div>
+
+      </div>
+
+
+      <!-- TILE GRID -->
+
+      <div class="grid-title">
+        THE FIRST MOMENTS
+      </div>
+
+      <div class="capsule-grid">
+
+        <div class="tile">
+          <div class="tile-number">CREATOR 01</div>
+          <div class="tile-title">Waiting for a 2026 Moment</div>
+          <div class="tile-status">Available</div>
+        </div>
+
+        <div class="tile">
+          <div class="tile-number">CREATOR 02</div>
+          <div class="tile-title">Waiting for a 2026 Moment</div>
+          <div class="tile-status">Available</div>
+        </div>
+
+        <div class="tile">
+          <div class="tile-number">ACHIEVEMENT 01</div>
+          <div class="tile-title">Waiting for a 2026 Moment</div>
+          <div class="tile-status">Available</div>
+        </div>
+
+        <div class="tile">
+          <div class="tile-number">ACHIEVEMENT 02</div>
+          <div class="tile-title">Waiting for a 2026 Moment</div>
+          <div class="tile-status">Available</div>
+        </div>
+
+        <div class="tile">
+          <div class="tile-number">STARTUP 01</div>
+          <div class="tile-title">Waiting for a 2026 Moment</div>
+          <div class="tile-status">Available</div>
+        </div>
+
+        <div class="tile">
+          <div class="tile-number">STARTUP 02</div>
+          <div class="tile-title">Waiting for a 2026 Moment</div>
+          <div class="tile-status">Available</div>
+        </div>
+
+        <div class="tile">
+          <div class="tile-number">BRAND 01</div>
+          <div class="tile-title">Waiting for a 2026 Moment</div>
+          <div class="tile-status">Available</div>
+        </div>
+
+        <div class="tile">
+          <div class="tile-number">BRAND 02</div>
+          <div class="tile-title">Waiting for a 2026 Moment</div>
+          <div class="tile-status">Available</div>
+        </div>
+
+        <div class="tile">
+          <div class="tile-number">BIG BRAND 01</div>
+          <div class="tile-title">Waiting for a 2026 Moment</div>
+          <div class="tile-status">Available</div>
+        </div>
+
+        <div class="tile">
+          <div class="tile-number">BIG BRAND 02</div>
+          <div class="tile-title">Waiting for a 2026 Moment</div>
+          <div class="tile-status">Available</div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FINAL CTA -->
+
+  <section class="final-section">
+
+    <div class="container">
+
+      <h2>
+        WHAT WILL<br>
+        YOUR 2026<br>
+        LOOK LIKE?
+      </h2>
+
+      <p>
+        One moment. One video. Part of history.
+      </p>
+
+      <a href="claim.html" class="cta">
+        PRESERVE MY 2026 MOMENT
+      </a>
+
+    </div>
+
+  </section>
+
 
 </body>
 </html>
