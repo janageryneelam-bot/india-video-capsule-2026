@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Submit Your 2026 Moment — India Video Capsule 2026</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #08080b;
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+.container {
+    width: min(1000px, 92%);
+    margin: 0 auto;
+}
+
+/* NAV */
+
+.nav {
+    padding: 22px 4%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.logo {
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.back {
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    opacity: 0.6;
+}
+
+.back:hover {
+    opacity: 1;
+}
+
+
+/* HEADER */
+
+.header {
+    text-align: center;
+    padding: 80px 20px 55px;
+}
+
+.label {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    opacity: 0.45;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    font-size: clamp(42px, 7vw, 76px);
+    letter-spacing: -4px;
+    line-height: 0.95;
+    margin-bottom: 25px;
+}
+
+.header p {
+    max-width: 650px;
+    margin: auto;
+    color: rgba(255,255,255,0.58);
+    line-height: 1.7;
+}
+
+
+/* CATEGORY */
+
+.category-box {
+    max-width: 650px;
+    margin: 0 auto 45px;
+    padding: 20px 24px;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 14px;
+    background: rgba(255,255,255,0.035);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.category-name {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.category-price {
+    font-size: 20px;
+    font-weight: 900;
+}
+
+
+/* FORM */
+
+.form {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-bottom: 100px;
+}
+
+.form-section {
+    margin-bottom: 60px;
+}
+
+.section-number {
+    font-size: 11px;
+    letter-spacing: 3px;
+    opacity: 0.4;
+    margin-bottom: 15px;
+}
+
+.form-section h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.section-description {
+    color: rgba(255,255,255,0.5);
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+
+/* INPUTS */
+
+.field {
+    margin-bottom: 18px;
+}
+
+label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: rgba(255,255,255,0.75);
+}
+
+input,
+textarea {
+    width: 100%;
+    background: #111116;
+    border: 1px solid rgba(255,255,255,0.13);
+    border-radius: 10px;
+    color: white;
+    padding: 15px;
+    font-size: 14px;
+    outline: none;
+}
+
+input:focus,
+textarea:focus {
+    border-color: rgba(255,255,255,0.5);
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+
+/* VIDEO */
+
+.video-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.video-card {
+    border: 1px dashed rgba(255,255,255,0.22);
+    border-radius: 16px;
+    padding: 25px;
+    background: rgba(255,255,255,0.025);
+}
+
+.video-card h3 {
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+.video-card p {
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+.file-input {
+    width: 100%;
+    font-size: 12px;
+}
+
+
+/* REVIEW NOTICE */
+
+.review-notice {
+    margin-top: 22px;
+    padding: 24px;
+    border-radius: 14px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,65,108,0.09),
+            rgba(100,80,255,0.08)
+        );
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.review-notice strong {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.review-notice p {
+    color: rgba(255,255,255,0.58);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+
+/* PROCESS */
+
+.process {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 28px;
+}
+
+.process-item {
+    padding: 20px 15px;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    background: rgba(255,255,255,0.02);
+}
+
+.process-number {
+    font-size: 10px;
+    letter-spacing: 2px;
+    opacity: 0.4;
+    margin-bottom: 12px;
+}
+
+.process-item h3 {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.process-item p {
+    font-size: 11px;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.45);
+}
+
+
+/* CONFIRMATION */
+
+.confirm-box {
+    padding: 25px;
+    border-radius: 15px;
+    background: rgba(255,255,255,0.035);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.checkbox-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 17px;
+}
+
+.checkbox-row input {
+    width: auto;
+    margin-top: 4px;
+}
+
+.checkbox-row label {
+    margin: 0;
+    font-weight: 400;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.62);
+}
+
+
+/* SUBMIT */
+
+.submit-area {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.submit-button {
+    border: none;
+    background: white;
+    color: #08080b;
+    padding: 18px 35px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.submit-button:hover {
+    transform: scale(1.03);
+}
+
+.submit-note {
+    margin-top: 16px;
+    font-size: 11px;
+    color: rgba(255,255,255,0.35);
+    line-height: 1.6;
+}
+
+
+/* FOOTER */
+
+.footer {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+    padding: 50px 20px;
+    color: rgba(255,255,255,0.35);
+    font-size: 11px;
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width: 750px) {
+
+    .video-options {
+        grid-template-columns: 1fr;
+    }
+
+    .process {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .category-box {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media(max-width: 500px) {
+
+    .process {
+        grid-template-columns: 1fr;
+    }
+
+    .header {
+        padding-top: 55px;
+    }
+
+    .header h1 {
+        letter-spacing: -2px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- NAV -->
+
+<nav class="nav">
+
+    <div class="logo">
+        INDIA VIDEO CAPSULE 2026
+    </div>
+
+    <a href="claim.html" class="back">
+        ← Back
+    </a>
+
+</nav>
+
+
+
+<!-- HEADER -->
+
+<header class="header">
+
+    <div class="label">
+        Almost there
+    </div>
+
+    <h1>
+        LET'S PRESERVE<br>
+        YOUR MOMENT.
+    </h1>
+
+    <p>
+        Give us two versions of your 3–5 second moment.
+        We'll personally review them, recommend the strongest
+        version, and get your final confirmation before
+        anything goes into the Capsule.
+    </p>
+
+</header>
+
+
+
+<main class="container">
+
+
+    <!-- CATEGORY -->
+
+    <div class="category-box">
+
+        <div class="category-name" id="categoryName">
+            Creator / Individual
+        </div>
+
+        <div class="category-price" id="categoryPrice">
+            ₹999
+        </div>
+
+    </div>
+
+
+
+    <form class="form" id="momentForm">
+
+
+        <!-- ABOUT YOU -->
+
+        <section class="form-section">
+
+            <div class="section-number">
+                01 — ABOUT YOU
+            </div>
+
+            <h2>
+                Who is preserving this moment?
+            </h2>
+
+            <p class="section-description">
+                This can be your name, creator name,
+                company or organisation name.
+            </p>
+
+
+            <div class="field">
+
+                <label for="name">
+                    Name / Organisation
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Your name or organisation"
+                    required
+                >
+
+            </div>
+
+
+            <div class="field">
+
+                <label for="email">
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="you@example.com"
+                    required
+                >
+
+            </div>
+
+
+            <div class="field">
+
+                <label for="whatsapp">
+                    WhatsApp Number
+                </label>
+
+                <input
+                    type="tel"
+                    id="whatsapp"
+                    name="whatsapp"
+                    placeholder="+91 XXXXX XXXXX"
+                    required
+                >
+
+            </div>
+
+        </section>
+
+
+
+        <!-- MOMENT -->
+
+        <section class="form-section">
+
+            <div class="section-number">
+                02 — YOUR MOMENT
+            </div>
+
+            <h2>
+                What are you preserving?
+            </h2>
+
+            <p class="section-description">
+                Tell us in one or two sentences what this
+                moment represents about your 2026.
+            </p>
+
+
+            <div class="field">
+
+                <label for="moment">
+                    Your 2026 Moment
+                </label>
+
+                <textarea
+                    id="moment"
+                    name="moment"
+                    placeholder="Example: 2026 was the year we launched our first product and welcomed our first 1,000 customers."
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <div class="field">
+
+                <label for="url">
+                    Where should your Moment lead?
+                </label>
+
+                <input
+                    type="url"
+                    id="url"
+                    name="url"
+                    placeholder="https://..."
+                    required
+                >
+
+            </div>
+
+        </section>
+
+
+
+        <!-- VIDEOS -->
+
+        <section class="form-section">
+
+            <div class="section-number">
+                03 — YOUR VIDEO OPTIONS
+            </div>
+
+            <h2>
+                Start with two versions.
+            </h2>
+
+            <p class="section-description">
+                Give us two different 3–5 second versions of
+                your moment. We'll review both and recommend
+                the one that works best for the Capsule.
+            </p>
+
+
+            <div class="video-options">
+
+
+                <!-- OPTION A -->
+
+                <div class="video-card">
+
+                    <h3>
+                        Video Option A
+                    </h3>
+
+                    <p>
+                        Your first version.<br>
+                        3–5 seconds · MP4/WebM · Max 5MB
+                    </p>
+
+                    <input
+                        class="file-input"
+                        type="file"
+                        id="videoA"
+                        name="videoA"
+                        accept="video/mp4,video/webm"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- OPTION B -->
+
+                <div class="video-card">
+
+                    <h3>
+                        Video Option B
+                    </h3>
+
+                    <p>
+                        Your alternative version.<br>
+                        3–5 seconds · MP4/WebM · Max 5MB
+                    </p>
+
+                    <input
+                        class="file-input"
+                        type="file"
+                        id="videoB"
+                        name="videoB"
+                        accept="video/mp4,video/webm"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+
+            <!-- REVIEW -->
+
+            <div class="review-notice">
+
+                <strong>
+                    👀 Your videos are reviewed by a real person.
+                </strong>
+
+                <p>
+                    Nothing is published automatically.
+                    After payment, we'll manually review your
+                    submission within <strong>2 business days</strong>.
+                    We'll select the version we recommend and
+                    send it to you for your final confirmation
+                    before publishing.
+                </p>
+
+            </div>
+
+
+
+            <!-- PROCESS -->
+
+            <div class="process">
+
+                <div class="process-item">
+
+                    <div class="process-number">
+                        01
+                    </div>
+
+                    <h3>
+                        Submit
+                    </h3>
+
+                    <p>
+                        Upload two video options.
+                    </p>
+
+                </div>
+
+
+                <div class="process-item">
+
+                    <div class="process-number">
+                        02
+                    </div>
+
+                    <h3>
+                        We review
+                    </h3>
+
+                    <p>
+                        Manual review within 2 business days.
+                    </p>
+
+                </div>
+
+
+                <div class="process-item">
+
+                    <div class="process-number">
+                        03
+                    </div>
+
+                    <h3>
+                        You confirm
+                    </h3>
+
+                    <p>
+                        You approve the selected version.
+                    </p>
+
+                </div>
+
+
+                <div class="process-item">
+
+                    <div class="process-number">
+                        04
+                    </div>
+
+                    <h3>
+                        We publish
+                    </h3>
+
+                    <p>
+                        Your Moment goes live.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- REPLACEMENT POLICY -->
+
+        <section class="form-section">
+
+            <div class="section-number">
+                04 — WANT TO CHANGE IT?
+            </div>
+
+            <h2>
+                You have room to improve it.
+            </h2>
+
+            <p class="section-description">
+                We want you to be genuinely happy with the
+                Moment that represents your 2026.
+            </p>
+
+
+            <div class="review-notice">
+
+                <strong>
+                    🔄 Your 5-business-day refinement window
+                </strong>
+
+                <p>
+                    After your Moment is approved and published,
+                    you'll have <strong>5 business days</strong>
+                    to submit a new video if you've created a
+                    better version. You can submit up to
+                    <strong>3 replacement attempts</strong>
+                    during this window.
+                </p>
+
+                <br>
+
+                <p>
+                    Every new version is manually reviewed.
+                    Your current approved Moment stays live
+                    until a replacement is reviewed and confirmed
+                    by you.
+                </p>
+
+                <br>
+
+                <p>
+                    After the 5-business-day window closes,
+                    your Moment is locked for the remainder
+                    of 2026.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- FINAL FREEZE -->
+
+        <section class="form-section">
+
+            <div class="section-number">
+                05 — THE FINAL FREEZE
+            </div>
+
+            <h2>
+                December 31, 2026.
+            </h2>
+
+            <p class="section-description">
+                That's when the Capsule closes and the archive
+                becomes a permanent snapshot of 2026.
+            </p>
+
+
+            <div class="confirm-box">
+
+
+                <div class="checkbox-row">
+
+                    <input
+                        type="checkbox"
+                        id="rights"
+                        required
+                    >
+
+                    <label for="rights">
+                        I confirm that I have the rights and
+                        permissions necessary to submit both videos
+                        and that the content represents me, my
+                        organisation or the moment described.
+                    </label>
+
+                </div>
+
+
+
+                <div class="checkbox-row">
+
+                    <input
+                        type="checkbox"
+                        id="review"
+                        required
+                    >
+
+                    <label for="review">
+                        I understand that my videos will be manually
+                        reviewed and that the Capsule team may
+                        recommend either Video A or Video B.
+                    </label>
+
+                </div>
+
+
+
+                <div class="checkbox-row">
+
+                    <input
+                        type="checkbox"
+                        id="confirmation"
+                        required
+                    >
+
+                    <label for="confirmation">
+                        I understand that my selected video will
+                        not be published until I have given my
+                        final confirmation.
+                    </label>
+
+                </div>
+
+
+
+                <div class="checkbox-row">
+
+                    <input
+                        type="checkbox"
+                        id="replacement"
+                        required
+                    >
+
+                    <label for="replacement">
+                        I understand that after publication I have
+                        5 business days and up to 3 replacement
+                        attempts to submit a new version.
+                    </label>
+
+                </div>
+
+
+
+                <div class="checkbox-row">
+
+                    <input
+                        type="checkbox"
+                        id="freeze"
+                        required
+                    >
+
+                    <label for="freeze">
+                        I understand that after my refinement window
+                        closes, my Moment is locked for 2026 and
+                        that the Capsule itself closes permanently
+                        on December 31, 2026.
+                    </label>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- SUBMIT -->
+
+        <div class="submit-area">
+
+            <button
+                type="submit"
+                class="submit-button"
+            >
+                SUBMIT FOR REVIEW →
+            </button>
+
+            <p class="submit-note">
+                Your submission will not be published automatically.
+                You'll receive confirmation before your selected
+                Moment goes live.
+            </p>
+
+        </div>
+
+
+    </form>
+
+</main>
+
+
+
+<footer class="footer">
+
+    INDIA VIDEO CAPSULE 2026
+    <br><br>
+    Your 2026 Moment. Frozen in Time.
+
+</footer>
+
+
+
+<script>
+
+/* CATEGORY DATA */
+
+const categories = {
+
+    creator: {
+        name: "Creator / Individual",
+        price: "₹999"
+    },
+
+    achievement: {
+        name: "Personal Achievement",
+        price: "₹999"
+    },
+
+    startup: {
+        name: "Indie / Early Startup",
+        price: "₹1,999"
+    },
+
+    business: {
+        name: "Growing Business",
+        price: "₹4,999"
+    },
+
+    brand: {
+        name: "Brand",
+        price: "₹9,999"
+    },
+
+    "major-brand": {
+        name: "Established / Major Brand",
+        price: "₹24,999+"
+    }
+
+};
+
+
+/* READ CATEGORY */
+
+const params =
+    new URLSearchParams(window.location.search);
+
+const type =
+    params.get("type") || "creator";
+
+const category =
+    categories[type] || categories.creator;
+
+
+/* UPDATE CATEGORY */
+
+document.getElementById("categoryName").textContent =
+    category.name;
+
+document.getElementById("categoryPrice").textContent =
+    category.price;
+
+
+/* DEMO SUBMISSION */
+
+document.getElementById("momentForm")
+    .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        alert(
+            "Thank you! Your 2026 Moment has been submitted for manual review. We will review your videos within 2 business days and contact you for final confirmation."
+        );
+
+    });
+
+</script>
+
+</body>
+</html>
