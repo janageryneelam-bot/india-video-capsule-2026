@@ -1,1670 +1,1041 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Your 2026 Moment | India Video Capsule</title>
+<title>Your 2026 Moment — India Video Capsule 2026</title>
 
-  <meta
-    name="description"
-    content="See what a 3–5 second 2026 Moment can look like."
-  >
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-  <style>
+html {
+    scroll-behavior: smooth;
+}
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #08080b;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* ---------- TOP NAV ---------- */
+
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 20px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(
+        to bottom,
+        rgba(8,8,11,0.95),
+        rgba(8,8,11,0)
+    );
+}
+
+.logo {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.back {
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    opacity: 0.7;
+}
+
+.back:hover {
+    opacity: 1;
+}
+
+/* ---------- HERO ---------- */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 120px 20px 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    background:
+        radial-gradient(circle, rgba(255,65,108,0.16), transparent 65%);
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+.eyebrow {
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    opacity: 0.55;
+    margin-bottom: 28px;
+}
+
+.hero h1 {
+    font-size: clamp(52px, 9vw, 120px);
+    line-height: 0.9;
+    letter-spacing: -5px;
+    font-weight: 900;
+    max-width: 1100px;
+    position: relative;
+}
+
+.hero h1 span {
+    background: linear-gradient(
+        90deg,
+        #ff416c,
+        #ff8a00,
+        #ffe600,
+        #00e5ff,
+        #8a5cff
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 300% auto;
+    animation: gradientMove 7s linear infinite;
+}
+
+@keyframes gradientMove {
+    to {
+        background-position: 300% center;
+    }
+}
+
+.hero-sub {
+    margin-top: 32px;
+    max-width: 650px;
+    font-size: 18px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.68);
+}
+
+/* ---------- COUNTDOWN ---------- */
+
+.countdown-section {
+    padding: 80px 20px 120px;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.small-label {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    opacity: 0.45;
+    margin-bottom: 20px;
+}
+
+.countdown-title {
+    font-size: clamp(32px, 6vw, 72px);
+    font-weight: 900;
+    letter-spacing: -3px;
+    margin-bottom: 45px;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    min-height: 130px;
+}
+
+.number {
+    font-size: clamp(80px, 15vw, 180px);
+    font-weight: 900;
+    line-height: 1;
+    background: linear-gradient(135deg, #ffffff, #666);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: numberPop 0.7s ease;
+}
+
+@keyframes numberPop {
+    0% {
+        opacity: 0;
+        transform: scale(1.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.countdown-text {
+    font-size: 18px;
+    color: rgba(255,255,255,0.6);
+    margin-top: 25px;
+}
+
+/* ---------- MOMENT WALL ---------- */
+
+.wall-section {
+    padding: 110px 5% 130px;
+    background: #f4f1ea;
+    color: #111;
+}
+
+.wall-heading {
+    text-align: center;
+    max-width: 850px;
+    margin: 0 auto 65px;
+}
+
+.wall-heading .small-label {
+    color: #111;
+    opacity: 0.45;
+}
+
+.wall-heading h2 {
+    font-size: clamp(42px, 7vw, 90px);
+    line-height: 0.95;
+    letter-spacing: -4px;
+    font-weight: 900;
+}
+
+.wall-heading p {
+    margin: 25px auto 0;
+    max-width: 580px;
+    color: #555;
+    line-height: 1.7;
+    font-size: 17px;
+}
+
+/* WALL */
+
+.moment-wall {
+    max-width: 1250px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+/* CARDS */
+
+.moment-card {
+    aspect-ratio: 1 / 1;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(25px) scale(0.96);
+    animation: cardAppear 0.7s ease forwards;
+}
+
+@keyframes cardAppear {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.moment-card:nth-child(1) { background: #ff5c5c; }
+.moment-card:nth-child(2) { background: #ffd84d; }
+.moment-card:nth-child(3) { background: #4dd9c0; }
+.moment-card:nth-child(4) { background: #6c63ff; color: white; }
+.moment-card:nth-child(5) { background: #ff8b3d; }
+.moment-card:nth-child(6) { background: #e8d7ff; }
+.moment-card:nth-child(7) { background: #4fa3ff; color: white; }
+.moment-card:nth-child(8) { background: #ff9fbc; }
+.moment-card:nth-child(9) { background: #222; color: white; }
+.moment-card:nth-child(10) { background: #c9e84f; }
+
+.moment-card:nth-child(11) { background: #ff744d; }
+.moment-card:nth-child(12) { background: #7de3ff; }
+.moment-card:nth-child(13) { background: #b79cff; }
+.moment-card:nth-child(14) { background: #f6c85f; }
+.moment-card:nth-child(15) { background: #61d87c; }
+
+.moment-card:nth-child(16) { background: #292929; color: white; }
+.moment-card:nth-child(17) { background: #ff6584; }
+.moment-card:nth-child(18) { background: #70b7ff; }
+.moment-card:nth-child(19) { background: #d9d1ff; }
+.moment-card:nth-child(20) { background: #ffb347; }
+
+.moment-number {
+    font-size: 10px;
+    letter-spacing: 2px;
+    font-weight: 800;
+    opacity: 0.55;
+}
+
+.moment-text {
+    font-size: clamp(15px, 1.7vw, 22px);
+    line-height: 1.05;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.moment-bottom {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.45;
+}
+
+/* Hover */
+
+.moment-card:hover {
+    transform: translateY(-6px) rotate(-1deg);
+    transition: transform 0.25s ease;
+    z-index: 3;
+}
+
+/* ---------- MESSAGE ---------- */
+
+.message-section {
+    background: #f4f1ea;
+    color: #111;
+    padding: 30px 20px 150px;
+    text-align: center;
+}
+
+.message-section h2 {
+    font-size: clamp(44px, 8vw, 100px);
+    letter-spacing: -5px;
+    line-height: 0.95;
+    font-weight: 900;
+}
+
+.message-section p {
+    margin: 30px auto 0;
+    max-width: 600px;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #555;
+}
+
+/* ---------- EXPLANATION ---------- */
+
+.explain {
+    padding: 120px 20px;
+    text-align: center;
+    background: #08080b;
+}
+
+.explain h2 {
+    font-size: clamp(38px, 6vw, 72px);
+    letter-spacing: -3px;
+    margin-bottom: 25px;
+}
+
+.explain-intro {
+    max-width: 600px;
+    margin: 0 auto 70px;
+    color: rgba(255,255,255,0.58);
+    line-height: 1.7;
+}
+
+.steps {
+    max-width: 950px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.step {
+    padding: 35px 25px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    background: rgba(255,255,255,0.025);
+}
+
+.step-number {
+    font-size: 12px;
+    letter-spacing: 3px;
+    opacity: 0.4;
+    margin-bottom: 25px;
+}
+
+.step h3 {
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.step p {
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+/* ---------- PRICE ---------- */
+
+.price-section {
+    padding: 100px 20px 120px;
+    text-align: center;
+    background: #0c0c10;
+}
+
+.price-box {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 55px 30px;
+    border-radius: 24px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.08),
+            rgba(255,255,255,0.025)
+        );
+    border: 1px solid rgba(255,255,255,0.12);
+}
+
+.price-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    opacity: 0.45;
+    margin-bottom: 20px;
+}
+
+.price {
+    font-size: 56px;
+    font-weight: 900;
+    margin-bottom: 18px;
+}
+
+.price-description {
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+    max-width: 450px;
+    margin: 0 auto 35px;
+}
+
+.cta {
+    display: inline-block;
+    padding: 17px 28px;
+    background: white;
+    color: #08080b;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    border-radius: 100px;
+    transition: transform 0.2s ease;
+}
+
+.cta:hover {
+    transform: scale(1.04);
+}
+
+/* ---------- FOOTER ---------- */
+
+.footer {
+    text-align: center;
+    padding: 60px 20px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    background: #08080b;
+}
+
+.footer-title {
+    font-weight: 900;
+    letter-spacing: 2px;
+    font-size: 12px;
+}
+
+.footer-sub {
+    margin-top: 10px;
+    color: rgba(255,255,255,0.35);
+    font-size: 12px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 900px) {
+
+    .moment-wall {
+        grid-template-columns: repeat(3, 1fr);
     }
 
-    :root {
-      --ink: #111318;
-      --muted: #626977;
-      --cream: #fffaf2;
-      --white: #ffffff;
-
-      --pink: #ff4f9a;
-      --purple: #7647ff;
-      --blue: #3d8bff;
-      --green: #20c997;
-      --orange: #ff8a3d;
-      --yellow: #ffd34e;
-
-      --border: rgba(17,19,24,0.10);
+    .steps {
+        grid-template-columns: 1fr;
+        max-width: 500px;
     }
+}
 
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-
-      color: var(--ink);
-
-      background:
-        radial-gradient(
-          circle at 5% 10%,
-          rgba(255,211,78,0.20),
-          transparent 28%
-        ),
-        radial-gradient(
-          circle at 95% 15%,
-          rgba(118,71,255,0.15),
-          transparent 30%
-        ),
-        var(--cream);
-
-      line-height: 1.5;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-
-    /* TOP */
-
-    .top {
-      max-width: 1150px;
-      margin: auto;
-
-      padding: 32px 30px 0;
-    }
-
-    .back {
-      color: #68707c;
-
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .back:hover {
-      color: var(--purple);
-    }
-
-
-    /* HERO */
-
-    .hero {
-      max-width: 1150px;
-      margin: auto;
-
-      padding: 65px 30px 55px;
-
-      text-align: center;
-    }
-
-    .eyebrow {
-      font-size: 12px;
-
-      letter-spacing: 4px;
-
-      font-weight: 800;
-
-      color: #717784;
-
-      margin-bottom: 20px;
-    }
+@media (max-width: 600px) {
 
     .hero h1 {
-      font-size: clamp(50px, 7vw, 82px);
-
-      line-height: 0.92;
-
-      letter-spacing: -4px;
-
-      font-weight: 950;
-    }
-
-    .hero h1 span {
-      background:
-        linear-gradient(
-          90deg,
-          var(--purple),
-          var(--pink),
-          var(--orange)
-        );
-
-      -webkit-background-clip: text;
-
-      color: transparent;
-    }
-
-    .hero p {
-      max-width: 700px;
-
-      margin: 25px auto 0;
-
-      font-size: 18px;
-
-      color: var(--muted);
-    }
-
-
-    /* CATEGORY BADGE */
-
-    .category-badge {
-      display: inline-flex;
-
-      margin-top: 28px;
-
-      padding: 9px 17px;
-
-      border-radius: 30px;
-
-      background: white;
-
-      border: 1px solid var(--border);
-
-      font-size: 13px;
-
-      font-weight: 800;
-
-      box-shadow:
-        0 8px 25px rgba(17,19,24,0.06);
-    }
-
-
-    /* VIDEO EXAMPLES */
-
-    .examples {
-      max-width: 1150px;
-
-      margin: auto;
-
-      padding: 20px 30px 80px;
-    }
-
-    .section-heading {
-      text-align: center;
-
-      margin-bottom: 35px;
-    }
-
-    .section-heading h2 {
-      font-size: 38px;
-
-      letter-spacing: -1.5px;
-
-      margin-bottom: 10px;
-    }
-
-    .section-heading p {
-      color: var(--muted);
-
-      max-width: 650px;
-
-      margin: auto;
-    }
-
-
-    .video-grid {
-      display: grid;
-
-      grid-template-columns:
-        repeat(3, 1fr);
-
-      gap: 20px;
-    }
-
-
-    .video-card {
-      background: white;
-
-      border-radius: 25px;
-
-      overflow: hidden;
-
-      border: 1px solid var(--border);
-
-      box-shadow:
-        0 15px 40px rgba(17,19,24,0.07);
-    }
-
-
-    /* DEMO VIDEO */
-
-    .demo-video {
-      height: 330px;
-
-      position: relative;
-
-      overflow: hidden;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      color: white;
-    }
-
-
-    .demo-video::before {
-      content: "";
-
-      position: absolute;
-
-      width: 180px;
-      height: 180px;
-
-      border-radius: 50%;
-
-      background:
-        rgba(255,255,255,0.18);
-
-      filter: blur(5px);
-
-      animation: float 4s ease-in-out infinite;
-    }
-
-
-    @keyframes float {
-
-      0%,100% {
-        transform: translate(
-          -20px,
-          -10px
-        );
-      }
-
-      50% {
-        transform: translate(
-          20px,
-          15px
-        );
-      }
-
-    }
-
-
-    .demo-1 {
-      background:
-        linear-gradient(
-          135deg,
-          #7647ff,
-          #ff4f9a
-        );
-    }
-
-    .demo-2 {
-      background:
-        linear-gradient(
-          135deg,
-          #ffb347,
-          #ff5e62
-        );
-    }
-
-    .demo-3 {
-      background:
-        linear-gradient(
-          135deg,
-          #3d8bff,
-          #7647ff
-        );
-    }
-
-
-    .demo-content {
-      position: relative;
-
-      z-index: 2;
-
-      text-align: center;
-
-      padding: 25px;
-    }
-
-
-    .play-button {
-      width: 62px;
-      height: 62px;
-
-      border-radius: 50%;
-
-      background:
-        rgba(255,255,255,0.92);
-
-      color: var(--ink);
-
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
-      margin: 0 auto 20px;
-
-      font-size: 20px;
-
-      box-shadow:
-        0 10px 30px rgba(0,0,0,0.15);
-    }
-
-
-    .demo-content h3 {
-      font-size: 22px;
-
-      margin-bottom: 7px;
-    }
-
-    .demo-content p {
-      font-size: 13px;
-
-      opacity: 0.9;
-    }
-
-
-    .video-info {
-      padding: 22px;
-    }
-
-    .video-info h3 {
-      font-size: 18px;
-
-      margin-bottom: 7px;
-    }
-
-    .video-info p {
-      color: var(--muted);
-
-      font-size: 14px;
-    }
-
-
-    /* IMPORTANT NOTE */
-
-    .example-note {
-      max-width: 850px;
-
-      margin: 35px auto 0;
-
-      padding: 20px 25px;
-
-      border-radius: 18px;
-
-      background:
-        linear-gradient(
-          90deg,
-          rgba(118,71,255,0.08),
-          rgba(255,79,154,0.06),
-          rgba(255,211,78,0.10)
-        );
-
-      border: 1px solid
-        rgba(118,71,255,0.12);
-
-      color: var(--muted);
-
-      font-size: 14px;
-
-      text-align: center;
-    }
-
-    .example-note strong {
-      color: var(--ink);
-    }
-
-
-    /* IDEAS */
-
-    .ideas {
-      background: white;
-
-      padding: 90px 30px;
-    }
-
-    .ideas-inner {
-      max-width: 1050px;
-
-      margin: auto;
-    }
-
-    .ideas-heading {
-      text-align: center;
-
-      margin-bottom: 40px;
-    }
-
-    .ideas-heading h2 {
-      font-size: 42px;
-
-      letter-spacing: -2px;
-    }
-
-    .ideas-grid {
-      display: grid;
-
-      grid-template-columns:
-        repeat(2,1fr);
-
-      gap: 15px;
-    }
-
-    .idea {
-      padding: 24px;
-
-      border-radius: 20px;
-
-      background: #f7f8fb;
-
-      border: 1px solid
-        rgba(17,19,24,0.06);
-
-      font-weight: 700;
-    }
-
-    .idea span {
-      display: block;
-
-      color: var(--muted);
-
-      font-size: 13px;
-
-      font-weight: 400;
-
-      margin-top: 5px;
-    }
-
-
-    /* HOW IT WORKS */
-
-    .how {
-      padding: 90px 30px;
-
-      background: #eef6ff;
-    }
-
-    .how-inner {
-      max-width: 1050px;
-
-      margin: auto;
-    }
-
-    .how-title {
-      text-align: center;
-
-      margin-bottom: 40px;
-    }
-
-    .how-title h2 {
-      font-size: 42px;
-
-      letter-spacing: -2px;
-    }
-
-    .how-grid {
-      display: grid;
-
-      grid-template-columns:
-        repeat(3,1fr);
-
-      gap: 18px;
-    }
-
-    .how-card {
-      background: white;
-
-      border-radius: 24px;
-
-      padding: 30px;
-
-      border: 1px solid var(--border);
-    }
-
-    .how-number {
-      width: 44px;
-      height: 44px;
-
-      border-radius: 50%;
-
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
-      color: white;
-
-      font-weight: 900;
-
-      margin-bottom: 20px;
-    }
-
-    .how-card:nth-child(1)
-    .how-number {
-      background: var(--pink);
-    }
-
-    .how-card:nth-child(2)
-    .how-number {
-      background: var(--blue);
-    }
-
-    .how-card:nth-child(3)
-    .how-number {
-      background: var(--green);
-    }
-
-    .how-card h3 {
-      font-size: 20px;
-
-      margin-bottom: 8px;
-    }
-
-    .how-card p {
-      color: var(--muted);
-
-      font-size: 14px;
-    }
-
-
-    /* PRICE */
-
-    .price-section {
-      padding: 100px 30px;
-
-      text-align: center;
-    }
-
-    .price-section h2 {
-      font-size: 45px;
-
-      letter-spacing: -2px;
-
-      margin-bottom: 10px;
-    }
-
-    .price-intro {
-      color: var(--muted);
-
-      max-width: 650px;
-
-      margin: auto;
-    }
-
-    .price-card {
-      max-width: 700px;
-
-      margin: 35px auto 0;
-
-      padding: 40px;
-
-      border-radius: 30px;
-
-      background:
-        radial-gradient(
-          circle at 90% 10%,
-          rgba(118,71,255,0.5),
-          transparent 35%
-        ),
-        #111318;
-
-      color: white;
-
-      box-shadow:
-        0 25px 70px
-        rgba(17,19,24,0.18);
-    }
-
-    .price-label {
-      color: #bfc4ce;
-
-      font-size: 12px;
-
-      letter-spacing: 2px;
-
-      text-transform: uppercase;
-
-      font-weight: 800;
-    }
-
-    .price-category {
-      font-size: 26px;
-
-      font-weight: 900;
-
-      margin-top: 8px;
-    }
-
-    .price {
-      font-size: 52px;
-
-      font-weight: 950;
-
-      margin: 15px 0 5px;
-    }
-
-    .price-description {
-      color: #bfc4ce;
-
-      font-size: 14px;
-    }
-
-    .continue-button {
-      display: inline-block;
-
-      margin-top: 25px;
-
-      background: white;
-
-      color: var(--ink);
-
-      padding: 16px 28px;
-
-      border-radius: 40px;
-
-      font-weight: 900;
-
-      font-size: 14px;
-    }
-
-    .continue-button:hover {
-      background: #f1f2f5;
-    }
-
-
-    /* FINAL */
-
-    .final {
-      padding: 100px 30px;
-
-      text-align: center;
-
-      color: white;
-
-      background:
-        radial-gradient(
-          circle at 20% 20%,
-          #7647ff,
-          transparent 35%
-        ),
-        radial-gradient(
-          circle at 80% 70%,
-          #ff4f9a,
-          transparent 35%
-        ),
-        #111318;
-    }
-
-    .final h2 {
-      max-width: 850px;
-
-      margin: auto;
-
-      font-size: clamp(42px,6vw,70px);
-
-      line-height: 0.95;
-
-      letter-spacing: -3px;
-    }
-
-    .final p {
-      margin-top: 20px;
-
-      color: #d8dbe2;
-    }
-
-
-    /* FOOTER */
-
-    footer {
-      background: #0b0c0f;
-
-      color: #8f949e;
-
-      padding: 30px;
-
-      text-align: center;
-
-      font-size: 12px;
-    }
-
-
-    /* MOBILE */
-
-    @media (max-width: 850px) {
-
-      .video-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .how-grid {
-        grid-template-columns: 1fr;
-      }
-
-    }
-
-
-    @media (max-width: 600px) {
-
-      .hero h1 {
-        font-size: 52px;
-
         letter-spacing: -3px;
-      }
-
-      .ideas-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .price {
-        font-size: 43px;
-      }
-
     }
 
-  </style>
-</head>
+    .moment-wall {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 7px;
+    }
 
+    .moment-card {
+        padding: 13px;
+    }
+
+    .moment-text {
+        font-size: 15px;
+    }
+
+    .wall-section {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+}
+</style>
+</head>
 
 <body>
 
+<!-- NAV -->
 
-  <!-- BACK -->
-
-  <div class="top">
-
-    <a href="claim.html" class="back">
-      ← Back to your selection
-    </a>
-
-  </div>
+<nav class="nav">
+    <div class="logo">INDIA VIDEO CAPSULE 2026</div>
+    <a href="claim.html" class="back">← Back</a>
+</nav>
 
 
-  <!-- HERO -->
+<!-- HERO -->
 
-  <section class="hero">
+<section class="hero">
 
-    <div class="eyebrow">
-      INDIA VIDEO CAPSULE 2026
+    <div class="eyebrow" id="categoryEyebrow">
+        Your 2026 Moment
     </div>
 
     <h1>
-      This is your
-      <span>2026 Moment.</span>
+        <span>THIS IS YOUR<br>2026 MOMENT.</span>
     </h1>
 
-    <p id="heroDescription">
-      You only have 3–5 seconds.
-      You don't need to tell your entire story.
-      Show us one moment that represents your 2026.
+    <p class="hero-sub" id="heroDescription">
+        One moment from one year.
+        A small piece of 2026, preserved forever.
     </p>
 
-    <div
-      class="category-badge"
-      id="categoryBadge"
-    >
-      Creator / Individual
+</section>
+
+
+<!-- 5 SECOND HOOK -->
+
+<section class="countdown-section">
+
+    <div class="small-label">The idea is simple</div>
+
+    <h2 class="countdown-title">
+        YOU HAVE 5 SECONDS.
+    </h2>
+
+    <div class="countdown">
+        <div class="number" id="countdownNumber">5</div>
     </div>
 
-  </section>
+    <p class="countdown-text" id="countdownText">
+        Show us something worth remembering.
+    </p>
 
+</section>
 
-  <!-- EXAMPLES -->
 
-  <section class="examples">
+<!-- MOMENT WALL -->
 
-    <div class="section-heading">
+<section class="wall-section">
 
-      <h2>
-        What could it look like?
-      </h2>
+    <div class="wall-heading">
 
-      <p>
-        These are example concepts to help you imagine
-        your own 3–5 second video.
-      </p>
-
-    </div>
-
-
-    <div class="video-grid">
-
-
-      <!-- VIDEO 1 -->
-
-      <div class="video-card">
-
-        <div
-          class="demo-video demo-1"
-        >
-
-          <div class="demo-content">
-
-            <div class="play-button">
-              ▶
-            </div>
-
-            <h3 id="demoTitle1">
-              A defining moment
-            </h3>
-
-            <p id="demoText1">
-              A short visual story.
-            </p>
-
-          </div>
-
-        </div>
-
-        <div class="video-info">
-
-          <h3 id="infoTitle1">
-            Show the moment
-          </h3>
-
-          <p id="infoText1">
-            Capture the feeling, not the entire story.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <!-- VIDEO 2 -->
-
-      <div class="video-card">
-
-        <div
-          class="demo-video demo-2"
-        >
-
-          <div class="demo-content">
-
-            <div class="play-button">
-              ▶
-            </div>
-
-            <h3 id="demoTitle2">
-              A milestone
-            </h3>
-
-            <p id="demoText2">
-              Something worth remembering.
-            </p>
-
-          </div>
-
-        </div>
-
-        <div class="video-info">
-
-          <h3 id="infoTitle2">
-            Make it personal
-          </h3>
-
-          <p id="infoText2">
-            One visual can say a lot.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <!-- VIDEO 3 -->
-
-      <div class="video-card">
-
-        <div
-          class="demo-video demo-3"
-        >
-
-          <div class="demo-content">
-
-            <div class="play-button">
-              ▶
-            </div>
-
-            <h3 id="demoTitle3">
-              A beginning
-            </h3>
-
-            <p id="demoText3">
-              The first chapter of something bigger.
-            </p>
-
-          </div>
-
-        </div>
-
-        <div class="video-info">
-
-          <h3 id="infoTitle3">
-            Leave people curious
-          </h3>
-
-          <p id="infoText3">
-            Your link can tell the rest of the story.
-          </p>
-
-        </div>
-
-      </div>
-
-
-    </div>
-
-
-    <div class="example-note">
-
-      <strong>These are examples, not requirements.</strong>
-
-      Your video can be cinematic, simple, funny,
-      emotional, personal, product-focused or completely
-      different. The only rule is that it represents
-      something meaningful about your 2026.
-
-    </div>
-
-  </section>
-
-
-  <!-- IDEAS -->
-
-  <section class="ideas">
-
-    <div class="ideas-inner">
-
-      <div class="ideas-heading">
-
-        <div class="eyebrow">
-          NEED AN IDEA?
-        </div>
-
-        <h2 id="ideasHeading">
-          Your 2026 could be...
-        </h2>
-
-      </div>
-
-
-      <div class="ideas-grid">
-
-
-        <div class="idea">
-          A launch.
-          <span>
-            The moment something you've worked on finally went live.
-          </span>
-        </div>
-
-
-        <div class="idea">
-          A breakthrough.
-          <span>
-            Something you achieved after working toward it.
-          </span>
-        </div>
-
-
-        <div class="idea">
-          A beginning.
-          <span>
-            The first chapter of something that didn't exist before.
-          </span>
-        </div>
-
-
-        <div class="idea">
-          A milestone.
-          <span>
-            A moment you know you'll want to remember years from now.
-          </span>
-        </div>
-
-
-        <div class="idea">
-          A celebration.
-          <span>
-            Something that made 2026 feel special.
-          </span>
-        </div>
-
-
-        <div class="idea">
-          A defining moment.
-          <span>
-            The one thing that says: this was our 2026.
-          </span>
-        </div>
-
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- HOW IT WORKS -->
-
-  <section class="how">
-
-    <div class="how-inner">
-
-      <div class="how-title">
-
-        <div class="eyebrow">
-          HOW YOUR MOMENT WORKS
+        <div class="small-label">
+            The 2026 Moments
         </div>
 
         <h2>
-          One moment. One video. One link.
+            ONE YEAR.<br>
+            MANY MOMENTS.
         </h2>
 
-      </div>
-
-
-      <div class="how-grid">
-
-
-        <div class="how-card">
-
-          <div class="how-number">
-            1
-          </div>
-
-          <h3>
-            Create it.
-          </h3>
-
-          <p>
-            Make a 3–5 second video that captures
-            the moment you want remembered.
-          </p>
-
-        </div>
-
-
-        <div class="how-card">
-
-          <div class="how-number">
-            2
-          </div>
-
-          <h3>
-            Connect it.
-          </h3>
-
-          <p>
-            Add the website, social profile, product,
-            campaign or destination behind your moment.
-          </p>
-
-        </div>
-
-
-        <div class="how-card">
-
-          <div class="how-number">
-            3
-          </div>
-
-          <h3>
-            Preserve it.
-          </h3>
-
-          <p>
-            Your submission is reviewed and, once approved,
-            becomes part of the 2026 archive.
-          </p>
-
-        </div>
-
-
-      </div>
+        <p>
+            A launch. A breakthrough. A first.
+            A celebration. A memory.
+            Different stories. One year.
+        </p>
 
     </div>
 
-  </section>
 
+    <div class="moment-wall">
 
-  <!-- PRICE -->
+        <div class="moment-card">
+            <div class="moment-number">2026 MOMENT #001</div>
+            <div class="moment-text">The year we launched.</div>
+            <div class="moment-bottom">A beginning</div>
+        </div>
 
-  <section class="price-section">
+        <div class="moment-card">
+            <div class="moment-number">2026 MOMENT #002</div>
+            <div class="moment-text">My first major award.</div>
+            <div class="moment-bottom">A milestone</div>
+        </div>
 
-    <h2>
-      Ready to preserve it?
-    </h2>
+        <div class="moment-card">
+            <div class="moment-number">2026 MOMENT #003</div>
+            <div class="moment-text">We opened our first store.</div>
+            <div class="moment-bottom">A first</div>
+        </div>
 
-    <p class="price-intro">
-      Your 2026 Moment will be reviewed before it becomes
-      part of the Capsule.
-    </p>
+        <div class="moment-card">
+            <div class="moment-number">2026 MOMENT #004</div>
+            <div class="moment-text">The year everything changed.</div>
+            <div class="moment-bottom">A breakthrough</div>
+        </div>
 
+        <div class="moment-card">
+            <div class="moment-number">2026 MOMENT #005</div>
+            <div class="moment-text">The moment we said yes.</div>
+            <div class="moment-bottom">A memory</div>
+        </div>
 
-    <div class="price-card">
+        <div class="moment-card">
+            <div class="moment-number">2026 MOMENT #006</div>
+            <div class="moment-text">Our biggest milestone yet.</div>
+            <div class="moment-bottom">A moment</div>
+        </div>
 
-      <div class="price-label">
-        Your selected category
-      </div>
+        <div class="moment-card">
+            <div class="moment-number">2026 MOMENT #007</div>
+            <div class="moment-text">The dream became real.</div>
+            <div class="moment-bottom">A beginning</div>
+        </div>
 
-      <div
-        class="price-category"
-        id="priceCategory"
-      >
-        Creator / Individual
-      </div>
+        <div class="moment-card">
+            <div class="moment-number">2026 MOMENT #008</div>
+            <div class="moment-text">My first million.</div>
+            <div class="moment-bottom">A breakthrough</div>
+        </div>
 
-      <div
-        class="price"
-        id="price"
-      >
-        ₹999
-      </div>
+        <div class="moment-card">
+            <div class="moment-number">2026 MOMENT #009</div>
+            <div class="moment-text">We built something together.</div>
+            <div class="moment-bottom">A story</div>
+        </div>
 
-      <div class="price-description">
-        Includes one 3–5 second Capsule moment
-        and one destination link.
-      </div>
+        <div class="moment-card">
+            <div class="moment-number">2026 MOMENT #010</div>
+            <div class="moment-text">The day I finally did it.</div>
+            <div class="moment-bottom">A milestone</div>
+        </div>
 
-      <a
-        href="#"
-        class="continue-button"
-        id="continueButton"
-      >
-        CONTINUE →
-      </a>
+        <div class="moment-card">
+            <div class="moment-number">2026 MOMENT #011</div>
+            <div class="moment-text">Our first customer.</div>
+            <div class="moment-bottom">A first</div>
+        </div>
+
+        <div class="moment-card">
+            <div class="moment-number">2026 MOMENT #012</div>
+            <div class="moment-text">The launch we waited for.</div>
+            <div class="moment-bottom">A beginning</div>
+        </div>
+
+        <div class="moment-card">
+            <div class="moment-number">2026 MOMENT #013</div>
+            <div class="moment-text">A year worth remembering.</div>
+            <div class="moment-bottom">A memory</div>
+        </div>
+
+        <div class="moment-card">
+            <div class="moment-number">2026 MOMENT #014</div>
+            <div class="moment-text">We made it happen.</div>
+            <div class="moment-bottom">A breakthrough</div>
+        </div>
+
+        <div class="moment-card">
+            <div class="moment-number">2026 MOMENT #015</div>
+            <div class="moment-text">My biggest year yet.</div>
+            <div class="moment-bottom">A milestone</div>
+        </div>
+
+        <div class="moment-card">
+            <div class="moment-number">2026 MOMENT #016</div>
+            <div class="moment-text">The beginning of something bigger.</div>
+            <div class="moment-bottom">A beginning</div>
+        </div>
+
+        <div class="moment-card">
+            <div class="moment-number">2026 MOMENT #017</div>
+            <div class="moment-text">A moment I'll never forget.</div>
+            <div class="moment-bottom">A memory</div>
+        </div>
+
+        <div class="moment-card">
+            <div class="moment-number">2026 MOMENT #018</div>
+            <div class="moment-text">From idea to reality.</div>
+            <div class="moment-bottom">A journey</div>
+        </div>
+
+        <div class="moment-card">
+            <div class="moment-number">2026 MOMENT #019</div>
+            <div class="moment-text">This was our year.</div>
+            <div class="moment-bottom">A story</div>
+        </div>
+
+        <div class="moment-card">
+            <div class="moment-number">2026 MOMENT #020</div>
+            <div class="moment-text">What a year.</div>
+            <div class="moment-bottom">2026</div>
+        </div>
 
     </div>
 
-  </section>
+</section>
 
 
-  <!-- FINAL -->
+<!-- BIG QUESTION -->
 
-  <section class="final">
+<section class="message-section">
 
     <h2>
-      Don't make an advertisement.
-      <br>
-      <span>Make a memory.</span>
+        WHAT WILL<br>
+        YOURS SAY?
     </h2>
 
     <p>
-      Your campaign ends. Your moment remains.
+        Your 2026 could be a launch, a breakthrough,
+        an achievement, a celebration, a personal milestone —
+        or simply a moment you never want to forget.
     </p>
 
-  </section>
+</section>
 
 
-  <!-- FOOTER -->
+<!-- HOW IT WORKS -->
 
-  <footer>
+<section class="explain">
 
-    © 2026 India Video Capsule
-    <br><br>
-    Your 2026 Moment. Frozen in Time.
+    <div class="small-label">Your moment</div>
 
-  </footer>
+    <h2>
+        SIMPLE BY DESIGN.
+    </h2>
 
-
-  <script>
-
-    /*
-      CATEGORY DATA
-
-      The page reads ?type= from the URL
-      and changes the content automatically.
-    */
+    <p class="explain-intro">
+        You don't need a production team.
+        You don't need a perfect video.
+        You just need one moment worth preserving.
+    </p>
 
 
-    const categories = {
+    <div class="steps">
 
-      creator: {
+        <div class="step">
 
+            <div class="step-number">01</div>
+
+            <h3>Capture it.</h3>
+
+            <p>
+                Record a 3–5 second video
+                that represents your 2026 moment.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">02</div>
+
+            <h3>Connect it.</h3>
+
+            <p>
+                Add one link — your website,
+                Instagram, YouTube, LinkedIn,
+                campaign or wherever your story lives.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">03</div>
+
+            <h3>Freeze it.</h3>
+
+            <p>
+                Your moment becomes part of
+                the India Video Capsule 2026 —
+                preserved when the year closes.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PRICE -->
+
+<section class="price-section">
+
+    <div class="price-box">
+
+        <div class="price-label">
+            Your 2026 Moment
+        </div>
+
+        <div class="price" id="price">
+            ₹999
+        </div>
+
+        <p class="price-description" id="priceDescription">
+            Preserve one meaningful moment from your 2026.
+        </p>
+
+        <a href="#" class="cta" id="continueButton">
+            CONTINUE →
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    <div class="footer-title">
+        INDIA VIDEO CAPSULE 2026
+    </div>
+
+    <div class="footer-sub">
+        Your 2026 Moment. Frozen in Time.
+    </div>
+
+</footer>
+
+
+<script>
+
+/* --------------------------------
+   CATEGORY DATA
+-------------------------------- */
+
+const categories = {
+
+    creator: {
         name: "Creator / Individual",
-
-        price: "₹999",
-
+        eyebrow: "For creators & individuals",
         description:
-          "Your career, audience, achievement, launch, collaboration or defining personal moment from 2026.",
+            "Your work, your milestone, your story — one small piece of 2026 preserved forever.",
+        price: "₹999",
+        priceDescription:
+            "Preserve one meaningful personal or creative moment from your 2026."
+    },
 
-        demo1:
-          "Your biggest moment",
-
-        text1:
-          "A creator milestone captured in seconds.",
-
-        info1:
-          "Show the moment",
-
-        infoText1:
-          "A breakthrough, launch, collaboration or defining year.",
-
-
-        demo2:
-          "A new chapter",
-
-        text2:
-          "The beginning of something new.",
-
-        info2:
-          "Show the feeling",
-
-        infoText2:
-          "You don't need to explain everything. Make people feel it.",
-
-
-        demo3:
-          "Your 2026",
-
-        text3:
-          "One year. One defining frame.",
-
-        info3:
-          "Leave people curious",
-
-        infoText3:
-          "Your destination link can tell the rest of the story."
-
-      },
-
-
-      achievement: {
-
+    achievement: {
         name: "Personal Achievement",
-
+        eyebrow: "For personal achievements",
+        description:
+            "A breakthrough, milestone, award or personal moment that made 2026 special.",
         price: "₹999",
+        priceDescription:
+            "Preserve one meaningful achievement or milestone from your 2026."
+    },
 
-        description:
-          "A milestone, breakthrough, celebration or life moment that made 2026 special.",
-
-        demo1:
-          "The moment I made it",
-
-        text1:
-          "A personal milestone in five seconds.",
-
-        info1:
-          "Show the achievement",
-
-        infoText1:
-          "Awards, graduation, career milestones and breakthroughs.",
-
-
-        demo2:
-          "A life milestone",
-
-        text2:
-          "A moment you'll remember.",
-
-        info2:
-          "Make it emotional",
-
-        infoText2:
-          "Capture the feeling behind the achievement.",
-
-
-        demo3:
-          "2026 changed everything",
-
-        text3:
-          "One moment. A whole story.",
-
-        info3:
-          "Preserve the memory",
-
-        infoText3:
-          "Give your future self a tiny window into 2026."
-
-      },
-
-
-      startup: {
-
+    startup: {
         name: "Indie / Early Startup",
-
+        eyebrow: "For early-stage startups",
+        description:
+            "Your launch, first customer, breakthrough or the moment your idea became real.",
         price: "₹1,999",
+        priceDescription:
+            "Preserve one defining startup moment from your 2026."
+    },
 
-        description:
-          "Your launch, first product, first customers, breakthrough or early-stage startup journey.",
-
-        demo1:
-          "We finally launched",
-
-        text1:
-          "From idea to something real.",
-
-        info1:
-          "Show the launch",
-
-        infoText1:
-          "Your first product, app, store or public launch.",
-
-
-        demo2:
-          "Our first customer",
-
-        text2:
-          "The moment it became real.",
-
-        info2:
-          "Celebrate the beginning",
-
-        infoText2:
-          "Small milestones can become huge memories.",
-
-
-        demo3:
-          "Built in 2026",
-
-        text3:
-          "The beginning of something bigger.",
-
-        info3:
-          "Tell your startup story",
-
-        infoText3:
-          "Your link can lead visitors to your company or product."
-
-      },
-
-
-      business: {
-
+    business: {
         name: "Growing Business",
-
+        eyebrow: "For growing businesses",
+        description:
+            "A launch, milestone, expansion or defining chapter in your business journey.",
         price: "₹4,999",
+        priceDescription:
+            "Preserve one defining business moment from your 2026."
+    },
 
-        description:
-          "A meaningful business milestone, expansion, product launch or defining moment.",
-
-        demo1:
-          "A bigger year",
-
-        text1:
-          "The moment the business moved forward.",
-
-        info1:
-          "Show the milestone",
-
-        infoText1:
-          "Expansion, new locations, teams or major growth.",
-
-
-        demo2:
-          "Something new",
-
-        text2:
-          "A product, service or chapter launched.",
-
-        info2:
-          "Show what changed",
-
-        infoText2:
-          "Give visitors a glimpse of your 2026 story.",
-
-
-        demo3:
-          "Our 2026",
-
-        text3:
-          "One year of building.",
-
-        info3:
-          "Connect your business",
-
-        infoText3:
-          "Your destination link can lead directly to your business."
-
-      },
-
-
-      brand: {
-
+    brand: {
         name: "Brand",
-
+        eyebrow: "For brands",
+        description:
+            "Your campaign, launch, product, milestone or defining brand moment from 2026.",
         price: "₹9,999",
+        priceDescription:
+            "Preserve one defining brand moment from your 2026."
+    },
 
-        description:
-          "A campaign, product, launch, achievement or defining brand moment from 2026.",
-
-        demo1:
-          "The campaign of 2026",
-
-        text1:
-          "A brand moment captured in seconds.",
-
-        info1:
-          "Preserve the campaign",
-
-        infoText1:
-          "Your campaign may end. The moment can remain.",
-
-
-        demo2:
-          "A product launched",
-
-        text2:
-          "A new chapter for the brand.",
-
-        info2:
-          "Make the launch memorable",
-
-        infoText2:
-          "Turn a product launch into part of your history.",
-
-
-        demo3:
-          "This was our 2026",
-
-        text3:
-          "One visual statement.",
-
-        info3:
-          "Keep the connection",
-
-        infoText3:
-          "Your video can continue leading visitors to your brand."
-
-      },
-
-
-      "major-brand": {
-
+    "major-brand": {
         name: "Established / Major Brand",
-
-        price: "₹24,999+",
-
+        eyebrow: "For established organisations",
         description:
-          "For established companies and major brands preserving a defining 2026 moment.",
+            "A major launch, milestone, campaign, initiative or defining moment from your 2026.",
+        price: "₹24,999+",
+        priceDescription:
+            "Preserve a defining moment from your organisation's 2026."
+    }
 
-        demo1:
-          "A defining chapter",
+};
 
-        text1:
-          "A landmark moment for the brand.",
 
-        info1:
-          "Preserve the milestone",
+/* --------------------------------
+   READ CATEGORY FROM URL
+-------------------------------- */
 
-        infoText1:
-          "Major launches, campaigns, achievements and cultural moments.",
+const params = new URLSearchParams(window.location.search);
 
+const type = params.get("type") || "creator";
 
-        demo2:
-          "2026, remembered",
+const category = categories[type] || categories.creator;
 
-        text2:
-          "A moment that belongs in history.",
 
-        info2:
-          "Create a signature moment",
+/* --------------------------------
+   UPDATE PAGE
+-------------------------------- */
 
-        infoText2:
-          "Your 5 seconds can represent an entire chapter.",
+document.getElementById("categoryEyebrow").textContent =
+    category.eyebrow;
 
+document.getElementById("heroDescription").textContent =
+    category.description;
 
-        demo3:
-          "The moment continues",
+document.getElementById("price").textContent =
+    category.price;
 
-        text3:
-          "The campaign ends. The memory remains.",
+document.getElementById("priceDescription").textContent =
+    category.priceDescription;
 
-        info3:
-          "Keep your brand connected",
+document.getElementById("continueButton").href =
+    "details.html?type=" + encodeURIComponent(type);
 
-        infoText3:
-          "Your destination link can continue connecting visitors to your brand."
 
-      }
+/* --------------------------------
+   COUNTDOWN
+-------------------------------- */
 
-    };
+const numbers = ["5", "4", "3", "2", "1"];
 
+const countdownMessages = [
+    "Show us something worth remembering.",
+    "A beginning.",
+    "A breakthrough.",
+    "A memory.",
+    "Your moment."
+];
 
-    /*
-      GET CATEGORY FROM URL
-    */
+let current = 0;
 
+const countdownNumber =
+    document.getElementById("countdownNumber");
 
-    const params =
-      new URLSearchParams(
-        window.location.search
-      );
+const countdownText =
+    document.getElementById("countdownText");
 
 
-    const type =
-      params.get("type") || "creator";
+function runCountdown() {
 
+    countdownNumber.classList.remove("number");
 
-    const data =
-      categories[type] ||
-      categories.creator;
+    void countdownNumber.offsetWidth;
 
+    countdownNumber.classList.add("number");
 
-    /*
-      UPDATE PAGE
-    */
+    countdownNumber.textContent = numbers[current];
 
+    countdownText.textContent =
+        countdownMessages[current];
 
-    document.getElementById(
-      "categoryBadge"
-    ).textContent =
-      data.name;
+    current++;
 
+    if (current < numbers.length) {
+        setTimeout(runCountdown, 850);
+    }
 
-    document.getElementById(
-      "heroDescription"
-    ).textContent =
-      data.description +
-      " Here's how your 3–5 second moment could come to life.";
+}
 
 
-    document.getElementById(
-      "demoTitle1"
-    ).textContent =
-      data.demo1;
+/* Start after a small delay */
 
+setTimeout(runCountdown, 900);
 
-    document.getElementById(
-      "demoText1"
-    ).textContent =
-      data.text1;
 
+/* --------------------------------
+   MOMENT WALL ANIMATION
+-------------------------------- */
 
-    document.getElementById(
-      "infoTitle1"
-    ).textContent =
-      data.info1;
+const cards =
+    document.querySelectorAll(".moment-card");
 
+cards.forEach((card, index) => {
 
-    document.getElementById(
-      "infoText1"
-    ).textContent =
-      data.infoText1;
+    card.style.animationDelay =
+        (index * 0.07) + "s";
 
+});
 
-    document.getElementById(
-      "demoTitle2"
-    ).textContent =
-      data.demo2;
 
+/* --------------------------------
+   SCROLL REVEAL
+-------------------------------- */
 
-    document.getElementById(
-      "demoText2"
-    ).textContent =
-      data.text2;
+const observer =
+    new IntersectionObserver(
+        entries => {
 
+            entries.forEach(entry => {
 
-    document.getElementById(
-      "infoTitle2"
-    ).textContent =
-      data.info2;
+                if (entry.isIntersecting) {
 
+                    entry.target.style.opacity = "1";
 
-    document.getElementById(
-      "infoText2"
-    ).textContent =
-      data.infoText2;
+                }
 
+            });
 
-    document.getElementById(
-      "demoTitle3"
-    ).textContent =
-      data.demo3;
+        },
+        {
+            threshold: 0.15
+        }
+    );
 
 
-    document.getElementById(
-      "demoText3"
-    ).textContent =
-      data.text3;
+document
+    .querySelectorAll(".step")
+    .forEach(element => observer.observe(element));
 
-
-    document.getElementById(
-      "infoTitle3"
-    ).textContent =
-      data.text3;
-
-
-    document.getElementById(
-      "infoTitle3"
-    ).textContent =
-      data.info3;
-
-
-    document.getElementById(
-      "infoText3"
-    ).textContent =
-      data.infoText3;
-
-
-    document.getElementById(
-      "priceCategory"
-    ).textContent =
-      data.name;
-
-
-    document.getElementById(
-      "price"
-    ).textContent =
-      data.price;
-
-
-    /*
-      CONTINUE BUTTON
-
-      For now this goes to details.html.
-      We will build that page next.
-    */
-
-
-    document.getElementById(
-      "continueButton"
-    ).href =
-      "details.html?type=" +
-      encodeURIComponent(type);
-
-
-  </script>
-
+</script>
 
 </body>
 </html>
