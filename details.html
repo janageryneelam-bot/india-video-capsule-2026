@@ -14,26 +14,67 @@
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     background: #08080b;
     color: #ffffff;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
-.container {
-    width: min(1000px, 92%);
-    margin: 0 auto;
+/* ========================================
+   BACKGROUND
+======================================== */
+
+body::before {
+    content: "";
+    position: fixed;
+    width: 700px;
+    height: 700px;
+    top: -300px;
+    left: -250px;
+    background: radial-gradient(
+        circle,
+        rgba(255, 65, 108, 0.18),
+        transparent 68%
+    );
+    pointer-events: none;
+    z-index: -1;
 }
 
-/* NAV */
+body::after {
+    content: "";
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    bottom: -250px;
+    right: -200px;
+    background: radial-gradient(
+        circle,
+        rgba(79, 163, 255, 0.16),
+        transparent 68%
+    );
+    pointer-events: none;
+    z-index: -1;
+}
+
+
+/* ========================================
+   NAV
+======================================== */
 
 .nav {
-    padding: 22px 4%;
+    padding: 22px 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid rgba(255,255,255,0.08);
+    position: relative;
+    z-index: 10;
 }
 
 .logo {
@@ -47,6 +88,7 @@ body {
     text-decoration: none;
     font-size: 12px;
     opacity: 0.6;
+    transition: opacity 0.2s ease;
 }
 
 .back:hover {
@@ -54,134 +96,228 @@ body {
 }
 
 
-/* HEADER */
+/* ========================================
+   HEADER
+======================================== */
 
 .header {
     text-align: center;
-    padding: 80px 20px 55px;
+    padding: 85px 20px 60px;
+    position: relative;
 }
 
 .label {
-    font-size: 11px;
+    display: inline-block;
+    font-size: 10px;
     letter-spacing: 4px;
     text-transform: uppercase;
-    opacity: 0.45;
-    margin-bottom: 20px;
+    padding: 9px 15px;
+    border-radius: 100px;
+    background: linear-gradient(
+        90deg,
+        rgba(255,65,108,0.16),
+        rgba(255,138,0,0.16)
+    );
+    border: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 25px;
+    color: rgba(255,255,255,0.7);
 }
 
 .header h1 {
-    font-size: clamp(42px, 7vw, 76px);
-    letter-spacing: -4px;
-    line-height: 0.95;
-    margin-bottom: 25px;
+    font-size: clamp(44px, 7vw, 82px);
+    letter-spacing: -5px;
+    line-height: 0.92;
+    margin-bottom: 28px;
+}
+
+.header h1 span {
+    background: linear-gradient(
+        90deg,
+        #ff416c,
+        #ff8a00,
+        #ffe600,
+        #00d9ff,
+        #7b61ff
+    );
+    background-size: 300% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientMove 7s linear infinite;
+}
+
+@keyframes gradientMove {
+    to {
+        background-position: 300% center;
+    }
 }
 
 .header p {
-    max-width: 650px;
+    max-width: 680px;
     margin: auto;
     color: rgba(255,255,255,0.58);
-    line-height: 1.7;
+    line-height: 1.75;
+    font-size: 16px;
 }
 
 
-/* CATEGORY */
+/* ========================================
+   MAIN
+======================================== */
+
+.container {
+    width: min(1000px, 92%);
+    margin: 0 auto;
+}
+
+
+/* ========================================
+   CATEGORY
+======================================== */
 
 .category-box {
-    max-width: 650px;
-    margin: 0 auto 45px;
+    max-width: 700px;
+    margin: 0 auto 55px;
     padding: 20px 24px;
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 14px;
-    background: rgba(255,255,255,0.035);
+    border-radius: 18px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 20px;
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(255,65,108,0.12),
+            rgba(102,80,255,0.12),
+            rgba(0,217,255,0.08)
+        );
+
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+}
+
+.category-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.category-dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: linear-gradient(
+        135deg,
+        #ff416c,
+        #ff8a00
+    );
+    box-shadow: 0 0 18px rgba(255,65,108,0.5);
 }
 
 .category-name {
-    font-size: 13px;
-    font-weight: 800;
-    letter-spacing: 1px;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
 }
 
 .category-price {
-    font-size: 20px;
+    font-size: 21px;
     font-weight: 900;
 }
 
 
-/* FORM */
+/* ========================================
+   FORM
+======================================== */
 
 .form {
-    max-width: 700px;
+    max-width: 760px;
     margin: 0 auto;
-    padding-bottom: 100px;
+    padding-bottom: 110px;
 }
 
 .form-section {
-    margin-bottom: 60px;
+    margin-bottom: 75px;
+    position: relative;
 }
 
 .section-number {
-    font-size: 11px;
+    display: inline-block;
+    font-size: 10px;
     letter-spacing: 3px;
-    opacity: 0.4;
-    margin-bottom: 15px;
+    font-weight: 900;
+    margin-bottom: 17px;
+    padding: 7px 11px;
+    border-radius: 100px;
+    background: rgba(255,255,255,0.06);
+    color: rgba(255,255,255,0.55);
 }
 
 .form-section h2 {
-    font-size: 28px;
-    margin-bottom: 10px;
+    font-size: clamp(26px, 4vw, 36px);
+    letter-spacing: -1.5px;
+    margin-bottom: 11px;
 }
 
 .section-description {
     color: rgba(255,255,255,0.5);
     font-size: 14px;
     line-height: 1.7;
-    margin-bottom: 25px;
+    margin-bottom: 28px;
+    max-width: 650px;
 }
 
 
-/* INPUTS */
+/* ========================================
+   INPUTS
+======================================== */
 
 .field {
-    margin-bottom: 18px;
+    margin-bottom: 20px;
 }
 
 label {
     display: block;
-    font-size: 12px;
-    font-weight: 700;
-    margin-bottom: 8px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin-bottom: 9px;
     color: rgba(255,255,255,0.75);
 }
 
 input,
 textarea {
     width: 100%;
-    background: #111116;
-    border: 1px solid rgba(255,255,255,0.13);
-    border-radius: 10px;
+    background: rgba(255,255,255,0.035);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 13px;
     color: white;
-    padding: 15px;
+    padding: 16px;
     font-size: 14px;
     outline: none;
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 input:focus,
 textarea:focus {
-    border-color: rgba(255,255,255,0.5);
+    border-color: rgba(0,217,255,0.55);
+    background: rgba(255,255,255,0.055);
+    box-shadow: 0 0 0 4px rgba(0,217,255,0.06);
 }
 
 textarea {
-    min-height: 120px;
+    min-height: 125px;
     resize: vertical;
 }
 
 
-/* VIDEO */
+/* ========================================
+   VIDEO OPTIONS
+======================================== */
 
 .video-options {
     display: grid;
@@ -190,72 +326,150 @@ textarea {
 }
 
 .video-card {
-    border: 1px dashed rgba(255,255,255,0.22);
-    border-radius: 16px;
-    padding: 25px;
-    background: rgba(255,255,255,0.025);
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    padding: 27px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.07),
+            rgba(255,255,255,0.025)
+        );
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.video-card:first-child {
+    border-top: 3px solid #ff416c;
+}
+
+.video-card:last-child {
+    border-top: 3px solid #5b6cff;
+}
+
+.video-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255,255,255,0.25);
+}
+
+.video-card::before {
+    content: "";
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    top: -100px;
+    right: -70px;
+    border-radius: 50%;
+    background: rgba(255,65,108,0.12);
+}
+
+.video-card:last-child::before {
+    background: rgba(91,108,255,0.12);
+}
+
+.video-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    opacity: 0.4;
+    margin-bottom: 12px;
 }
 
 .video-card h3 {
-    font-size: 17px;
-    margin-bottom: 8px;
+    font-size: 20px;
+    margin-bottom: 9px;
 }
 
 .video-card p {
     font-size: 12px;
     color: rgba(255,255,255,0.45);
-    line-height: 1.6;
-    margin-bottom: 18px;
+    line-height: 1.65;
+    margin-bottom: 20px;
 }
 
 .file-input {
     width: 100%;
-    font-size: 12px;
+    font-size: 11px;
 }
 
 
-/* REVIEW NOTICE */
+/* ========================================
+   REVIEW NOTICE
+======================================== */
 
 .review-notice {
     margin-top: 22px;
-    padding: 24px;
-    border-radius: 14px;
+    padding: 25px;
+    border-radius: 17px;
+
     background:
         linear-gradient(
             135deg,
             rgba(255,65,108,0.09),
-            rgba(100,80,255,0.08)
+            rgba(255,138,0,0.07),
+            rgba(91,108,255,0.08)
         );
+
     border: 1px solid rgba(255,255,255,0.1);
+}
+
+.review-icon {
+    font-size: 25px;
+    margin-bottom: 13px;
 }
 
 .review-notice strong {
     display: block;
-    margin-bottom: 10px;
-    font-size: 14px;
+    margin-bottom: 9px;
+    font-size: 15px;
 }
 
 .review-notice p {
-    color: rgba(255,255,255,0.58);
+    color: rgba(255,255,255,0.56);
     font-size: 13px;
-    line-height: 1.7;
+    line-height: 1.75;
 }
 
 
-/* PROCESS */
+/* ========================================
+   PROCESS
+======================================== */
 
 .process {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
-    margin-top: 28px;
+    margin-top: 25px;
 }
 
 .process-item {
     padding: 20px 15px;
     border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 12px;
-    background: rgba(255,255,255,0.02);
+    border-radius: 14px;
+    background: rgba(255,255,255,0.025);
+    position: relative;
+}
+
+.process-item:nth-child(1) {
+    border-top: 2px solid #ff416c;
+}
+
+.process-item:nth-child(2) {
+    border-top: 2px solid #ff8a00;
+}
+
+.process-item:nth-child(3) {
+    border-top: 2px solid #00d9ff;
+}
+
+.process-item:nth-child(4) {
+    border-top: 2px solid #7b61ff;
 }
 
 .process-number {
@@ -277,11 +491,116 @@ textarea {
 }
 
 
-/* CONFIRMATION */
+/* ========================================
+   REPLACEMENT WINDOW
+======================================== */
+
+.refinement-box {
+    padding: 30px;
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0,217,255,0.08),
+            rgba(123,97,255,0.08),
+            rgba(255,65,108,0.07)
+        );
+
+    border: 1px solid rgba(255,255,255,0.11);
+}
+
+.refinement-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.refinement-title {
+    font-size: 19px;
+    font-weight: 900;
+}
+
+.seven-days {
+    padding: 10px 15px;
+    border-radius: 100px;
+    background: white;
+    color: #08080b;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.refinement-box p {
+    color: rgba(255,255,255,0.56);
+    font-size: 13px;
+    line-height: 1.75;
+}
+
+.refinement-rules {
+    margin-top: 23px;
+    display: grid;
+    gap: 10px;
+}
+
+.rule {
+    padding: 13px 15px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.035);
+    color: rgba(255,255,255,0.62);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+
+/* ========================================
+   FINAL FREEZE
+======================================== */
+
+.freeze-box {
+    padding: 35px 30px;
+    border-radius: 20px;
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.07),
+            rgba(255,255,255,0.02)
+        );
+
+    border: 1px solid rgba(255,255,255,0.12);
+}
+
+.freeze-icon {
+    font-size: 34px;
+    margin-bottom: 15px;
+}
+
+.freeze-box h3 {
+    font-size: 25px;
+    margin-bottom: 12px;
+}
+
+.freeze-box p {
+    max-width: 580px;
+    margin: auto;
+    color: rgba(255,255,255,0.52);
+    font-size: 13px;
+    line-height: 1.75;
+}
+
+
+/* ========================================
+   CONFIRMATION
+======================================== */
 
 .confirm-box {
-    padding: 25px;
-    border-radius: 15px;
+    padding: 27px;
+    border-radius: 17px;
     background: rgba(255,255,255,0.035);
     border: 1px solid rgba(255,255,255,0.1);
 }
@@ -293,63 +612,85 @@ textarea {
     margin-bottom: 17px;
 }
 
+.checkbox-row:last-child {
+    margin-bottom: 0;
+}
+
 .checkbox-row input {
     width: auto;
     margin-top: 4px;
+    accent-color: #ff416c;
 }
 
 .checkbox-row label {
     margin: 0;
     font-weight: 400;
-    line-height: 1.6;
+    line-height: 1.65;
     color: rgba(255,255,255,0.62);
 }
 
 
-/* SUBMIT */
+/* ========================================
+   SUBMIT
+======================================== */
 
 .submit-area {
     text-align: center;
-    margin-top: 50px;
+    margin-top: 55px;
 }
 
 .submit-button {
     border: none;
-    background: white;
-    color: #08080b;
-    padding: 18px 35px;
+    background:
+        linear-gradient(
+            90deg,
+            #ff416c,
+            #ff8a00,
+            #7b61ff
+        );
+    background-size: 200% auto;
+    color: white;
+    padding: 19px 36px;
     border-radius: 100px;
     font-size: 12px;
     font-weight: 900;
     letter-spacing: 2px;
     cursor: pointer;
-    transition: transform 0.2s ease;
+    transition:
+        transform 0.2s ease,
+        background-position 0.5s ease;
+    box-shadow: 0 15px 45px rgba(255,65,108,0.18);
 }
 
 .submit-button:hover {
-    transform: scale(1.03);
+    transform: scale(1.04);
+    background-position: 100% center;
 }
 
 .submit-note {
-    margin-top: 16px;
+    margin-top: 17px;
     font-size: 11px;
-    color: rgba(255,255,255,0.35);
-    line-height: 1.6;
+    color: rgba(255,255,255,0.34);
+    line-height: 1.7;
 }
 
 
-/* FOOTER */
+/* ========================================
+   FOOTER
+======================================== */
 
 .footer {
     border-top: 1px solid rgba(255,255,255,0.08);
     text-align: center;
-    padding: 50px 20px;
+    padding: 55px 20px;
     color: rgba(255,255,255,0.35);
     font-size: 11px;
 }
 
 
-/* RESPONSIVE */
+/* ========================================
+   RESPONSIVE
+======================================== */
 
 @media(max-width: 750px) {
 
@@ -365,6 +706,12 @@ textarea {
         flex-direction: column;
         align-items: flex-start;
     }
+
+    .refinement-top {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
 }
 
 @media(max-width: 500px) {
@@ -378,8 +725,13 @@ textarea {
     }
 
     .header h1 {
-        letter-spacing: -2px;
+        letter-spacing: -3px;
     }
+
+    .refinement-box {
+        padding: 24px;
+    }
+
 }
 
 </style>
@@ -389,7 +741,9 @@ textarea {
 <body>
 
 
-<!-- NAV -->
+<!-- ========================================
+     NAV
+======================================== -->
 
 <nav class="nav">
 
@@ -405,7 +759,9 @@ textarea {
 
 
 
-<!-- HEADER -->
+<!-- ========================================
+     HEADER
+======================================== -->
 
 <header class="header">
 
@@ -415,7 +771,7 @@ textarea {
 
     <h1>
         LET'S PRESERVE<br>
-        YOUR MOMENT.
+        <span>YOUR MOMENT.</span>
     </h1>
 
     <p>
@@ -432,523 +788,609 @@ textarea {
 <main class="container">
 
 
-    <!-- CATEGORY -->
+<!-- ========================================
+     CATEGORY
+======================================== -->
 
-    <div class="category-box">
+<div class="category-box">
+
+    <div class="category-left">
+
+        <div class="category-dot"></div>
 
         <div class="category-name" id="categoryName">
             Creator / Individual
         </div>
 
-        <div class="category-price" id="categoryPrice">
-            ₹999
+    </div>
+
+    <div class="category-price" id="categoryPrice">
+        ₹999
+    </div>
+
+</div>
+
+
+
+<form class="form" id="momentForm">
+
+
+<!-- ========================================
+     01 — ABOUT YOU
+======================================== -->
+
+<section class="form-section">
+
+    <div class="section-number">
+        01 — ABOUT YOU
+    </div>
+
+    <h2>
+        Who is preserving this moment?
+    </h2>
+
+    <p class="section-description">
+        This can be your name, creator name,
+        company or organisation name.
+    </p>
+
+
+    <div class="field">
+
+        <label for="name">
+            Name / Organisation
+        </label>
+
+        <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Your name or organisation"
+            required
+        >
+
+    </div>
+
+
+    <div class="field">
+
+        <label for="email">
+            Email
+        </label>
+
+        <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="you@example.com"
+            required
+        >
+
+    </div>
+
+
+    <div class="field">
+
+        <label for="whatsapp">
+            WhatsApp Number
+        </label>
+
+        <input
+            type="tel"
+            id="whatsapp"
+            name="whatsapp"
+            placeholder="+91 XXXXX XXXXX"
+            required
+        >
+
+    </div>
+
+</section>
+
+
+
+<!-- ========================================
+     02 — YOUR MOMENT
+======================================== -->
+
+<section class="form-section">
+
+    <div class="section-number">
+        02 — YOUR MOMENT
+    </div>
+
+    <h2>
+        What are you preserving?
+    </h2>
+
+    <p class="section-description">
+        Tell us in one or two sentences what this
+        moment represents about your 2026.
+    </p>
+
+
+    <div class="field">
+
+        <label for="moment">
+            Your 2026 Moment
+        </label>
+
+        <textarea
+            id="moment"
+            name="moment"
+            placeholder="Example: 2026 was the year we launched our first product and welcomed our first 1,000 customers."
+            required
+        ></textarea>
+
+    </div>
+
+
+    <div class="field">
+
+        <label for="url">
+            Where should your Moment lead?
+        </label>
+
+        <input
+            type="url"
+            id="url"
+            name="url"
+            placeholder="https://..."
+            required
+        >
+
+    </div>
+
+</section>
+
+
+
+<!-- ========================================
+     03 — VIDEO OPTIONS
+======================================== -->
+
+<section class="form-section">
+
+    <div class="section-number">
+        03 — YOUR VIDEO OPTIONS
+    </div>
+
+    <h2>
+        Start with two versions.
+    </h2>
+
+    <p class="section-description">
+        Give us two different 3–5 second versions of
+        your moment. We'll review both and recommend
+        the one that works best for the Capsule.
+    </p>
+
+
+    <div class="video-options">
+
+
+        <div class="video-card">
+
+            <div class="video-label">
+                Option 01
+            </div>
+
+            <h3>
+                Video A
+            </h3>
+
+            <p>
+                Your first version.<br>
+                3–5 seconds · MP4/WebM · Max 5MB
+            </p>
+
+            <input
+                class="file-input"
+                type="file"
+                id="videoA"
+                name="videoA"
+                accept="video/mp4,video/webm"
+                required
+            >
+
+        </div>
+
+
+
+        <div class="video-card">
+
+            <div class="video-label">
+                Option 02
+            </div>
+
+            <h3>
+                Video B
+            </h3>
+
+            <p>
+                Your alternative version.<br>
+                3–5 seconds · MP4/WebM · Max 5MB
+            </p>
+
+            <input
+                class="file-input"
+                type="file"
+                id="videoB"
+                name="videoB"
+                accept="video/mp4,video/webm"
+                required
+            >
+
         </div>
 
     </div>
 
 
 
-    <form class="form" id="momentForm">
+    <div class="review-notice">
+
+        <div class="review-icon">
+            👀
+        </div>
+
+        <strong>
+            Your videos are reviewed by a real person.
+        </strong>
+
+        <p>
+            Nothing is published automatically.
+            After payment, we'll manually review your
+            submission within <strong>2 business days</strong>.
+            We'll select the version we recommend and
+            send it to you for your final confirmation
+            before publishing.
+        </p>
+
+    </div>
 
 
-        <!-- ABOUT YOU -->
 
-        <section class="form-section">
+    <div class="process">
 
-            <div class="section-number">
-                01 — ABOUT YOU
+
+        <div class="process-item">
+
+            <div class="process-number">
+                01
             </div>
 
-            <h2>
-                Who is preserving this moment?
-            </h2>
-
-            <p class="section-description">
-                This can be your name, creator name,
-                company or organisation name.
-            </p>
-
-
-            <div class="field">
-
-                <label for="name">
-                    Name / Organisation
-                </label>
-
-                <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    placeholder="Your name or organisation"
-                    required
-                >
-
-            </div>
-
-
-            <div class="field">
-
-                <label for="email">
-                    Email
-                </label>
-
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="you@example.com"
-                    required
-                >
-
-            </div>
-
-
-            <div class="field">
-
-                <label for="whatsapp">
-                    WhatsApp Number
-                </label>
-
-                <input
-                    type="tel"
-                    id="whatsapp"
-                    name="whatsapp"
-                    placeholder="+91 XXXXX XXXXX"
-                    required
-                >
-
-            </div>
-
-        </section>
-
-
-
-        <!-- MOMENT -->
-
-        <section class="form-section">
-
-            <div class="section-number">
-                02 — YOUR MOMENT
-            </div>
-
-            <h2>
-                What are you preserving?
-            </h2>
-
-            <p class="section-description">
-                Tell us in one or two sentences what this
-                moment represents about your 2026.
-            </p>
-
-
-            <div class="field">
-
-                <label for="moment">
-                    Your 2026 Moment
-                </label>
-
-                <textarea
-                    id="moment"
-                    name="moment"
-                    placeholder="Example: 2026 was the year we launched our first product and welcomed our first 1,000 customers."
-                    required
-                ></textarea>
-
-            </div>
-
-
-            <div class="field">
-
-                <label for="url">
-                    Where should your Moment lead?
-                </label>
-
-                <input
-                    type="url"
-                    id="url"
-                    name="url"
-                    placeholder="https://..."
-                    required
-                >
-
-            </div>
-
-        </section>
-
-
-
-        <!-- VIDEOS -->
-
-        <section class="form-section">
-
-            <div class="section-number">
-                03 — YOUR VIDEO OPTIONS
-            </div>
-
-            <h2>
-                Start with two versions.
-            </h2>
-
-            <p class="section-description">
-                Give us two different 3–5 second versions of
-                your moment. We'll review both and recommend
-                the one that works best for the Capsule.
-            </p>
-
-
-            <div class="video-options">
-
-
-                <!-- OPTION A -->
-
-                <div class="video-card">
-
-                    <h3>
-                        Video Option A
-                    </h3>
-
-                    <p>
-                        Your first version.<br>
-                        3–5 seconds · MP4/WebM · Max 5MB
-                    </p>
-
-                    <input
-                        class="file-input"
-                        type="file"
-                        id="videoA"
-                        name="videoA"
-                        accept="video/mp4,video/webm"
-                        required
-                    >
-
-                </div>
-
-
-
-                <!-- OPTION B -->
-
-                <div class="video-card">
-
-                    <h3>
-                        Video Option B
-                    </h3>
-
-                    <p>
-                        Your alternative version.<br>
-                        3–5 seconds · MP4/WebM · Max 5MB
-                    </p>
-
-                    <input
-                        class="file-input"
-                        type="file"
-                        id="videoB"
-                        name="videoB"
-                        accept="video/mp4,video/webm"
-                        required
-                    >
-
-                </div>
-
-            </div>
-
-
-
-            <!-- REVIEW -->
-
-            <div class="review-notice">
-
-                <strong>
-                    👀 Your videos are reviewed by a real person.
-                </strong>
-
-                <p>
-                    Nothing is published automatically.
-                    After payment, we'll manually review your
-                    submission within <strong>2 business days</strong>.
-                    We'll select the version we recommend and
-                    send it to you for your final confirmation
-                    before publishing.
-                </p>
-
-            </div>
-
-
-
-            <!-- PROCESS -->
-
-            <div class="process">
-
-                <div class="process-item">
-
-                    <div class="process-number">
-                        01
-                    </div>
-
-                    <h3>
-                        Submit
-                    </h3>
-
-                    <p>
-                        Upload two video options.
-                    </p>
-
-                </div>
-
-
-                <div class="process-item">
-
-                    <div class="process-number">
-                        02
-                    </div>
-
-                    <h3>
-                        We review
-                    </h3>
-
-                    <p>
-                        Manual review within 2 business days.
-                    </p>
-
-                </div>
-
-
-                <div class="process-item">
-
-                    <div class="process-number">
-                        03
-                    </div>
-
-                    <h3>
-                        You confirm
-                    </h3>
-
-                    <p>
-                        You approve the selected version.
-                    </p>
-
-                </div>
-
-
-                <div class="process-item">
-
-                    <div class="process-number">
-                        04
-                    </div>
-
-                    <h3>
-                        We publish
-                    </h3>
-
-                    <p>
-                        Your Moment goes live.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- REPLACEMENT POLICY -->
-
-        <section class="form-section">
-
-            <div class="section-number">
-                04 — WANT TO CHANGE IT?
-            </div>
-
-            <h2>
-                You have room to improve it.
-            </h2>
-
-            <p class="section-description">
-                We want you to be genuinely happy with the
-                Moment that represents your 2026.
-            </p>
-
-
-            <div class="review-notice">
-
-                <strong>
-                    🔄 Your 7-business-day refinement window
-                </strong>
-
-                <p>
-                    After your Moment is approved and published,
-                    you'll have <strong>7 business days</strong>
-                    to submit a new video if you've created a
-                    better version. You can submit up to
-                    <strong>3 replacement attempts</strong>
-                    during this window.
-                </p>
-
-                <br>
-
-                <p>
-                    Every new version is manually reviewed.
-                    Your current approved Moment stays live
-                    until a replacement is reviewed and confirmed
-                    by you.
-                </p>
-
-                <br>
-
-                <p>
-                    After the 7-business-day window closes,
-                    your Moment is locked for the remainder
-                    of 2026.
-                </p>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- FINAL FREEZE -->
-
-        <section class="form-section">
-
-            <div class="section-number">
-                05 — THE FINAL FREEZE
-            </div>
-
-            <h2>
-                December 31, 2026.
-            </h2>
-
-            <p class="section-description">
-                That's when the Capsule closes and the archive
-                becomes a permanent snapshot of 2026.
-            </p>
-
-
-            <div class="confirm-box">
-
-
-                <div class="checkbox-row">
-
-                    <input
-                        type="checkbox"
-                        id="rights"
-                        required
-                    >
-
-                    <label for="rights">
-                        I confirm that I have the rights and
-                        permissions necessary to submit both videos
-                        and that the content represents me, my
-                        organisation or the moment described.
-                    </label>
-
-                </div>
-
-
-
-                <div class="checkbox-row">
-
-                    <input
-                        type="checkbox"
-                        id="review"
-                        required
-                    >
-
-                    <label for="review">
-                        I understand that my videos will be manually
-                        reviewed and that the Capsule team may
-                        recommend either Video A or Video B.
-                    </label>
-
-                </div>
-
-
-
-                <div class="checkbox-row">
-
-                    <input
-                        type="checkbox"
-                        id="confirmation"
-                        required
-                    >
-
-                    <label for="confirmation">
-                        I understand that my selected video will
-                        not be published until I have given my
-                        final confirmation.
-                    </label>
-
-                </div>
-
-
-
-                <div class="checkbox-row">
-
-                    <input
-                        type="checkbox"
-                        id="replacement"
-                        required
-                    >
-
-                    <label for="replacement">
-                        I understand that after publication I have
-                        7 business days and up to 3 replacement
-                        attempts to submit a new version.
-                    </label>
-
-                </div>
-
-
-
-                <div class="checkbox-row">
-
-                    <input
-                        type="checkbox"
-                        id="freeze"
-                        required
-                    >
-
-                    <label for="freeze">
-                        I understand that after my refinement window
-                        closes, my Moment is locked for 2026 and
-                        that the Capsule itself closes permanently
-                        on December 31, 2026.
-                    </label>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- SUBMIT -->
-
-        <div class="submit-area">
-
-            <button
-                type="submit"
-                class="submit-button"
-            >
-                SUBMIT FOR REVIEW →
-            </button>
-
-            <p class="submit-note">
-                Your submission will not be published automatically.
-                You'll receive confirmation before your selected
-                Moment goes live.
+            <h3>
+                Submit
+            </h3>
+
+            <p>
+                Upload two video options.
             </p>
 
         </div>
 
 
-    </form>
+        <div class="process-item">
+
+            <div class="process-number">
+                02
+            </div>
+
+            <h3>
+                We review
+            </h3>
+
+            <p>
+                Manual review within 2 business days.
+            </p>
+
+        </div>
+
+
+        <div class="process-item">
+
+            <div class="process-number">
+                03
+            </div>
+
+            <h3>
+                You confirm
+            </h3>
+
+            <p>
+                You approve the selected version.
+            </p>
+
+        </div>
+
+
+        <div class="process-item">
+
+            <div class="process-number">
+                04
+            </div>
+
+            <h3>
+                We publish
+            </h3>
+
+            <p>
+                Your Moment goes live.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ========================================
+     04 — REFINEMENT
+======================================== -->
+
+<section class="form-section">
+
+    <div class="section-number">
+        04 — YOUR REFINEMENT WINDOW
+    </div>
+
+    <h2>
+        Not completely happy yet?
+    </h2>
+
+    <p class="section-description">
+        That's okay. We want you to be genuinely happy
+        with the Moment that represents your 2026.
+    </p>
+
+
+    <div class="refinement-box">
+
+        <div class="refinement-top">
+
+            <div class="refinement-title">
+                Your Moment gets a second chance.
+            </div>
+
+            <div class="seven-days">
+                7 BUSINESS DAYS
+            </div>
+
+        </div>
+
+
+        <p>
+            After your selected video is approved and published,
+            you'll have <strong>7 business days</strong> to submit
+            a new version if you've created something better.
+        </p>
+
+
+        <div class="refinement-rules">
+
+            <div class="rule">
+                ✓ Up to <strong>3 replacement attempts</strong>
+            </div>
+
+            <div class="rule">
+                ✓ Every new video is manually reviewed
+            </div>
+
+            <div class="rule">
+                ✓ Your current approved Moment stays live
+                until a replacement is confirmed
+            </div>
+
+            <div class="rule">
+                ✓ You give the final confirmation before
+                any replacement goes live
+            </div>
+
+            <div class="rule">
+                ✓ After 7 business days, your Moment is locked
+                for the remainder of 2026
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ========================================
+     05 — FINAL FREEZE
+======================================== -->
+
+<section class="form-section">
+
+    <div class="section-number">
+        05 — THE FINAL FREEZE
+    </div>
+
+    <h2>
+        December 31, 2026.
+    </h2>
+
+    <p class="section-description">
+        That's when the Capsule closes and the archive
+        becomes a permanent snapshot of 2026.
+    </p>
+
+
+    <div class="freeze-box">
+
+        <div class="freeze-icon">
+            🔒
+        </div>
+
+        <h3>
+            Your moment. Then history.
+        </h3>
+
+        <p>
+            Once your refinement window closes, your selected
+            Moment stays locked for 2026. When the Capsule
+            closes on December 31, the entire archive becomes
+            a frozen record of the year.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ========================================
+     06 — AGREEMENT
+======================================== -->
+
+<section class="form-section">
+
+    <div class="section-number">
+        06 — BEFORE YOU SUBMIT
+    </div>
+
+    <h2>
+        One important promise.
+    </h2>
+
+    <p class="section-description">
+        Please read these carefully before submitting.
+    </p>
+
+
+    <div class="confirm-box">
+
+
+        <div class="checkbox-row">
+
+            <input
+                type="checkbox"
+                id="rights"
+                required
+            >
+
+            <label for="rights">
+                I confirm that I have the rights and
+                permissions necessary to submit both videos
+                and that the content represents me, my
+                organisation or the moment described.
+            </label>
+
+        </div>
+
+
+
+        <div class="checkbox-row">
+
+            <input
+                type="checkbox"
+                id="review"
+                required
+            >
+
+            <label for="review">
+                I understand that my videos will be manually
+                reviewed and that the Capsule team may
+                recommend either Video A or Video B.
+            </label>
+
+        </div>
+
+
+
+        <div class="checkbox-row">
+
+            <input
+                type="checkbox"
+                id="confirmation"
+                required
+            >
+
+            <label for="confirmation">
+                I understand that my selected video will not
+                be published until I have given my final
+                confirmation.
+            </label>
+
+        </div>
+
+
+
+        <div class="checkbox-row">
+
+            <input
+                type="checkbox"
+                id="replacement"
+                required
+            >
+
+            <label for="replacement">
+                I understand that after publication I have
+                7 business days and up to 3 replacement
+                attempts to submit a new version.
+            </label>
+
+        </div>
+
+
+
+        <div class="checkbox-row">
+
+            <input
+                type="checkbox"
+                id="freeze"
+                required
+            >
+
+            <label for="freeze">
+                I understand that after my refinement window
+                closes, my Moment is locked for 2026 and
+                that the Capsule itself closes permanently
+                on December 31, 2026.
+            </label>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ========================================
+     SUBMIT
+======================================== -->
+
+<div class="submit-area">
+
+    <button
+        type="submit"
+        class="submit-button"
+    >
+        SUBMIT FOR REVIEW →
+    </button>
+
+    <p class="submit-note">
+        Your submission will not be published automatically.
+        After payment, we'll review your videos within
+        2 business days and contact you for final confirmation.
+    </p>
+
+</div>
+
+
+</form>
 
 </main>
 
 
+
+<!-- FOOTER -->
 
 <footer class="footer">
 
@@ -962,7 +1404,9 @@ textarea {
 
 <script>
 
-/* CATEGORY DATA */
+/* ========================================
+   CATEGORY DATA
+======================================== */
 
 const categories = {
 
@@ -999,7 +1443,9 @@ const categories = {
 };
 
 
-/* READ CATEGORY */
+/* ========================================
+   READ CATEGORY
+======================================== */
 
 const params =
     new URLSearchParams(window.location.search);
@@ -1011,7 +1457,9 @@ const category =
     categories[type] || categories.creator;
 
 
-/* UPDATE CATEGORY */
+/* ========================================
+   UPDATE CATEGORY
+======================================== */
 
 document.getElementById("categoryName").textContent =
     category.name;
@@ -1020,7 +1468,9 @@ document.getElementById("categoryPrice").textContent =
     category.price;
 
 
-/* DEMO SUBMISSION */
+/* ========================================
+   DEMO SUBMISSION
+======================================== */
 
 document.getElementById("momentForm")
     .addEventListener("submit", function(event) {
