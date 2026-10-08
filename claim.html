@@ -4,410 +4,1049 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Claim Your 2026 Moment</title>
+  <title>Claim Your 2026 Moment | India Video Capsule</title>
+
+  <meta
+    name="description"
+    content="Preserve your 2026 moment in the India Video Capsule."
+  >
 
   <style>
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --ink: #111318;
+      --muted: #626977;
+      --cream: #fffaf2;
+      --white: #ffffff;
+
+      --pink: #ff4f9a;
+      --purple: #7647ff;
+      --blue: #3d8bff;
+      --green: #20c997;
+      --orange: #ff8a3d;
+      --yellow: #ffd34e;
+
+      --border: rgba(17, 19, 24, 0.10);
     }
 
     body {
-      margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background: #f7f5f0;
-      color: #111;
+      background:
+        radial-gradient(
+          circle at 5% 10%,
+          rgba(255, 211, 78, 0.20),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 95% 20%,
+          rgba(118, 71, 255, 0.15),
+          transparent 30%
+        ),
+        var(--cream);
+
+      color: var(--ink);
+      line-height: 1.5;
     }
 
-    .container {
-      width: min(1000px, 90%);
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* TOP */
+
+    .top {
+      max-width: 1150px;
       margin: auto;
+      padding: 35px 30px 0;
     }
 
     .back {
-      display: inline-block;
-      margin-top: 30px;
-      color: #777;
-      text-decoration: none;
-      font-size: 13px;
+      color: #68707c;
+      font-size: 14px;
+      font-weight: 600;
     }
 
+    .back:hover {
+      color: var(--purple);
+    }
+
+    /* HERO */
+
     .hero {
-      padding: 70px 0 45px;
+      max-width: 1150px;
+      margin: auto;
+      padding: 75px 30px 55px;
     }
 
     .eyebrow {
       font-size: 12px;
-      letter-spacing: 3px;
-      color: #777;
+      letter-spacing: 4px;
+      font-weight: 700;
+      color: #717784;
       margin-bottom: 20px;
     }
 
-    h1 {
-      font-size: clamp(42px, 7vw, 72px);
-      line-height: 0.95;
-      letter-spacing: -3px;
-      margin: 0 0 25px;
+    .hero h1 {
+      max-width: 850px;
+      font-size: clamp(55px, 8vw, 90px);
+      line-height: 0.90;
+      letter-spacing: -5px;
+      font-weight: 950;
     }
 
-    .intro {
-      max-width: 650px;
-      color: #666;
-      font-size: 17px;
-      line-height: 1.7;
+    .hero h1 span {
+      background: linear-gradient(
+        90deg,
+        var(--purple),
+        var(--pink),
+        var(--orange)
+      );
+
+      -webkit-background-clip: text;
+      color: transparent;
     }
 
-    .section {
-      border-top: 1px solid #d8d5ce;
-      padding: 45px 0;
+    .hero p {
+      max-width: 720px;
+      margin-top: 30px;
+      color: var(--muted);
+      font-size: 18px;
     }
 
-    .section h2 {
-      font-size: 25px;
-      margin: 0 0 10px;
+    /* SELECTION */
+
+    .selection {
+      max-width: 1150px;
+      margin: auto;
+      padding: 30px;
     }
 
-    .section-description {
-      color: #777;
-      line-height: 1.6;
-      margin-bottom: 28px;
+    .selection-header {
+      margin-bottom: 30px;
     }
 
-    .options {
+    .selection-header h2 {
+      font-size: 36px;
+      letter-spacing: -1px;
+      margin-bottom: 8px;
+    }
+
+    .selection-header p {
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    /* CATEGORY GRID */
+
+    .category-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
+      gap: 18px;
     }
 
-    .option {
-      border: 1px solid #d8d5ce;
-      background: #fff;
-      padding: 28px;
+    .category {
+      position: relative;
       cursor: pointer;
-      transition: 0.2s;
+
+      background: rgba(255,255,255,0.78);
+      border: 2px solid var(--border);
+
+      border-radius: 24px;
+      padding: 30px;
+
+      min-height: 180px;
+
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
     }
 
-    .option:hover {
-      border-color: #111;
-      transform: translateY(-2px);
+    .category:hover {
+      transform: translateY(-4px);
+      background: white;
+      box-shadow: 0 18px 45px rgba(17,19,24,0.08);
     }
 
-    .option.selected {
-      border: 2px solid #111;
-      padding: 27px;
+    .category.selected {
+      background: white;
+      border-color: var(--purple);
+      box-shadow:
+        0 20px 55px rgba(118,71,255,0.16);
     }
 
-    .option h3 {
-      margin: 0 0 10px;
+    .category-icon {
+      width: 45px;
+      height: 45px;
+
+      border-radius: 14px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      color: white;
       font-size: 20px;
+      font-weight: 900;
+
+      margin-bottom: 22px;
     }
 
-    .option p {
-      margin: 0;
-      color: #777;
-      line-height: 1.5;
+    .icon-purple {
+      background: linear-gradient(135deg,#7647ff,#b43dff);
+    }
+
+    .icon-pink {
+      background: linear-gradient(135deg,#ff4f9a,#ff6b6b);
+    }
+
+    .icon-blue {
+      background: linear-gradient(135deg,#3d8bff,#2453d4);
+    }
+
+    .icon-green {
+      background: linear-gradient(135deg,#20c997,#087f5b);
+    }
+
+    .icon-orange {
+      background: linear-gradient(135deg,#ffb347,#ff6b3d);
+    }
+
+    .icon-dark {
+      background: linear-gradient(135deg,#111318,#444953);
+    }
+
+    .category h3 {
+      font-size: 21px;
+      margin-bottom: 8px;
+    }
+
+    .category p {
+      color: var(--muted);
       font-size: 14px;
+      max-width: 500px;
+    }
+
+    .check {
+      position: absolute;
+
+      top: 22px;
+      right: 22px;
+
+      width: 28px;
+      height: 28px;
+
+      border-radius: 50%;
+
+      display: none;
+
+      align-items: center;
+      justify-content: center;
+
+      background: var(--purple);
+      color: white;
+
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .category.selected .check {
+      display: flex;
+    }
+
+    /* PRICE PANEL */
+
+    .price-panel {
+      max-width: 1150px;
+      margin: 35px auto 0;
+
+      padding: 0 30px;
+
+      display: none;
+    }
+
+    .price-panel.visible {
+      display: block;
+      animation: appear 0.3s ease;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .price-box {
-      display: none;
-      margin-top: 30px;
-      background: #111;
+      position: relative;
+
+      overflow: hidden;
+
+      background: var(--ink);
       color: white;
-      padding: 30px;
+
+      border-radius: 28px;
+
+      padding: 38px 40px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 30px;
     }
 
-    .price-box.show {
-      display: block;
+    .price-box::before {
+      content: "";
+
+      position: absolute;
+
+      width: 300px;
+      height: 300px;
+
+      border-radius: 50%;
+
+      background: var(--purple);
+
+      filter: blur(80px);
+
+      opacity: 0.35;
+
+      right: -100px;
+      top: -180px;
     }
 
-    .price-label {
+    .price-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .selected-label {
+      color: #bfc4ce;
       font-size: 12px;
       letter-spacing: 2px;
-      color: #aaa;
-      margin-bottom: 10px;
+      font-weight: 800;
+
+      text-transform: uppercase;
+
+      margin-bottom: 8px;
+    }
+
+    .selected-name {
+      font-size: 25px;
+      font-weight: 900;
     }
 
     .price {
-      font-size: 38px;
-      font-weight: bold;
-      margin-bottom: 10px;
+      position: relative;
+      z-index: 2;
+
+      font-size: 40px;
+      font-weight: 950;
+
+      white-space: nowrap;
     }
 
-    .price-description {
-      color: #aaa;
-      line-height: 1.6;
-      font-size: 14px;
-    }
+    .continue-button {
+      position: relative;
+      z-index: 2;
 
-    .continue {
-      display: none;
-      margin-top: 25px;
+      display: inline-block;
+
+      margin-top: 18px;
+
       background: white;
-      color: #111;
+      color: var(--ink);
+
       border: none;
-      padding: 16px 25px;
+
+      padding: 14px 24px;
+
+      border-radius: 30px;
+
+      font-weight: 900;
       font-size: 13px;
-      font-weight: bold;
-      letter-spacing: 1px;
+
       cursor: pointer;
     }
 
-    .continue.show {
-      display: inline-block;
+    .continue-button:hover {
+      background: #f1f2f5;
     }
 
-    .moment-box {
-      background: #e9e6de;
+    /* EXPLANATION */
+
+    .explanation {
+      max-width: 1150px;
+      margin: auto;
+
+      padding: 80px 30px 40px;
+    }
+
+    .explanation h2 {
+      font-size: 38px;
+      letter-spacing: -1.5px;
+
+      margin-bottom: 15px;
+    }
+
+    .explanation-intro {
+      max-width: 700px;
+
+      color: var(--muted);
+
+      font-size: 17px;
+
+      margin-bottom: 35px;
+    }
+
+    .explanation-grid {
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 18px;
+    }
+
+    .info-card {
+      background: white;
+
+      border: 1px solid var(--border);
+
+      border-radius: 22px;
+
+      padding: 28px;
+    }
+
+    .info-card .info-icon {
+      font-size: 25px;
+      margin-bottom: 18px;
+    }
+
+    .info-card h3 {
+      font-size: 19px;
+
+      margin-bottom: 8px;
+    }
+
+    .info-card p {
+      color: var(--muted);
+
+      font-size: 14px;
+    }
+
+    /* RULES */
+
+    .rules {
+      max-width: 1150px;
+      margin: auto;
+
+      padding: 35px 30px 90px;
+    }
+
+    .rules-box {
+      background:
+        linear-gradient(
+          135deg,
+          rgba(118,71,255,0.09),
+          rgba(255,79,154,0.07),
+          rgba(255,211,78,0.10)
+        );
+
+      border-radius: 25px;
+
       padding: 30px;
-      line-height: 1.7;
-      color: #555;
+
+      border: 1px solid rgba(118,71,255,0.12);
     }
 
-    .moment-box strong {
-      color: #111;
+    .rules-box h3 {
+      font-size: 21px;
+
+      margin-bottom: 12px;
     }
+
+    .rules-box p {
+      color: var(--muted);
+
+      font-size: 14px;
+
+      max-width: 850px;
+    }
+
+    /* SUPPORT */
+
+    .support {
+      padding: 45px 30px 80px;
+
+      text-align: center;
+
+      border-top: 1px solid var(--border);
+    }
+
+    .support h3 {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    .support p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .support-placeholder {
+      display: inline-block;
+
+      margin-top: 18px;
+
+      padding: 13px 20px;
+
+      border-radius: 30px;
+
+      background: white;
+
+      border: 1px solid var(--border);
+
+      color: #737985;
+
+      font-size: 13px;
+
+      font-weight: 700;
+    }
+
+    /* FOOTER */
 
     footer {
-      margin-top: 50px;
+      background: #0b0c0f;
+
+      color: #8f949e;
+
       padding: 30px;
+
       text-align: center;
-      border-top: 1px solid #d8d5ce;
-      color: #888;
+
       font-size: 12px;
     }
 
-    @media (max-width: 650px) {
-      .options {
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
+      .hero {
+        padding-top: 55px;
+      }
+
+      .category-grid {
         grid-template-columns: 1fr;
+      }
+
+      .explanation-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .price-box {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .price {
+        font-size: 35px;
+      }
+    }
+
+    @media (max-width: 500px) {
+
+      .hero h1 {
+        font-size: 55px;
+        letter-spacing: -3px;
+      }
+
+      .selection-header h2 {
+        font-size: 30px;
+      }
+
+      .category {
+        padding: 24px;
+      }
+
+      .price-box {
+        padding: 30px;
       }
     }
   </style>
 </head>
 
+
 <body>
 
-  <div class="container">
 
-    <a href="index.html" class="back">← Back to the Capsule</a>
+  <!-- BACK -->
 
+  <div class="top">
 
-    <!-- HEADER -->
+    <a href="index.html" class="back">
+      ← Back to the Capsule
+    </a>
 
-    <section class="hero">
-
-      <div class="eyebrow">
-        INDIA VIDEO CAPSULE 2026
-      </div>
-
-      <h1>
-        Claim Your<br>
-        2026 Moment.
-      </h1>
-
-      <p class="intro">
-        Everyone has a different reason to remember 2026.
-        Tell us what your moment is, and we'll show you the
-        right way to preserve it in the Capsule.
-      </p>
-
-    </section>
+  </div>
 
 
-    <!-- CATEGORY -->
+  <!-- HERO -->
 
-    <section class="section">
+  <section class="hero">
+
+    <div class="eyebrow">
+      INDIA VIDEO CAPSULE 2026
+    </div>
+
+    <h1>
+      Claim Your
+      <span>2026 Moment.</span>
+    </h1>
+
+    <p>
+      Everyone has a different reason to remember 2026.
+      Tell us what your moment is, and we'll show you
+      the right way to preserve it in the Capsule.
+    </p>
+
+  </section>
+
+
+  <!-- CATEGORY SELECTION -->
+
+  <section class="selection">
+
+    <div class="selection-header">
 
       <h2>
         What are you preserving?
       </h2>
 
-      <p class="section-description">
+      <p>
         Choose the option that best describes your 2026 moment.
-        Your selection determines the type of Capsule placement available to you.
       </p>
 
+    </div>
 
-      <div class="options">
 
-        <div class="option" onclick="selectOption(this, 'creator')">
-          <h3>Creator / Public Figure</h3>
-          <p>
-            Your career, audience, achievement, launch,
-            collaboration or defining personal moment from 2026.
-          </p>
+    <div class="category-grid">
+
+
+      <!-- CREATOR -->
+
+      <div
+        class="category"
+        data-name="Creator / Individual"
+        data-price="₹999"
+        onclick="selectCategory(this)"
+      >
+
+        <div class="check">✓</div>
+
+        <div class="category-icon icon-purple">
+          ✦
         </div>
 
+        <h3>
+          Creator / Individual
+        </h3>
 
-        <div class="option" onclick="selectOption(this, 'achievement')">
-          <h3>Personal Achievement</h3>
-          <p>
-            A milestone, breakthrough, celebration or
-            life moment that made 2026 special.
-          </p>
-        </div>
-
-
-        <div class="option" onclick="selectOption(this, 'startup')">
-          <h3>Startup / Business</h3>
-          <p>
-            Your startup, product, launch, milestone or
-            the people building it in 2026.
-          </p>
-        </div>
-
-
-        <div class="option" onclick="selectOption(this, 'brand')">
-          <h3>Brand</h3>
-          <p>
-            Your brand, product, campaign or defining
-            business moment from 2026.
-          </p>
-        </div>
-
-
-        <div class="option" onclick="selectOption(this, 'premium')">
-          <h3>Established / Major Brand</h3>
-          <p>
-            For established companies and organisations
-            seeking a curated presence in the Capsule.
-          </p>
-        </div>
+        <p>
+          Your career, audience, achievement, launch,
+          collaboration or defining personal moment from 2026.
+        </p>
 
       </div>
 
 
-      <!-- PRICE REVEAL -->
+      <!-- ACHIEVEMENT -->
 
-      <div class="price-box" id="priceBox">
+      <div
+        class="category"
+        data-name="Personal Achievement"
+        data-price="₹999"
+        onclick="selectCategory(this)"
+      >
 
-        <div class="price-label">
-          YOUR CAPSULE PLACEMENT
+        <div class="check">✓</div>
+
+        <div class="category-icon icon-pink">
+          ★
         </div>
 
-        <div class="price" id="price">
+        <h3>
+          Personal Achievement
+        </h3>
+
+        <p>
+          A milestone, breakthrough, celebration or life
+          moment that made 2026 special.
+        </p>
+
+      </div>
+
+
+      <!-- INDIE STARTUP -->
+
+      <div
+        class="category"
+        data-name="Indie / Early Startup"
+        data-price="₹1,999"
+        onclick="selectCategory(this)"
+      >
+
+        <div class="check">✓</div>
+
+        <div class="category-icon icon-blue">
+          ↗
         </div>
 
-        <div class="price-description" id="priceDescription">
+        <h3>
+          Indie / Early Startup
+        </h3>
+
+        <p>
+          Your launch, first product, first customers,
+          breakthrough or early-stage startup journey.
+        </p>
+
+      </div>
+
+
+      <!-- GROWING BUSINESS -->
+
+      <div
+        class="category"
+        data-name="Growing Business"
+        data-price="₹4,999"
+        onclick="selectCategory(this)"
+      >
+
+        <div class="check">✓</div>
+
+        <div class="category-icon icon-green">
+          ◆
         </div>
 
-        <button class="continue" id="continueButton">
-          CONTINUE
+        <h3>
+          Growing Business
+        </h3>
+
+        <p>
+          A meaningful business milestone, expansion,
+          product launch or defining moment.
+        </p>
+
+      </div>
+
+
+      <!-- BRAND -->
+
+      <div
+        class="category"
+        data-name="Brand"
+        data-price="₹9,999"
+        onclick="selectCategory(this)"
+      >
+
+        <div class="check">✓</div>
+
+        <div class="category-icon icon-orange">
+          ◈
+        </div>
+
+        <h3>
+          Brand
+        </h3>
+
+        <p>
+          A campaign, product, launch, achievement or
+          defining brand moment from 2026.
+        </p>
+
+      </div>
+
+
+      <!-- MAJOR BRAND -->
+
+      <div
+        class="category"
+        data-name="Established / Major Brand"
+        data-price="₹24,999+"
+        onclick="selectCategory(this)"
+      >
+
+        <div class="check">✓</div>
+
+        <div class="category-icon icon-dark">
+          ◆
+        </div>
+
+        <h3>
+          Established / Major Brand
+        </h3>
+
+        <p>
+          For established companies and major brands
+          preserving a defining 2026 moment.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PRICE -->
+
+  <section class="price-panel" id="pricePanel">
+
+    <div class="price-box">
+
+      <div class="price-content">
+
+        <div class="selected-label">
+          Your selected category
+        </div>
+
+        <div class="selected-name" id="selectedName">
+          Creator / Individual
+        </div>
+
+        <button
+          class="continue-button"
+          onclick="continueSelection()"
+        >
+          CONTINUE →
         </button>
 
       </div>
 
-    </section>
+      <div class="price" id="selectedPrice">
+        ₹999
+      </div>
+
+    </div>
+
+  </section>
 
 
-    <!-- THE MOMENT -->
+  <!-- YOUR MOMENT -->
 
-    <section class="section">
+  <section class="explanation">
 
-      <h2>
-        Your 2026 Moment
-      </h2>
+    <h2>
+      Your moment is only 3–5 seconds.
+    </h2>
 
-      <div class="moment-box">
+    <p class="explanation-intro">
+      You don't need to tell your entire story.
+      Show us one moment that represents your 2026.
+      Your video can then lead people to the destination
+      that matters to you.
+    </p>
 
-        <strong>Your moment will be represented by a 3–5 second video.</strong>
 
-        <br><br>
+    <div class="explanation-grid">
 
-        The video becomes part of your Capsule tile.
-        When someone clicks your tile, they can be taken to
-        the story behind it — your website, social profile,
-        YouTube video, LinkedIn post, product page or another
-        destination you choose.
 
-        <br><br>
+      <div class="info-card">
 
-        You'll also tell us briefly what the moment represents.
-        Every submission is reviewed before becoming part of
-        the public Capsule.
+        <div class="info-icon">
+          🎥
+        </div>
+
+        <h3>
+          A 3–5 second video
+        </h3>
+
+        <p>
+          A short original video that captures your
+          moment from 2026.
+        </p>
 
       </div>
 
-    </section>
+
+      <div class="info-card">
+
+        <div class="info-icon">
+          🔗
+        </div>
+
+        <h3>
+          A destination link
+        </h3>
+
+        <p>
+          Send visitors to your website, social profile,
+          product, campaign or story.
+        </p>
+
+      </div>
 
 
-    <footer>
-      The Capsule closes permanently on December 31, 2026.
-    </footer>
+      <div class="info-card">
 
-  </div>
+        <div class="info-icon">
+          ✦
+        </div>
+
+        <h3>
+          A place in the archive
+        </h3>
+
+        <p>
+          Your moment becomes part of the India Video
+          Capsule 2026.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- RULES -->
+
+  <section class="rules">
+
+    <div class="rules-box">
+
+      <h3>
+        A quick note before you continue
+      </h3>
+
+      <p>
+        Please choose the category that best represents
+        what you're preserving. Every submission is manually
+        reviewed before it becomes part of the Capsule.
+        If your selected category doesn't match your
+        submission, we'll contact you before confirming it.
+      </p>
+
+      <br>
+
+      <p>
+        You can replace your submission before approval.
+        After publication, changes are limited. When the
+        Capsule closes permanently on December 31, 2026,
+        the archive becomes frozen.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- SUPPORT -->
+
+  <section class="support">
+
+    <h3>
+      Not sure which option is right for you?
+    </h3>
+
+    <p>
+      We're happy to help you choose the right category
+      before you continue.
+    </p>
+
+    <div class="support-placeholder">
+      Support contact will be added soon.
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    © 2026 India Video Capsule
+    <br><br>
+    Your 2026 Moment. Frozen in Time.
+
+  </footer>
 
 
   <script>
 
-    function selectOption(element, type) {
+    let selectedCategory = null;
 
-      const options = document.querySelectorAll('.option');
+    function selectCategory(card) {
 
-      options.forEach(function(option) {
-        option.classList.remove('selected');
+      const cards =
+        document.querySelectorAll(".category");
+
+      cards.forEach(function(item) {
+        item.classList.remove("selected");
       });
 
-      element.classList.add('selected');
+      card.classList.add("selected");
+
+      selectedCategory = {
+        name: card.dataset.name,
+        price: card.dataset.price
+      };
+
+      document.getElementById("selectedName").textContent =
+        selectedCategory.name;
+
+      document.getElementById("selectedPrice").textContent =
+        selectedCategory.price;
+
+      document
+        .getElementById("pricePanel")
+        .classList.add("visible");
+
+      setTimeout(function() {
+
+        document
+          .getElementById("pricePanel")
+          .scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+          });
+
+      }, 100);
+
+    }
 
 
-      const priceBox = document.getElementById('priceBox');
-      const price = document.getElementById('price');
-      const description = document.getElementById('priceDescription');
-      const continueButton = document.getElementById('continueButton');
+    function continueSelection() {
 
-
-      if (type === 'creator') {
-
-        price.textContent = '₹2,999';
-
-        description.textContent =
-          'Creator / Public Figure placement. Your 2026 moment becomes part of the permanent Capsule archive.';
-
+      if (!selectedCategory) {
+        return;
       }
 
+      /*
+        PAYMENT / DETAILS FLOW
+        WILL BE CONNECTED IN THE NEXT STEP.
+      */
 
-      if (type === 'achievement') {
-
-        price.textContent = '₹2,999';
-
-        description.textContent =
-          'Personal Achievement placement. Preserve a milestone or special moment that defined your 2026.';
-
-      }
-
-
-      if (type === 'startup') {
-
-        price.textContent = '₹4,999';
-
-        description.textContent =
-          'Startup / Business placement. Preserve the moment that represents your company in 2026.';
-
-      }
-
-
-      if (type === 'brand') {
-
-        price.textContent = '₹9,999';
-
-        description.textContent =
-          'Brand placement. Preserve a defining product, campaign or business moment from 2026.';
-
-      }
-
-
-      if (type === 'premium') {
-
-        price.textContent = '₹24,999+';
-
-        description.textContent =
-          'Curated placement for established brands and organisations. Final placement is subject to review.';
-
-      }
-
-
-      priceBox.classList.add('show');
-      continueButton.classList.add('show');
+      alert(
+        "Selected: " +
+        selectedCategory.name +
+        "\\nPrice: " +
+        selectedCategory.price +
+        "\\n\\nThe next step will collect your details."
+      );
 
     }
 
