@@ -1,3 +1,9 @@
+INDIA DIGITAL CAPSULE 2026 — HTML SOURCE CODE
+=============================================
+This is the complete HTML source. Save a copy as index.html before uploading to GitHub.
+Payment confirmation panel included as an integration hook; real payment verification,
+entry approval, email delivery, and shared grid reservations require a backend/payment integration.
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -86,14 +92,6 @@ h1{font-size:clamp(48px,6.4vw,84px);line-height:.87;letter-spacing:-.085em;margi
 .square.hidden{display:none}
 .grid-bottom{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap;margin-top:18px;font-size:11px;color:var(--muted)}
 .grid-bottom button{border:0;border-radius:99px;background:var(--ink);color:white;padding:12px 16px;font-size:11px;font-weight:850;cursor:pointer}
-.free-list-toggle{border:0;border-radius:99px;background:linear-gradient(110deg,#ffe477,#ffbd58);color:#38254d;padding:12px 16px;font-size:11px;font-weight:900;cursor:pointer}
-.free-square-panel{display:none;margin-top:14px;padding:18px;border-radius:16px;background:linear-gradient(135deg,#fff7d5,#ffe8f2);border:1px solid #f2d68a}
-.free-square-panel.open{display:block}
-.free-square-panel h4{margin:0 0 6px;font-size:16px}
-.free-square-panel p{margin:0 0 12px;color:var(--muted);font-size:12px;line-height:1.6}
-.free-number-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(54px,1fr));gap:7px}
-.free-number-list button{border:1px solid #e8c34b;border-radius:9px;background:#fff4b8;color:#4a3655;padding:9px 4px;font-size:12px;font-weight:900;cursor:pointer}
-.free-number-list button:hover{transform:translateY(-2px);box-shadow:0 5px 12px #8b6d2730}
 .how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .how-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 10px 30px #4b35750a}
 .how-card:nth-child(1){background:#fff0f6}.how-card:nth-child(2){background:#fff7dc}.how-card:nth-child(3){background:#f0eaff}.how-card:nth-child(4){background:#e6faf4}
@@ -163,7 +161,7 @@ h1{font-size:clamp(48px,6.4vw,84px);line-height:.87;letter-spacing:-.085em;margi
   <div class="grid-shell">
     <div class="grid-top">
       <div><h3>INDIA DIGITAL CAPSULE 2026</h3><p>Every square holds a piece of the year.</p></div>
-      <div class="counter"><strong id="gridCount">0 / 1,000</strong><span id="gridLabel">25 invitation-only free squares</span></div>
+      <div class="counter"><strong id="gridCount">0 / 1,000</strong><span id="gridLabel">Explore the 2026 mosaic</span></div>
     </div>
     <div class="progress" aria-label="Illustrative grid progress"><span id="gridProgress"></span></div>
     <div class="controls">
@@ -172,16 +170,16 @@ h1{font-size:clamp(48px,6.4vw,84px);line-height:.87;letter-spacing:-.085em;margi
         <option value="all">All squares</option><option value="available">Available</option><option value="occupied">Occupied</option>
       </select>
     </div>
-    <div class="legend"><span><i class="swatch" style="background:#ff4e9b"></i> Available</span><span><i class="swatch" style="background:#ffd85b"></i> Invitation-only · free</span><span><i class="swatch" style="background:#596078"></i> Occupied in this preview</span><span><i class="swatch" style="background:#7c5cff"></i> Colourful 2026 mosaic</span></div>
-    <div class="grid-viewport"><div id="capsuleGrid" class="capsule-grid" aria-label="Interactive prototype mosaic"></div></div>
-    <div class="grid-bottom"><span id="gridHint">Click any available square to see its details. Prices are not shown until you click.</span><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="free-list-toggle" id="toggleFreeList" type="button" aria-expanded="false">VIEW 25 FREE INVITATION SQUARES</button><button id="loadMoreSquares" type="button">OPEN EXPANSION · 2,000 SQUARES +</button></div></div><div class="free-square-panel" id="freeSquarePanel"><h4>🎟️ Your 25 free invitation squares</h4><p>These gold square numbers are reserved for invited participants in this preview. Click a number to open that square. Please share the numbers privately with invitees.</p><div class="free-number-list" id="freeNumberList"></div></div>
+    <div class="legend"><span><i class="swatch" style="background:#ff4e9b"></i> Available</span><span><i class="swatch" style="background:#596078"></i> Occupied</span><span><i class="swatch" style="background:#7c5cff"></i> 2026 mosaic</span></div>
+    <div class="grid-viewport"><div id="capsuleGrid" class="capsule-grid" aria-label="Interactive 2026 mosaic"></div></div>
+    <div class="grid-bottom"><span id="gridHint">Choose an available square to view its participation details.</span><button id="loadMoreSquares" type="button">OPEN EXPANSION · 2,000 SQUARES +</button></div>
   </div>
  </div>
 </section>
 
 <section class="section" id="how">
  <div class="wrap">
-  <div class="section-head"><div><div class="eyebrow">Simple by design</div><h2 class="section-title">HOW IT <span class="gradient">WORKS.</span></h2></div><p>A short, considered process for preserving a moment from 2026. The 25 invitation-only squares are free; all other available squares have one fixed fee. Online payment and shared reservations still need to be connected before launch.</p></div>
+  <div class="section-head"><div><div class="eyebrow">Simple by design</div><h2 class="section-title">HOW IT <span class="gradient">WORKS.</span></h2></div><p>Choose an available square, share your 2026 moment, and make it part of a growing digital time capsule. Each standard placement has one fixed participation fee.</p></div>
   <div class="how-grid">
     <article class="how-card"><div class="step-number">01</div><h3>Choose your place</h3><p>Pick the participant category that best describes your story, achievement or brand.</p></article>
     <article class="how-card"><div class="step-number">02</div><h3>Share your moment</h3><p>Prepare a short 3–5 second video and the destination link you want people to visit.</p></article>
@@ -193,7 +191,7 @@ h1{font-size:clamp(48px,6.4vw,84px);line-height:.87;letter-spacing:-.085em;margi
 
 <section class="section categories" id="categories">
  <div class="wrap">
-  <div class="section-head"><div><div class="eyebrow">Find your place in the story</div><h2 class="section-title">WHAT WILL YOU <span class="gradient">PRESERVE?</span></h2></div><p>Choose the path that best describes your 2026 moment. The participation fee is the same for everyone and is shown only after you click an available square. Invited participants can use one of the 25 free invitation squares.</p></div>
+  <div class="section-head"><div><div class="eyebrow">Find your place in the story</div><h2 class="section-title">WHAT WILL YOU <span class="gradient">PRESERVE?</span></h2></div><p>Choose the path that best describes your 2026 moment. The same participation fee applies to every standard placement and is revealed when you select an available square.</p></div>
   <div class="category-cards">
     <a class="category-card" href="moment.html?type=achievement"><span class="category-icon">🏆</span><span><strong>Personal Achievement</strong><small>Personal milestones, graduations, weddings and meaningful memories.</small></span></a>
     <a class="category-card" href="moment.html?type=creator"><span class="category-icon">📱</span><span><strong>Creator / Influencer</strong><small>Creators, artists and digital storytellers preserving a 2026 milestone.</small></span></a>
@@ -211,7 +209,7 @@ h1{font-size:clamp(48px,6.4vw,84px);line-height:.87;letter-spacing:-.085em;margi
   <h2 class="section-title">WHAT WILL INDIA<br>REMEMBER ABOUT <span class="gradient">2026?</span></h2>
   <p>Years from now, people may ask what we built, celebrated, changed and dreamed about in 2026. India Digital Capsule is a project designed to collect a small mosaic of those moments, one approved entry at a time.</p>
   <div class="quote">“Make an advertisement. Make a memory.”</div>
-  <p><strong>Launch note:</strong> this page is still a front-end prototype. The 25 invitation-only free squares are selected randomly for the preview. Occupancy in this demo is saved only in the current browser, not shared with other visitors. Real shared availability, submissions, payment verification and archival arrangements must be connected before accepting participants.</p>
+  
  </div>
 </section>
 
@@ -235,9 +233,9 @@ h1{font-size:clamp(48px,6.4vw,84px);line-height:.87;letter-spacing:-.085em;margi
   <button class="modal-close" id="modalClose" aria-label="Close dialog">×</button>
   <div class="modal-kicker">YOUR PLACE IN THE MOSAIC</div>
   <h3 id="modalTitle">Square #1</h3>
-  <p id="modalText">This is a prototype square. Real participant information will appear here after the submission, review and storage system is connected.</p>
+  <p id="modalText">Choose this square to view its participation details.</p>
   <div class="modal-actions"><button class="btn btn-bright" id="squareAction" type="button">Choose this square ↗</button><button class="pill" id="modalDismiss" type="button">Keep exploring</button></div>
-  <p class="notice" id="modalNotice">Preview only: a real reservation, payment and shared occupancy system still needs to be connected.</p>
+  <p class="notice" id="modalNotice">Select an available square to view the participation fee.</p>
  </div>
 </div>
 
@@ -251,9 +249,6 @@ h1{font-size:clamp(48px,6.4vw,84px);line-height:.87;letter-spacing:-.085em;margi
   const filter=document.getElementById('gridFilter');
   const more=document.getElementById('loadMoreSquares');
   const hint=document.getElementById('gridHint');
-  const toggleFreeList=document.getElementById('toggleFreeList');
-  const freeSquarePanel=document.getElementById('freeSquarePanel');
-  const freeNumberList=document.getElementById('freeNumberList');
   const modal=document.getElementById('squareModal');
   const modalTitle=document.getElementById('modalTitle');
   const modalText=document.getElementById('modalText');
@@ -265,8 +260,7 @@ h1{font-size:clamp(48px,6.4vw,84px);line-height:.87;letter-spacing:-.085em;margi
   const FREE_COUNT=25;
   let renderLimit=1000, expanded=false, activeSquare=null;
 
-  // Stable pseudo-random selection: the same 25 invitation squares appear for every preview visitor.
-  // This is only a prototype; real invitations and occupancy must be stored on a server.
+  // Private allocation remains internal to the site code and is not displayed in the public interface.
   let seed=20261019;
   function rand(){seed=(seed*1664525+1013904223)>>>0;return seed/4294967296}
   const freeSquares=new Set();
@@ -289,9 +283,7 @@ h1{font-size:clamp(48px,6.4vw,84px);line-height:.87;letter-spacing:-.085em;margi
       return Math.abs((((nx-.5)**2)/(.15**2))+(((ny-.5)**2)/(.32**2))-1)<.24;
     return inBox(dx,dy,.12,.12,.88,.24)||inBox(dx,dy,.12,.12,.30,.88)||inBox(dx,dy,.12,.43,.88,.57)||inBox(dx,dy,.70,.43,.88,.88)||inBox(dx,dy,.12,.76,.88,.90);
   }
-  function statusOf(n){return readOccupied().has(n)?'occupied':(freeSquares.has(n)?'free':'available')}
-  [...freeSquares].sort((a,b)=>a-b).forEach(n=>{const b=document.createElement('button');b.type='button';b.textContent='#'+n;b.title='Open free invitation square #'+n;b.addEventListener('click',()=>{if(n>renderLimit){expanded=true;renderLimit=2000;more.textContent='RETURN TO 1,000 SQUARES';render()}openSquare(n)});freeNumberList.appendChild(b)});
-  toggleFreeList.addEventListener('click',()=>{const isOpen=freeSquarePanel.classList.toggle('open');toggleFreeList.setAttribute('aria-expanded',String(isOpen));toggleFreeList.textContent=isOpen?'HIDE FREE SQUARE NUMBERS':'VIEW 25 FREE INVITATION SQUARES'});
+  function statusOf(n){return readOccupied().has(n)?'occupied':'available'}
   function openSquare(n){
     activeSquare=n;
     const status=statusOf(n);
@@ -301,16 +293,11 @@ h1{font-size:clamp(48px,6.4vw,84px);line-height:.87;letter-spacing:-.085em;margi
       action.textContent='Mark available again';
       action.dataset.action='release';
       modalNotice.textContent='Preview only: this status is saved in this browser and is not shared with other visitors.';
-    }else if(status==='free'){
-      modalText.textContent='This is one of 25 randomly selected invitation-only squares. It is free for an invited participant. Please use it only if you have been invited.';
-      action.textContent='Select free invitation square ↗';
-      action.dataset.action='free';
-      modalNotice.textContent='No payment is due for an invited participant. A real invitation check and submission form still need to be connected.';
     }else{
       modalText.textContent='This square is available. The fixed participation fee is ₹499 for everyone, regardless of category.';
       action.textContent='Continue · ₹499 ↗';
       action.dataset.action='paid';
-      modalNotice.textContent='The ₹499 fee is displayed here only after clicking a square. Checkout and shared reservations are not connected in this prototype.';
+      modalNotice.textContent='The fixed participation fee is ₹499 for standard placements.';
     }
     modal.classList.add('open'); close.focus();
   }
@@ -330,31 +317,26 @@ h1{font-size:clamp(48px,6.4vw,84px);line-height:.87;letter-spacing:-.085em;margi
       const btn=document.createElement('button');
       btn.type='button';
       btn.className='square '+colors[(i*7+i%5)%colors.length];
-      if(status==='free') btn.style.background='linear-gradient(135deg,#fff0a8,#ffd85b)';
       if(status==='occupied') btn.style.background='linear-gradient(135deg,#596078,#252943)';
       btn.setAttribute('aria-label','Square '+i+' · '+status);
-      btn.title='Square #'+i+' · '+(status==='free'?'invitation-only free':status);
+      btn.title='Square #'+i+' · '+(status==='occupied'?'occupied':'available');
       btn.dataset.number=String(i);
       btn.addEventListener('click',()=>openSquare(i));
       fragment.appendChild(btn); shown++;
     }
     grid.appendChild(fragment);
     count.textContent=shown.toLocaleString('en-IN')+' / '+renderLimit.toLocaleString('en-IN');
-    label.textContent=freeCount+' free invitation squares · '+availableCount+' available · '+occupiedCount+' occupied';
+    label.textContent=availableCount+' available · '+occupiedCount+' occupied';
     const filled=occupied.size;
     progress.style.width=(Math.min(100,filled/renderLimit*100))+'%';
-    hint.textContent=shown.toLocaleString('en-IN')+' squares shown · click a square to see whether it is free by invitation or ₹499.';
+    hint.textContent=shown.toLocaleString('en-IN')+' squares shown · click an available square to reveal the participation fee.';
   }
   action.addEventListener('click',function(){
     if(activeSquare===null)return;
     const occupied=readOccupied(), type=action.dataset.action;
-    if(type==='release') occupied.delete(activeSquare);
-    else {
-      if(type==='free' && !freeSquares.has(activeSquare))return;
-      if(type==='paid' && statusOf(activeSquare)!=='available')return;
-      occupied.add(activeSquare);
-    }
-    saveOccupied(occupied); closeModal(); render();
+    if(type==='release') { occupied.delete(activeSquare); saveOccupied(occupied); closeModal(); render(); return; }
+    // Do not pretend a click is a real booking; payment and shared reservations must be integrated before launch.
+    closeModal();
   });
   search.addEventListener('input',render);
   filter.addEventListener('change',render);
@@ -371,5 +353,53 @@ h1{font-size:clamp(48px,6.4vw,84px);line-height:.87;letter-spacing:-.085em;margi
   render();
 })();
 </script>
+
+<!-- Payment confirmation panel.
+     Show this ONLY after your payment provider/backend verifies payment
+     AND your submission is approved. This static HTML cannot verify payments by itself. -->
+<section id="paymentConfirmation" class="confirmation-overlay" role="dialog" aria-modal="true" aria-labelledby="confirmationHeading" hidden>
+  <div class="confirmation-card">
+    <div class="confirmation-icon" aria-hidden="true">✓</div>
+    <p class="eyebrow">INDIA DIGITAL CAPSULE 2026</p>
+    <h2 id="confirmationHeading">Your moment is confirmed!</h2>
+    <p>Your payment has been verified and your entry approved.</p>
+    <div class="confirmation-number-label">YOUR GRID NUMBER</div>
+    <div class="confirmation-number" id="confirmationGridNumber">#0000</div>
+    <p class="confirmation-copy">Your approved entry has been assigned this grid number for preservation in the India Digital Capsule 2026 archive. Please keep this number safe so you can find your moment in the capsule.</p>
+    <p class="confirmation-copy">The capsule is scheduled to be frozen on 31 December 2026.</p>
+    <button type="button" class="btn btn-bright" id="closePaymentConfirmation">CONTINUE EXPLORING</button>
+  </div>
+</section>
+<style>
+.confirmation-overlay{position:fixed;inset:0;z-index:9999;background:rgba(20,18,42,.72);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:20px}
+.confirmation-overlay[hidden]{display:none}
+.confirmation-card{width:min(100%,520px);max-height:90vh;overflow:auto;background:#fffdfb;border-radius:28px;padding:clamp(24px,5vw,42px);text-align:center;box-shadow:0 24px 80px rgba(0,0,0,.25);color:#27213d}
+.confirmation-icon{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;margin:0 auto 18px;background:#d9f8e9;color:#16805e;font-size:34px;font-weight:800}
+.confirmation-card h2{font-size:clamp(27px,5vw,38px);line-height:1.1;margin:10px 0 14px}
+.confirmation-number-label{font-size:12px;letter-spacing:.15em;font-weight:800;margin-top:24px;color:#746a8b}
+.confirmation-number{font-size:clamp(36px,8vw,52px);font-weight:900;color:#6c45d8;margin:7px 0 14px}
+.confirmation-copy{line-height:1.65;color:#5b536b;font-size:14px;margin:12px 0}
+.confirmation-card .btn{margin-top:18px;cursor:pointer}
+</style>
+<script>
+/* Integration hook:
+   Call window.showCapsulePaymentConfirmation(gridNumber) ONLY after your server
+   confirms payment AND approves the entry. Do not call it just because a user
+   clicked a square or returned from a payment page. */
+window.showCapsulePaymentConfirmation = function(gridNumber) {
+  const overlay = document.getElementById('paymentConfirmation');
+  const number = document.getElementById('confirmationGridNumber');
+  if (!overlay || !number || !/^[A-Za-z0-9-]{1,30}$/.test(String(gridNumber))) return;
+  number.textContent = '#' + String(gridNumber);
+  overlay.hidden = false;
+};
+(function(){
+  const overlay = document.getElementById('paymentConfirmation');
+  const close = document.getElementById('closePaymentConfirmation');
+  if (close && overlay) close.addEventListener('click', () => { overlay.hidden = true; });
+  if (overlay) overlay.addEventListener('click', event => { if (event.target === overlay) overlay.hidden = true; });
+})();
+</script>
+
 </body>
 </html>
