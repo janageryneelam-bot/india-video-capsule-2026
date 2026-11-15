@@ -1,51 +1,67 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#fff8ef">
-<meta name="description" content="India Digital Capsule 2026 — Make an advertisement. Make a memory. Preserve a moment in India's digital time capsule.">
-<title>India Digital Capsule 2026 — Make an Advertisement. Make a Memory.</title>
+<meta name="description" content="Digital Memory — Your story. Your space. Your memory.">
+<title>Digital Memory | Your Story. Your Space.</title>
+
 <style>
-:root{
-  --ink:#202044;--muted:#686783;--paper:#fff9f1;--pink:#ff4e9b;
-  --orange:#ff8b45;--yellow:#ffd85b;--purple:#7c5cff;--blue:#48bce8;
-  --teal:#45d2b0;--line:rgba(32,32,68,.13);--shadow:0 18px 55px rgba(77,49,120,.12);
+:root {
+  --ink:#202044;
+  --muted:#686783;
+  --paper:#fff9f1;
+  --pink:#ff4e9b;
+  --orange:#ff8b45;
+  --yellow:#ffd85b;
+  --purple:#7c5cff;
+  --blue:#48bce8;
+  --teal:#45d2b0;
+  --line:rgba(32,32,68,.13);
+  --shadow:0 18px 55px rgba(77,49,120,.12);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif
+}
 a{color:inherit;text-decoration:none}
 button,input,select{font:inherit}
-button,a{ -webkit-tap-highlight-color:transparent}
-.wrap{width:min(1200px,calc(100% - 40px));margin-inline:auto}
+.wrap{width:min(1200px,calc(100% - 40px));margin:auto}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 0}
-.brand{font-size:20px;font-weight:950;letter-spacing:-.06em;line-height:.9}
+.brand{font-size:21px;font-weight:950;letter-spacing:-.06em;line-height:.9}
 .brand small{display:block;font-size:9px;letter-spacing:.18em;margin-top:7px}
-.navlinks{display:flex;gap:22px;font-size:12px;font-weight:800;color:#686783}
+.navlinks{display:flex;gap:22px;font-size:12px;font-weight:800;color:var(--muted)}
 .navlinks a:hover{color:var(--pink)}
-.pill,.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:13px 18px;font-size:12px;font-weight:900;cursor:pointer;transition:transform .2s,box-shadow .2s}
-.btn{background:var(--ink);color:#fff;box-shadow:0 6px 0 rgba(32,32,68,.1)}
+.btn,.pill{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  border:0;border-radius:999px;padding:13px 18px;font-size:12px;
+  font-weight:900;cursor:pointer;transition:.2s
+}
+.btn{background:var(--ink);color:white}
 .btn:hover,.pill:hover{transform:translateY(-2px)}
-.btn-bright{background:linear-gradient(100deg,var(--pink),var(--orange));color:#fff;box-shadow:0 7px 20px rgba(255,78,155,.22)}
-.pill{background:#fff;border:1px solid var(--line);color:var(--ink)}
-.hero{position:relative;display:grid;grid-template-columns:.85fr 1.15fr;gap:40px;align-items:center;padding:46px 0 62px}
+.btn-bright{background:linear-gradient(100deg,var(--pink),var(--orange));color:white}
+.pill{background:white;border:1px solid var(--line);color:var(--ink)}
+.hero{display:grid;grid-template-columns:.85fr 1.15fr;gap:40px;align-items:center;padding:48px 0 65px}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;text-transform:uppercase;letter-spacing:.16em;font-size:10px;font-weight:950;color:#6b55c5}
 .eyebrow:before{content:"";width:24px;height:3px;border-radius:9px;background:linear-gradient(90deg,var(--pink),var(--orange))}
 h1{font-size:clamp(48px,6.4vw,84px);line-height:.87;letter-spacing:-.085em;margin:22px 0;font-weight:1000}
 .gradient{background:linear-gradient(100deg,var(--pink),var(--orange) 45%,var(--purple));-webkit-background-clip:text;background-clip:text;color:transparent}
 .tagline{font-size:clamp(19px,2vw,26px);font-weight:850;letter-spacing:-.04em;margin:0 0 14px}
-.hero-copy{max-width:480px;font-size:14px;line-height:1.8;color:var(--muted);margin:0 0 22px}
-.hero-points{display:flex;flex-wrap:wrap;gap:10px 14px;margin-top:22px;color:#66627e;font-size:11px;font-weight:800}
-.hero-points span{display:flex;align-items:center;gap:7px}
+.hero-copy{max-width:480px;font-size:14px;line-height:1.8;color:var(--muted);margin-bottom:22px}
+.hero-points{display:flex;flex-wrap:wrap;gap:10px 14px;margin-top:22px;color:var(--muted);font-size:11px;font-weight:800}
 .dot{width:8px;height:8px;border-radius:50%;background:var(--pink);display:inline-block}
 .hero-art{min-height:440px;position:relative;border-radius:30px;background:linear-gradient(135deg,#ffe0ed,#eee4ff 48%,#d9f8ed);overflow:hidden;box-shadow:var(--shadow)}
 .hero-art:before,.hero-art:after{content:"";position:absolute;border-radius:50%;filter:blur(1px)}
 .hero-art:before{width:250px;height:250px;right:-50px;top:-60px;background:#ffcb68aa}
 .hero-art:after{width:260px;height:260px;left:-70px;bottom:-110px;background:#ff73b4aa}
 .art-label{position:absolute;z-index:2;font:italic 14px Georgia,serif;color:#5d4a83}
-.art-label.a{left:7%;top:7%;transform:rotate(-8deg)}.art-label.b{right:6%;bottom:7%;transform:rotate(7deg)}
-.art-tile{position:absolute;width:29%;height:39%;border:6px solid #fff;border-radius:13px;box-shadow:0 18px 35px #4a327733;display:grid;place-items:center;color:white;font-size:40px;font-weight:1000;transform:rotate(var(--r));background:linear-gradient(135deg,var(--a),var(--b))}
+.art-label.a{left:7%;top:7%;transform:rotate(-8deg)}
+.art-label.b{right:6%;bottom:7%;transform:rotate(7deg)}
+.art-tile{position:absolute;width:29%;height:39%;border:6px solid white;border-radius:13px;box-shadow:0 18px 35px #4a327733;display:grid;place-items:center;color:white;font-size:40px;font-weight:1000;transform:rotate(var(--r));background:linear-gradient(135deg,var(--a),var(--b))}
 .art-tile:nth-of-type(1){left:10%;top:19%;--r:-8deg;--a:#ff4e9b;--b:#a85cff}
 .art-tile:nth-of-type(2){right:10%;top:10%;--r:7deg;--a:#ffd85b;--b:#ff8b45}
 .art-tile:nth-of-type(3){left:36%;top:36%;width:34%;height:43%;--r:3deg;--a:#48bce8;--b:#7c5cff}
@@ -58,7 +74,7 @@ h1{font-size:clamp(48px,6.4vw,84px);line-height:.87;letter-spacing:-.085em;margi
 .mosaic-section{background:linear-gradient(135deg,#fff5f7,#f4efff 50%,#eafaf5);border-block:1px solid #eadff5}
 .grid-shell{padding:24px;border:1px solid #e6dcf2;border-radius:24px;background:rgba(255,255,255,.75);box-shadow:var(--shadow)}
 .grid-top{display:flex;align-items:center;justify-content:space-between;gap:18px}
-.grid-top h3{font-size:15px;margin:0 0 6px;letter-spacing:-.03em}
+.grid-top h3{font-size:15px;margin:0 0 6px}
 .grid-top p{margin:0;color:var(--muted);font-size:12px}
 .counter{text-align:right;white-space:nowrap}
 .counter strong{display:block;font-size:22px;color:#e83e91}
@@ -66,14 +82,14 @@ h1{font-size:clamp(48px,6.4vw,84px);line-height:.87;letter-spacing:-.085em;margi
 .progress{height:8px;background:#e8e0f1;border-radius:99px;overflow:hidden;margin:20px 0}
 .progress span{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--pink),var(--orange),var(--purple));transition:width .3s}
 .controls{display:flex;gap:10px;margin-bottom:15px}
-.controls input,.controls select{min-width:0;padding:12px 14px;border:1px solid #e0d7ed;border-radius:12px;background:#fff;color:var(--ink);outline-color:var(--purple)}
+.controls input,.controls select{min-width:0;padding:12px 14px;border:1px solid #e0d7ed;border-radius:12px;background:white;color:var(--ink)}
 .controls input{flex:1}
 .legend{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 13px;font-size:10px;font-weight:800;color:var(--muted)}
 .legend span{display:flex;align-items:center;gap:6px}
 .swatch{width:10px;height:10px;border-radius:3px;display:inline-block}
 .grid-viewport{background:#242858;border-radius:15px;padding:8px;overflow:auto;max-height:560px}
 .capsule-grid{display:grid;grid-template-columns:repeat(40,minmax(0,1fr));gap:3px;min-width:560px}
-.square{position:relative;appearance:none;border:1px solid #ffffffa8;border-radius:3px;aspect-ratio:1;min-width:0;padding:0;cursor:pointer;background:#fff;transition:transform .12s,filter .12s;overflow:hidden}
+.square{position:relative;border:1px solid #ffffffa8;border-radius:3px;aspect-ratio:1;min-width:0;padding:0;cursor:pointer;background:white;transition:.12s}
 .square:hover,.square:focus-visible{z-index:2;transform:scale(1.35);filter:brightness(1.13);outline:2px solid white;outline-offset:1px}
 .square.art-pink{background:linear-gradient(135deg,#ff4e9b,#ff9b9b)}
 .square.art-orange{background:linear-gradient(135deg,#ffd85b,#ff8b45)}
@@ -82,28 +98,25 @@ h1{font-size:clamp(48px,6.4vw,84px);line-height:.87;letter-spacing:-.085em;margi
 .square.art-teal{background:linear-gradient(135deg,#76e5c3,#159caa)}
 .square.art-saffron{background:linear-gradient(135deg,#ffbc67,#f05e58)}
 .square.art-ivory{background:linear-gradient(135deg,#fff0c4,#e7b7d6)}
-.square.demo{box-shadow:inset 0 0 0 1px #ffffff66}
-.square.hidden{display:none}
+.square.occupied,.square.reserved{background:linear-gradient(135deg,#596078,#252943)!important;cursor:not-allowed}
 .grid-bottom{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap;margin-top:18px;font-size:11px;color:var(--muted)}
-.grid-bottom button{border:0;border-radius:99px;background:var(--ink);color:white;padding:12px 16px;font-size:11px;font-weight:850;cursor:pointer}
 .how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.how-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 10px 30px #4b35750a}
-.how-card:nth-child(1){background:#fff0f6}.how-card:nth-child(2){background:#fff7dc}.how-card:nth-child(3){background:#f0eaff}.how-card:nth-child(4){background:#e6faf4}
-.step-number{width:35px;height:35px;border-radius:12px;display:grid;place-items:center;background:#fff;font-weight:950;margin-bottom:18px}
-.how-card h3{margin:0 0 8px;font-size:15px}.how-card p{margin:0;color:var(--muted);font-size:12px;line-height:1.7}
-.categories{background:#fff}
-.category-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-.category-card{display:flex;gap:13px;padding:20px;background:#fff;border:1px solid var(--line);border-radius:16px;transition:transform .2s,box-shadow .2s}
-.category-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
-.category-icon{flex:0 0 42px;height:42px;border-radius:13px;background:#ffe0ed;display:grid;place-items:center;font-size:21px}
-.category-card:nth-child(2) .category-icon{background:#e8e0ff}.category-card:nth-child(3) .category-icon{background:#dff5ff}.category-card:nth-child(4) .category-icon{background:#dcf8eb}.category-card:nth-child(5) .category-icon{background:#fff0c5}.category-card:nth-child(6) .category-icon{background:#ffe2d7}
-.category-card strong{display:block;font-size:13px}.price{display:block;color:#e83e91;font-size:13px;font-weight:950;margin-top:6px}.category-card small{display:block;color:var(--muted);font-size:11px;line-height:1.55;margin-top:7px}
+.how-card{background:white;border:1px solid var(--line);border-radius:18px;padding:22px}
+.how-card:nth-child(1){background:#fff0f6}
+.how-card:nth-child(2){background:#fff7dc}
+.how-card:nth-child(3){background:#f0eaff}
+.how-card:nth-child(4){background:#e6faf4}
+.step-number{width:35px;height:35px;border-radius:12px;display:grid;place-items:center;background:white;font-weight:950;margin-bottom:18px}
+.how-card h3{margin:0 0 8px;font-size:15px}
+.how-card p{margin:0;color:var(--muted);font-size:12px;line-height:1.7}
 .history{background:linear-gradient(120deg,#ffe0ed,#ece4ff 50%,#dff8ed);padding:70px 0}
-.history-inner{max-width:780px}.history p{max-width:650px;color:#625c7b;line-height:1.8;font-size:14px}.quote{font:italic clamp(24px,3vw,36px) Georgia,serif;color:#6946a4;margin:20px 0}
-.cta{padding:75px 0;background:linear-gradient(110deg,#6d4ce5,#e94d9a 55%,#ff8b45);color:#fff;text-align:center}
+.history-inner{max-width:780px}
+.history p{max-width:650px;color:#625c7b;line-height:1.8;font-size:14px}
+.quote{font:italic clamp(24px,3vw,36px) Georgia,serif;color:#6946a4;margin:20px 0}
+.cta{padding:75px 0;background:linear-gradient(110deg,#6d4ce5,#e94d9a 55%,#ff8b45);color:white;text-align:center}
 .cta h2{font-size:clamp(34px,5vw,60px);letter-spacing:-.07em;line-height:.95;margin:18px auto;max-width:800px}
 .cta p{color:#fff4ff;font-size:14px;line-height:1.7}
-.cta .btn{background:#fff;color:#33244d;box-shadow:none}
+.cta .btn{background:white;color:#33244d}
 .footer{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;padding:24px 0;color:var(--muted);font-size:11px}
 .footer-links{display:flex;gap:13px;flex-wrap:wrap}
 .modal{position:fixed;inset:0;z-index:20;background:#28204199;backdrop-filter:blur(7px);display:none;align-items:center;justify-content:center;padding:20px}
@@ -115,283 +128,375 @@ h1{font-size:clamp(48px,6.4vw,84px);line-height:.87;letter-spacing:-.085em;margi
 .modal-card p{font-size:13px;line-height:1.7;color:var(--muted)}
 .modal-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
 .notice{font-size:10px;color:#766d89;line-height:1.6;margin-top:15px}
-@media(max-width:850px){.navlinks{display:none}.hero{grid-template-columns:1fr;padding-top:25px}.hero-art{min-height:380px}.how-grid{grid-template-columns:repeat(2,1fr)}.category-cards{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.wrap{width:calc(100% - 26px)}.nav{padding:17px 0}.brand{font-size:17px}.nav>.btn{padding:11px 12px;font-size:10px}.hero{padding:25px 0 42px;gap:24px}.hero-art{min-height:330px}.art-tile{border-width:4px}.section{padding:52px 0}.section-head{display:block}.grid-shell{padding:13px}.grid-top{align-items:start}.counter strong{font-size:18px}.controls{flex-direction:column}.capsule-grid{grid-template-columns:repeat(25,minmax(0,1fr));min-width:0;gap:2px}.grid-viewport{padding:5px;max-height:460px}.how-grid,.category-cards{grid-template-columns:1fr}.how-card{padding:18px}.footer{flex-direction:column}.grid-bottom{align-items:flex-start}}
+@media(max-width:850px){
+ .navlinks{display:none}
+ .hero{grid-template-columns:1fr;padding-top:25px}
+ .hero-art{min-height:380px}
+ .how-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:560px){
+ .wrap{width:calc(100% - 26px)}
+ .nav{padding:17px 0}
+ .brand{font-size:17px}
+ .hero{padding:25px 0 42px;gap:24px}
+ .hero-art{min-height:330px}
+ .section{padding:52px 0}
+ .section-head{display:block}
+ .grid-shell{padding:13px}
+ .grid-top{align-items:start}
+ .counter strong{font-size:18px}
+ .controls{flex-direction:column}
+ .capsule-grid{grid-template-columns:repeat(25,minmax(0,1fr));min-width:0;gap:2px}
+ .grid-viewport{padding:5px;max-height:460px}
+ .how-grid{grid-template-columns:1fr}
+ .footer{flex-direction:column}
+}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
 </style>
 </head>
+
 <body>
 <header class="wrap nav">
-  <a class="brand" href="#home" aria-label="India Digital Capsule 2026 home">INDIA<small>DIGITAL CAPSULE 2026</small></a>
-  <nav class="navlinks" aria-label="Main navigation">
-    <a href="#grid">The Grid</a><a href="#how">How It Works</a><a href="#categories">Categories</a><a href="#faq">About</a>
-  </nav>
-  <a class="btn btn-bright" href="#categories">PRESERVE YOUR MOMENT ↗</a>
+ <a class="brand" href="#home">DIGITAL<small>MEMORY</small></a>
+ <nav class="navlinks">
+  <a href="#grid">Digital Wall</a>
+  <a href="#how">How It Works</a>
+  <a href="#about">About</a>
+ </nav>
+ <a class="btn btn-bright" href="#grid">PRESERVE YOUR MOMENT ↗</a>
 </header>
 
 <main>
 <section class="wrap hero" id="home">
-  <div>
-    <div class="eyebrow">India · 2026 · Digital time capsule</div>
-    <h1>MAKE A<br><span class="gradient">MEMORY.</span><br>FREEZE <span class="gradient">2026.</span></h1>
-    <p class="tagline">Make an advertisement. Make a memory.</p>
-    <p class="hero-copy">A colourful digital time capsule for the people, milestones, creators, startups and brands that made 2026 worth remembering. Claim a square and become part of the story.</p>
-    <a class="btn btn-bright" href="#grid">EXPLORE THE MOSAIC <span aria-hidden="true">→</span></a>
-    <div class="hero-points"><span><i class="dot"></i> A 3–5 second moment</span><span><i class="dot" style="background:#7c5cff"></i> Your story and link</span><span><i class="dot" style="background:#45d2b0"></i> Archive planned for year-end</span></div>
+ <div>
+  <div class="eyebrow">A living digital memory wall</div>
+  <h1>YOUR STORY.<br><span class="gradient">YOUR SPACE.</span><br>YOUR MEMORY.</h1>
+  <p class="tagline">Make an advertisement. Make a memory.</p>
+  <p class="hero-copy">A colourful digital wall where people, creators, businesses and brands preserve a little piece of their story. Choose a square, share your moment and become part of a growing collection of memories.</p>
+  <a class="btn btn-bright" href="#grid">EXPLORE THE DIGITAL WALL →</a>
+  <div class="hero-points">
+   <span><i class="dot"></i> Your story</span>
+   <span><i class="dot" style="background:#7c5cff"></i> Your space</span>
+   <span><i class="dot" style="background:#45d2b0"></i> A lasting memory</span>
   </div>
-  <div class="hero-art" aria-label="Colourful abstract collage preview">
-    <span class="art-label a">little moments, big meaning</span>
-    <span class="art-label b">your year, your story</span>
-    <div class="art-tile">✦</div><div class="art-tile">2026</div><div class="art-tile">IN</div><div class="art-tile">♥</div><div class="art-tile">✳</div>
-  </div>
+ </div>
+ <div class="hero-art">
+  <span class="art-label a">little moments, big meaning</span>
+  <span class="art-label b">your story belongs here</span>
+  <div class="art-tile">✦</div>
+  <div class="art-tile">♥</div>
+  <div class="art-tile">DM</div>
+  <div class="art-tile">✳</div>
+  <div class="art-tile">✧</div>
+ </div>
 </section>
 
 <section class="section mosaic-section" id="grid">
  <div class="wrap">
   <div class="section-head">
-    <div><div class="eyebrow">A year, one square at a time</div><h2 class="section-title">THE 2026<br><span class="gradient">MOSAIC.</span></h2></div>
-    <p>Explore the colourful 2026 mosaic. A random set of 25 squares is reserved for invited participants at no charge. Every other available square has one fixed participation fee, revealed only when you click a square.</p>
+   <div>
+    <div class="eyebrow">One square at a time</div>
+    <h2 class="section-title">THE DIGITAL<br><span class="gradient">MEMORY WALL.</span></h2>
+   </div>
+   <p>Explore the wall and find your space. Select any available square to view its participation fee. A second set of squares will open automatically when the first set is filled.</p>
   </div>
+
   <div class="grid-shell">
-    <div class="grid-top">
-      <div><h3>INDIA DIGITAL CAPSULE 2026</h3><p>Every square holds a piece of the year.</p></div>
-      <div class="counter"><strong id="gridCount">0 / 1,000</strong><span id="gridLabel">Explore the 2026 mosaic</span></div>
+   <div class="grid-top">
+    <div>
+     <h3>DIGITAL MEMORY</h3>
+     <p>Every square holds a piece of a story.</p>
     </div>
-    <div class="progress" aria-label="Illustrative grid progress"><span id="gridProgress"></span></div>
-    <div class="controls">
-      <input id="gridSearch" type="search" placeholder="Search square number…" aria-label="Search squares">
-      <select id="gridFilter" aria-label="Filter squares">
-        <option value="all">All squares</option><option value="available">Available</option><option value="occupied">Occupied</option>
-      </select>
+    <div class="counter">
+     <strong id="gridCount">0 / 1,000</strong>
+     <span id="gridLabel">Explore the digital wall</span>
     </div>
-    <div class="legend"><span><i class="swatch" style="background:#ff4e9b"></i> Available</span><span><i class="swatch" style="background:#596078"></i> Occupied</span><span><i class="swatch" style="background:#7c5cff"></i> 2026 mosaic</span></div>
-    <div class="grid-viewport"><div id="capsuleGrid" class="capsule-grid" aria-label="Interactive 2026 mosaic"></div></div>
-    <div class="grid-bottom"><span id="gridHint">Choose an available square to view its participation details.</span><button id="loadMoreSquares" type="button">OPEN EXPANSION · 2,000 SQUARES +</button></div>
+   </div>
+
+   <div class="progress"><span id="gridProgress"></span></div>
+
+   <div class="controls">
+    <input id="gridSearch" type="search" placeholder="Search square number…" aria-label="Search squares">
+    <select id="gridFilter" aria-label="Filter squares">
+     <option value="all">All squares</option>
+     <option value="available">Available</option>
+     <option value="occupied">Occupied</option>
+    </select>
+   </div>
+
+   <div class="legend">
+    <span><i class="swatch" style="background:#ff4e9b"></i> Available</span>
+    <span><i class="swatch" style="background:#596078"></i> Unavailable</span>
+   </div>
+
+   <div class="grid-viewport">
+    <div id="capsuleGrid" class="capsule-grid" aria-label="Interactive digital memory wall"></div>
+   </div>
+
+   <div class="grid-bottom">
+    <span id="gridHint">Choose an available square to view its participation details.</span>
+    <span id="expansionStatus">1,000-square collection</span>
+   </div>
   </div>
  </div>
 </section>
 
 <section class="section" id="how">
  <div class="wrap">
-  <div class="section-head"><div><div class="eyebrow">Simple by design</div><h2 class="section-title">HOW IT <span class="gradient">WORKS.</span></h2></div><p>Choose an available square, share your 2026 moment, and make it part of a growing digital time capsule. Each standard placement has one fixed participation fee.</p></div>
+  <div class="section-head">
+   <div>
+    <div class="eyebrow">Simple by design</div>
+    <h2 class="section-title">HOW IT <span class="gradient">WORKS.</span></h2>
+   </div>
+   <p>Choose your space, share your story and become part of the Digital Memory wall.</p>
+  </div>
+
   <div class="how-grid">
-    <article class="how-card"><div class="step-number">01</div><h3>Choose your place</h3><p>Pick the participant category that best describes your story, achievement or brand.</p></article>
-    <article class="how-card"><div class="step-number">02</div><h3>Share your moment</h3><p>Prepare a short 3–5 second video and the destination link you want people to visit.</p></article>
-    <article class="how-card"><div class="step-number">03</div><h3>Review and approve</h3><p>Submissions are intended to be reviewed before they appear in the public mosaic.</p></article>
-    <article class="how-card"><div class="step-number">04</div><h3>Join the 2026 story</h3><p>The capsule is planned to close on December 31, 2026, creating a year-end archive.</p></article>
+   <article class="how-card">
+    <div class="step-number">01</div>
+    <h3>Choose your square</h3>
+    <p>Explore the wall and select an available square for your moment.</p>
+   </article>
+   <article class="how-card">
+    <div class="step-number">02</div>
+    <h3>Share your moment</h3>
+    <p>Submit a short video of up to five seconds or your destination link.</p>
+   </article>
+   <article class="how-card">
+    <div class="step-number">03</div>
+    <h3>Review and approve</h3>
+    <p>Your submission is reviewed before it appears on the public wall.</p>
+   </article>
+   <article class="how-card">
+    <div class="step-number">04</div>
+    <h3>Preserve your memory</h3>
+    <p>Your approved entry becomes part of the growing Digital Memory collection.</p>
+   </article>
   </div>
  </div>
 </section>
 
-<section class="section categories" id="categories">
- <div class="wrap">
-  <div class="section-head"><div><div class="eyebrow">Find your place in the story</div><h2 class="section-title">WHAT WILL YOU <span class="gradient">PRESERVE?</span></h2></div><p>Choose the path that best describes your 2026 moment. The same participation fee applies to every standard placement and is revealed when you select an available square.</p></div>
-  <div class="category-cards">
-    <a class="category-card" href="moment.html?type=achievement"><span class="category-icon">🏆</span><span><strong>Personal Achievement</strong><small>Personal milestones, graduations, weddings and meaningful memories.</small></span></a>
-    <a class="category-card" href="moment.html?type=creator"><span class="category-icon">📱</span><span><strong>Creator / Influencer</strong><small>Creators, artists and digital storytellers preserving a 2026 milestone.</small></span></a>
-    <a class="category-card" href="moment.html?type=startup"><span class="category-icon">🚀</span><span><strong>Indie / Early Startup</strong><small>Early-stage founders, MVP launches and ambitious new ideas.</small></span></a>
-    <a class="category-card" href="moment.html?type=business"><span class="category-icon">🏬</span><span><strong>Growing Business</strong><small>Local businesses, growing teams and meaningful milestones.</small></span></a>
-    <a class="category-card" href="moment.html?type=brand"><span class="category-icon">🛍️</span><span><strong>D2C & Consumer Brand</strong><small>Consumer brands preserving a campaign, product or launch.</small></span></a>
-    <a class="category-card" href="moment.html?type=major-brand"><span class="category-icon">🏢</span><span><strong>Enterprise / Corporate</strong><small>Large organisations preserving a defining 2026 story.</small></span></a>
-  </div>
- </div>
-</section>
-
-<section class="history" id="faq">
+<section class="history" id="about">
  <div class="wrap history-inner">
-  <div class="eyebrow">A year that becomes history</div>
-  <h2 class="section-title">WHAT WILL INDIA<br>REMEMBER ABOUT <span class="gradient">2026?</span></h2>
-  <p>Years from now, people may ask what we built, celebrated, changed and dreamed about in 2026. India Digital Capsule is a project designed to collect a small mosaic of those moments, one approved entry at a time.</p>
+  <div class="eyebrow">More than a digital advertisement</div>
+  <h2 class="section-title">A SMALL SPACE.<br><span class="gradient">A LASTING STORY.</span></h2>
+  <p>Digital Memory brings together personal milestones, creative work, businesses, ideas and brands in one shared digital wall. Each square represents a story worth preserving.</p>
   <div class="quote">“Make an advertisement. Make a memory.”</div>
-  
  </div>
 </section>
 
 <section class="cta">
  <div class="wrap">
-  <div class="eyebrow" style="color:#fff;justify-content:center">The planned capsule closing date · December 31, 2026</div>
-  <h2>YOUR 2026.<br>YOUR STORY.<br>ONE PLACE IN HISTORY.</h2>
-  <p>Make an advertisement. Make a memory.</p>
-  <a class="btn" href="#categories">EXPLORE CATEGORIES ↗</a>
+  <div class="eyebrow" style="color:white;justify-content:center">Your story deserves a place</div>
+  <h2>YOUR STORY.<br>YOUR SPACE.<br>YOUR MEMORY.</h2>
+  <p>Be part of the Digital Memory wall.</p>
+  <a class="btn" href="#grid">EXPLORE THE WALL ↗</a>
  </div>
 </section>
 </main>
 
 <footer class="wrap footer">
-  <span>© 2026 India Digital Capsule · A growing digital time-capsule concept.</span>
-  <div class="footer-links"><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a href="refunds.html">Refunds</a><a href="content-guidelines.html">Content Guidelines</a><a href="archive-policy.html">Archive Policy</a></div>
+ <span>© Digital Memory · A growing digital memory wall.</span>
+ <div class="footer-links">
+  <a href="terms.html">Terms</a>
+  <a href="privacy.html">Privacy</a>
+  <a href="refunds.html">Refunds</a>
+  <a href="content-guidelines.html">Content Guidelines</a>
+  <a href="archive-policy.html">Archive Policy</a>
+ </div>
 </footer>
 
 <div class="modal" id="squareModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
  <div class="modal-card">
   <button class="modal-close" id="modalClose" aria-label="Close dialog">×</button>
-  <div class="modal-kicker">YOUR PLACE IN THE MOSAIC</div>
+  <div class="modal-kicker">YOUR PLACE ON THE WALL</div>
   <h3 id="modalTitle">Square #1</h3>
   <p id="modalText">Choose this square to view its participation details.</p>
-  <div class="modal-actions"><button class="btn btn-bright" id="squareAction" type="button">Choose this square ↗</button><button class="pill" id="modalDismiss" type="button">Keep exploring</button></div>
-  <p class="notice" id="modalNotice">Select an available square to view the participation fee.</p>
+  <div class="modal-actions">
+   <button class="btn btn-bright" id="squareAction" type="button">Continue · ₹199</button>
+   <button class="pill" id="modalDismiss" type="button">Keep exploring</button>
+  </div>
+  <p class="notice" id="modalNotice">The participation fee is shown for available squares.</p>
  </div>
 </div>
 
 <script>
 (function(){
-  const grid=document.getElementById('capsuleGrid');
-  const count=document.getElementById('gridCount');
-  const label=document.getElementById('gridLabel');
-  const progress=document.getElementById('gridProgress');
-  const search=document.getElementById('gridSearch');
-  const filter=document.getElementById('gridFilter');
-  const more=document.getElementById('loadMoreSquares');
-  const hint=document.getElementById('gridHint');
-  const modal=document.getElementById('squareModal');
-  const modalTitle=document.getElementById('modalTitle');
-  const modalText=document.getElementById('modalText');
-  const modalNotice=document.getElementById('modalNotice');
-  const action=document.getElementById('squareAction');
-  const close=document.getElementById('modalClose');
-  const dismiss=document.getElementById('modalDismiss');
-  const colors=['art-pink','art-orange','art-purple','art-blue','art-teal','art-saffron','art-ivory'];
-  const FREE_COUNT=25;
-  let renderLimit=1000, expanded=false, activeSquare=null;
+ const grid = document.getElementById('capsuleGrid');
+ const count = document.getElementById('gridCount');
+ const label = document.getElementById('gridLabel');
+ const progress = document.getElementById('gridProgress');
+ const search = document.getElementById('gridSearch');
+ const filter = document.getElementById('gridFilter');
+ const hint = document.getElementById('gridHint');
+ const expansionStatus = document.getElementById('expansionStatus');
+ const modal = document.getElementById('squareModal');
+ const modalTitle = document.getElementById('modalTitle');
+ const modalText = document.getElementById('modalText');
+ const modalNotice = document.getElementById('modalNotice');
+ const action = document.getElementById('squareAction');
+ const close = document.getElementById('modalClose');
+ const dismiss = document.getElementById('modalDismiss');
 
-  // Private allocation remains internal to the site code and is not displayed in the public interface.
-  let seed=20261019;
-  function rand(){seed=(seed*1664525+1013904223)>>>0;return seed/4294967296}
-  const freeSquares=new Set();
-  while(freeSquares.size<FREE_COUNT) freeSquares.add(1+Math.floor(rand()*1000));
-  function readOccupied(){
-    try{return new Set(JSON.parse(localStorage.getItem('idc2026_preview_occupied')||'[]').map(Number))}
-    catch(e){return new Set()}
-  }
-  function saveOccupied(set){
-    try{localStorage.setItem('idc2026_preview_occupied',JSON.stringify([...set]))}catch(e){}
-  }
-  function artworkClass(n,total){
-    const cols=40, rows=Math.ceil(total/cols), idx=n-1, x=idx%cols, y=Math.floor(idx/cols);
-    const inBox=(x,y,l,t,r,b)=>x>=l&&x<=r&&y>=t&&y<=b;
-    const nx=x/cols, ny=y/rows, localX=(nx*4)%1, digitIndex=Math.min(3,Math.floor(nx*4));
-    const dx=localX, dy=ny;
-    if(digitIndex===0 || digitIndex===2)
-      return inBox(dx,dy,.12,.12,.88,.24)||inBox(dx,dy,.12,.12,.30,.52)||inBox(dx,dy,.12,.43,.88,.57)||inBox(dx,dy,.70,.43,.88,.88)||inBox(dx,dy,.12,.76,.88,.90);
-    if(digitIndex===1)
-      return Math.abs((((nx-.5)**2)/(.15**2))+(((ny-.5)**2)/(.32**2))-1)<.24;
-    return inBox(dx,dy,.12,.12,.88,.24)||inBox(dx,dy,.12,.12,.30,.88)||inBox(dx,dy,.12,.43,.88,.57)||inBox(dx,dy,.70,.43,.88,.88)||inBox(dx,dy,.12,.76,.88,.90);
-  }
-  function statusOf(n){return readOccupied().has(n)?'occupied':'available'}
-  function openSquare(n){
-    activeSquare=n;
-    const status=statusOf(n);
-    modalTitle.textContent='Square #'+n;
-    if(status==='occupied'){
-      modalText.textContent='This square is marked occupied in this browser preview.';
-      action.textContent='Mark available again';
-      action.dataset.action='release';
-      modalNotice.textContent='Preview only: this status is saved in this browser and is not shared with other visitors.';
-    }else{
-      modalText.textContent='This square is available. The fixed participation fee is ₹199 for everyone, regardless of category.';
-      action.textContent='Continue · ₹199 ↗';
-      action.dataset.action='paid';
-      modalNotice.textContent='The fixed participation fee is ₹199 for standard placements.';
-    }
-    modal.classList.add('open'); close.focus();
-  }
-  function render(){
-    const query=search.value.trim().toLowerCase(), mode=filter.value, occupied=readOccupied();
-    const fragment=document.createDocumentFragment(); grid.innerHTML='';
-    let shown=0, availableCount=0, occupiedCount=0, freeCount=0;
-    for(let i=1;i<=renderLimit;i++){
-      const status=statusOf(i);
-      if(status==='occupied')occupiedCount++;
-      else if(status==='free')freeCount++;
-      else availableCount++;
-      if(mode==='available' && status==='occupied')continue;
-      if(mode==='occupied' && status!=='occupied')continue;
-      if(query && !String(i).includes(query) && !('square '+i).includes(query))continue;
-      const art=artworkClass(i,renderLimit);
-      const btn=document.createElement('button');
-      btn.type='button';
-      btn.className='square '+colors[(i*7+i%5)%colors.length];
-      if(status==='occupied') btn.style.background='linear-gradient(135deg,#596078,#252943)';
-      btn.setAttribute('aria-label','Square '+i+' · '+status);
-      btn.title='Square #'+i+' · '+(status==='occupied'?'occupied':'available');
-      btn.dataset.number=String(i);
-      btn.addEventListener('click',()=>openSquare(i));
-      fragment.appendChild(btn); shown++;
-    }
-    grid.appendChild(fragment);
-    count.textContent=shown.toLocaleString('en-IN')+' / '+renderLimit.toLocaleString('en-IN');
-    label.textContent=availableCount+' available · '+occupiedCount+' occupied';
-    const filled=occupied.size;
-    progress.style.width=(Math.min(100,filled/renderLimit*100))+'%';
-    hint.textContent=shown.toLocaleString('en-IN')+' squares shown · click an available square to reveal the participation fee.';
-  }
-  action.addEventListener('click',function(){
-    if(activeSquare===null)return;
-    const occupied=readOccupied(), type=action.dataset.action;
-    if(type==='release') { occupied.delete(activeSquare); saveOccupied(occupied); closeModal(); render(); return; }
-    // Do not pretend a click is a real booking; payment and shared reservations must be integrated before launch.
-    closeModal();
-  });
-  search.addEventListener('input',render);
-  filter.addEventListener('change',render);
-  more.addEventListener('click',function(){
-    expanded=!expanded; renderLimit=expanded?2000:1000;
-    more.textContent=expanded?'RETURN TO 1,000 SQUARES':'OPEN EXPANSION · 2,000 SQUARES +';
-    render();
-  });
-  function closeModal(){modal.classList.remove('open')}
-  close.addEventListener('click',closeModal);
-  dismiss.addEventListener('click',closeModal);
-  modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});
-  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
-  render();
-})();
-</script>
+ const INITIAL_SQUARES = 1000;
+ const MAX_SQUARES = 2000;
+ const PRICE = 199;
 
-<!-- Payment confirmation panel.
-     Show this ONLY after your payment provider/backend verifies payment
-     AND your submission is approved. This static HTML cannot verify payments by itself. -->
-<section id="paymentConfirmation" class="confirmation-overlay" role="dialog" aria-modal="true" aria-labelledby="confirmationHeading" hidden>
-  <div class="confirmation-card">
-    <div class="confirmation-icon" aria-hidden="true">✓</div>
-    <p class="eyebrow">INDIA DIGITAL CAPSULE 2026</p>
-    <h2 id="confirmationHeading">Your moment is confirmed!</h2>
-    <p>Your payment has been verified and your entry approved.</p>
-    <div class="confirmation-number-label">YOUR GRID NUMBER</div>
-    <div class="confirmation-number" id="confirmationGridNumber">#0000</div>
-    <p class="confirmation-copy">Your approved entry has been assigned this grid number for preservation in the India Digital Capsule 2026 archive. Please keep this number safe so you can find your moment in the capsule.</p>
-    <p class="confirmation-copy">The capsule is scheduled to be frozen on 31 December 2026.</p>
-    <button type="button" class="btn btn-bright" id="closePaymentConfirmation">CONTINUE EXPLORING</button>
-  </div>
-</section>
-<style>
-.confirmation-overlay{position:fixed;inset:0;z-index:9999;background:rgba(20,18,42,.72);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:20px}
-.confirmation-overlay[hidden]{display:none}
-.confirmation-card{width:min(100%,520px);max-height:90vh;overflow:auto;background:#fffdfb;border-radius:28px;padding:clamp(24px,5vw,42px);text-align:center;box-shadow:0 24px 80px rgba(0,0,0,.25);color:#27213d}
-.confirmation-icon{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;margin:0 auto 18px;background:#d9f8e9;color:#16805e;font-size:34px;font-weight:800}
-.confirmation-card h2{font-size:clamp(27px,5vw,38px);line-height:1.1;margin:10px 0 14px}
-.confirmation-number-label{font-size:12px;letter-spacing:.15em;font-weight:800;margin-top:24px;color:#746a8b}
-.confirmation-number{font-size:clamp(36px,8vw,52px);font-weight:900;color:#6c45d8;margin:7px 0 14px}
-.confirmation-copy{line-height:1.65;color:#5b536b;font-size:14px;margin:12px 0}
-.confirmation-card .btn{margin-top:18px;cursor:pointer}
-</style>
-<script>
-/* Integration hook:
-   Call window.showCapsulePaymentConfirmation(gridNumber) ONLY after your server
-   confirms payment AND approves the entry. Do not call it just because a user
-   clicked a square or returned from a payment page. */
-window.showCapsulePaymentConfirmation = function(gridNumber) {
-  const overlay = document.getElementById('paymentConfirmation');
-  const number = document.getElementById('confirmationGridNumber');
-  if (!overlay || !number || !/^[A-Za-z0-9-]{1,30}$/.test(String(gridNumber))) return;
-  number.textContent = '#' + String(gridNumber);
-  overlay.hidden = false;
-};
-(function(){
-  const overlay = document.getElementById('paymentConfirmation');
-  const close = document.getElementById('closePaymentConfirmation');
-  if (close && overlay) close.addEventListener('click', () => { overlay.hidden = true; });
-  if (overlay) overlay.addEventListener('click', event => { if (event.target === overlay) overlay.hidden = true; });
+ // Private complimentary invitation squares.
+ const FREE_SQUARES = new Set([
+  5, 8, 10, 13, 18, 25, 31, 33,
+  35, 44, 50, 56, 64, 88, 98
+ ]);
+
+ const colors = [
+  'art-pink','art-orange','art-purple',
+  'art-blue','art-teal','art-saffron','art-ivory'
+ ];
+
+ let renderLimit = INITIAL_SQUARES;
+ let activeSquare = null;
+
+ function readOccupied(){
+  try {
+   return new Set(
+    JSON.parse(localStorage.getItem('digital_memory_preview_occupied') || '[]').map(Number)
+   );
+  } catch(e) {
+   return new Set();
+  }
+ }
+
+ function saveOccupied(set){
+  try {
+   localStorage.setItem(
+    'digital_memory_preview_occupied',
+    JSON.stringify([...set])
+   );
+  } catch(e) {}
+ }
+
+ function statusOf(number, occupied){
+  if(FREE_SQUARES.has(number)) return 'reserved';
+  if(occupied.has(number)) return 'occupied';
+  return 'available';
+ }
+
+ function openSquare(number){
+  const occupied = readOccupied();
+  const status = statusOf(number, occupied);
+
+  if(status !== 'available') return;
+
+  activeSquare = number;
+  modalTitle.textContent = 'Square #' + String(number).padStart(4,'0');
+  modalText.textContent = 'This square is available. The one-time participation fee is ₹' + PRICE + '.';
+  modalNotice.textContent = 'Payment and booking are not connected yet. This is a website preview.';
+  action.textContent = 'Continue · ₹' + PRICE;
+  action.dataset.action = 'preview';
+  modal.classList.add('open');
+  close.focus();
+ }
+
+ function render(){
+  const query = search.value.trim().toLowerCase();
+  const mode = filter.value;
+  const occupied = readOccupied();
+
+  // Count actual public availability in the first collection.
+  let firstAvailable = 0;
+  for(let i = 1; i <= INITIAL_SQUARES; i++){
+   if(statusOf(i, occupied) === 'available') firstAvailable++;
+  }
+
+  // Automatically reveal the next 1,000 when all 985 public
+  // squares in the first collection are occupied.
+  if(renderLimit === INITIAL_SQUARES && firstAvailable === 0){
+   renderLimit = MAX_SQUARES;
+  }
+
+  grid.innerHTML = '';
+  const fragment = document.createDocumentFragment();
+
+  let shown = 0;
+  let availableCount = 0;
+  let occupiedCount = 0;
+
+  for(let i = 1; i <= renderLimit; i++){
+   const status = statusOf(i, occupied);
+
+   if(status === 'available') availableCount++;
+   else occupiedCount++;
+
+   if(mode === 'available' && status !== 'available') continue;
+   if(mode === 'occupied' && status === 'available') continue;
+
+   if(query && !String(i).includes(query) && !('square ' + i).includes(query)) continue;
+
+   const btn = document.createElement('button');
+   btn.type = 'button';
+   btn.className = 'square ' + colors[(i * 7 + i % 5) % colors.length];
+   btn.dataset.number = String(i);
+
+   if(status === 'occupied' || status === 'reserved'){
+    btn.classList.add(status);
+    btn.disabled = true;
+    btn.setAttribute('aria-label','Square ' + i + ' unavailable');
+    btn.title = 'Square unavailable';
+   } else {
+    btn.setAttribute('aria-label','Square ' + i + ' available');
+    btn.title = 'Square #' + i + ' · available';
+    btn.addEventListener('click', () => openSquare(i));
+   }
+
+   fragment.appendChild(btn);
+   shown++;
+  }
+
+  grid.appendChild(fragment);
+
+  count.textContent = shown.toLocaleString('en-IN') + ' / ' + renderLimit.toLocaleString('en-IN');
+  label.textContent = availableCount.toLocaleString('en-IN') + ' available · ' + occupiedCount.toLocaleString('en-IN') + ' unavailable';
+
+  const unavailable = renderLimit - availableCount;
+  progress.style.width = (unavailable / renderLimit * 100) + '%';
+
+  expansionStatus.textContent = renderLimit === MAX_SQUARES
+   ? 'Expanded collection · 2,000 squares'
+   : '1,000-square collection';
+
+  hint.textContent = renderLimit === MAX_SQUARES
+   ? 'The expanded collection is now open.'
+   : 'Choose an available square to view its participation fee.';
+ }
+
+ action.addEventListener('click', function(){
+  if(activeSquare === null) return;
+
+  // Preview only. Do not mark a square occupied or claim a booking.
+  // Real booking requires a server-side reservation and verified payment.
+  modalNotice.textContent = 'Online booking is not active yet. No payment has been taken.';
+  action.textContent = 'Booking not active';
+  action.disabled = true;
+ });
+
+ function closeModal(){
+  modal.classList.remove('open');
+  action.disabled = false;
+  activeSquare = null;
+ }
+
+ search.addEventListener('input', render);
+ filter.addEventListener('change', render);
+ close.addEventListener('click', closeModal);
+ dismiss.addEventListener('click', closeModal);
+ modal.addEventListener('click', e => {
+  if(e.target === modal) closeModal();
+ });
+ document.addEventListener('keydown', e => {
+  if(e.key === 'Escape') closeModal();
+ });
+
+ render();
 })();
 </script>
 
