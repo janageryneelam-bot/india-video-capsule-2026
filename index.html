@@ -320,183 +320,248 @@ h1{font-size:clamp(48px,6.4vw,84px);line-height:.87;letter-spacing:-.085em;margi
  </div>
 </div>
 
+<!-- Supabase JS client: use your project's URL and public publishable/anon key below. -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-(function(){
- const grid = document.getElementById('capsuleGrid');
- const count = document.getElementById('gridCount');
- const label = document.getElementById('gridLabel');
- const progress = document.getElementById('gridProgress');
- const search = document.getElementById('gridSearch');
- const filter = document.getElementById('gridFilter');
- const hint = document.getElementById('gridHint');
- const expansionStatus = document.getElementById('expansionStatus');
- const modal = document.getElementById('squareModal');
- const modalTitle = document.getElementById('modalTitle');
- const modalText = document.getElementById('modalText');
- const modalNotice = document.getElementById('modalNotice');
- const action = document.getElementById('squareAction');
- const close = document.getElementById('modalClose');
- const dismiss = document.getElementById('modalDismiss');
+(function () {
+  // Paste your Supabase Project URL and PUBLIC publishable/anon key here.
+  // Never put the service_role or any secret key in this HTML file.
+  const SUPABASE_URL = "PASTE_YOUR_SUPABASE_PROJECT_URL_HERE";
+  const SUPABASE_PUBLIC_KEY = "PASTE_YOUR_SUPABASE_PUBLISHABLE_OR_ANON_KEY_HERE";
 
- const INITIAL_SQUARES = 1000;
- const MAX_SQUARES = 2000;
- const PRICE = 199;
+  const grid = document.getElementById("capsuleGrid");
+  const count = document.getElementById("gridCount");
+  const label = document.getElementById("gridLabel");
+  const progress = document.getElementById("gridProgress");
+  const search = document.getElementById("gridSearch");
+  const filter = document.getElementById("gridFilter");
+  const hint = document.getElementById("gridHint");
+  const expansionStatus = document.getElementById("expansionStatus");
 
- // Private complimentary invitation squares.
- const FREE_SQUARES = new Set([
-  5, 8, 10, 13, 18, 25, 31, 33,
-  35, 44, 50, 56, 64, 88, 98
- ]);
+  const modal = document.getElementById("squareModal");
+  const modalTitle = document.getElementById("modalTitle");
+  const modalText = document.getElementById("modalText");
+  const modalNotice = document.getElementById("modalNotice");
+  const action = document.getElementById("squareAction");
+  const close = document.getElementById("modalClose");
+  const dismiss = document.getElementById("modalDismiss");
 
- const colors = [
-  'art-pink','art-orange','art-purple',
-  'art-blue','art-teal','art-saffron','art-ivory'
- ];
+  const INITIAL_SQUARES = 1000;
+  const MAX_SQUARES = 2000;
+  const PRICE = 199;
 
- let renderLimit = INITIAL_SQUARES;
- let activeSquare = null;
+  const colors = [
+    "art-pink", "art-orange", "art-purple",
+    "art-blue", "art-teal", "art-saffron", "art-ivory"
+  ];
 
- function readOccupied(){
-  try {
-   return new Set(
-    JSON.parse(localStorage.getItem('digital_memory_preview_occupied') || '[]').map(Number)
-   );
-  } catch(e) {
-   return new Set();
-  }
- }
+  let supabaseClient = null;
+  let pixels = new Map();
+  let renderLimit = INITIAL_SQUARES;
+  let activeSquare = null;
+  let dataLoaded = false;
 
- function saveOccupied(set){
-  try {
-   localStorage.setItem(
-    'digital_memory_preview_occupied',
-    JSON.stringify([...set])
-   );
-  } catch(e) {}
- }
-
- function statusOf(number, occupied){
-  if(FREE_SQUARES.has(number)) return 'reserved';
-  if(occupied.has(number)) return 'occupied';
-  return 'available';
- }
-
- function openSquare(number){
-  const occupied = readOccupied();
-  const status = statusOf(number, occupied);
-
-  if(status !== 'available') return;
-
-  activeSquare = number;
-  modalTitle.textContent = 'Square #' + String(number).padStart(4,'0');
-  modalText.textContent = 'This square is available. The one-time participation fee is ₹' + PRICE + '.';
-  modalNotice.textContent = 'Payment and booking are not connected yet. This is a website preview.';
-  action.textContent = 'Continue · ₹' + PRICE;
-  action.dataset.action = 'preview';
-  modal.classList.add('open');
-  close.focus();
- }
-
- function render(){
-  const query = search.value.trim().toLowerCase();
-  const mode = filter.value;
-  const occupied = readOccupied();
-
-  // Count actual public availability in the first collection.
-  let firstAvailable = 0;
-  for(let i = 1; i <= INITIAL_SQUARES; i++){
-   if(statusOf(i, occupied) === 'available') firstAvailable++;
+  function setupSupabase() {
+    if (!window.supabase || !window.supabase.createClient) {
+      throw new Error("Supabase library did not load.");
+    }
+    if (
+      SUPABASE_URL.includes("PASTE_YOUR_") ||
+      SUPABASE_PUBLIC_KEY.includes("PASTE_YOUR_")
+    ) {
+      throw new Error("Please add your Supabase Project URL and public key.");
+    }
+    supabaseClient = window.supabase.createClient(
+      SUPABASE_URL,
+      SUPABASE_PUBLIC_KEY
+    );
   }
 
-  // Automatically reveal the next 1,000 when all 985 public
-  // squares in the first collection are occupied.
-  if(renderLimit === INITIAL_SQUARES && firstAvailable === 0){
-   renderLimit = MAX_SQUARES;
+  function statusOf(number) {
+    const pixel = pixels.get(number);
+    if (!pixel) return "unavailable";
+    if (pixel.status === "available") return "available";
+    if (pixel.status === "reserved") return "reserved";
+    return "occupied";
   }
 
-  grid.innerHTML = '';
-  const fragment = document.createDocumentFragment();
+  async function loadPixels() {
+    hint.textContent = "Loading live availability from Supabase…";
+    expansionStatus.textContent = "Connecting to live inventory…";
 
-  let shown = 0;
-  let availableCount = 0;
-  let occupiedCount = 0;
+    try {
+      setupSupabase();
 
-  for(let i = 1; i <= renderLimit; i++){
-   const status = statusOf(i, occupied);
+      // Query the two batches separately: each query returns at most 1,000 rows,
+      // matching the project's current Supabase API row limit.
+      const [firstResult, secondResult] = await Promise.all([
+        supabaseClient
+          .from("pixels")
+          .select("pixel_number,entry_type,status")
+          .gte("pixel_number", 1)
+          .lte("pixel_number", 1000)
+          .order("pixel_number", { ascending: true }),
+        supabaseClient
+          .from("pixels")
+          .select("pixel_number,entry_type,status")
+          .gte("pixel_number", 1001)
+          .lte("pixel_number", 2000)
+          .order("pixel_number", { ascending: true })
+      ]);
 
-   if(status === 'available') availableCount++;
-   else occupiedCount++;
+      if (firstResult.error) throw firstResult.error;
+      if (secondResult.error) throw secondResult.error;
 
-   if(mode === 'available' && status !== 'available') continue;
-   if(mode === 'occupied' && status === 'available') continue;
+      const records = [
+        ...(firstResult.data || []),
+        ...(secondResult.data || [])
+      ];
 
-   if(query && !String(i).includes(query) && !('square ' + i).includes(query)) continue;
+      pixels.clear();
+      records.forEach((pixel) => {
+        pixels.set(Number(pixel.pixel_number), pixel);
+      });
 
-   const btn = document.createElement('button');
-   btn.type = 'button';
-   btn.className = 'square ' + colors[(i * 7 + i % 5) % colors.length];
-   btn.dataset.number = String(i);
+      // Expand only when no paid pixel in Batch 1 remains available.
+      let paidAvailableInFirstBatch = 0;
+      for (let number = 1; number <= INITIAL_SQUARES; number++) {
+        const pixel = pixels.get(number);
+        if (
+          pixel &&
+          pixel.entry_type === "paid" &&
+          pixel.status === "available"
+        ) {
+          paidAvailableInFirstBatch++;
+        }
+      }
 
-   if(status === 'occupied' || status === 'reserved'){
-    btn.classList.add(status);
-    btn.disabled = true;
-    btn.setAttribute('aria-label','Square ' + i + ' unavailable');
-    btn.title = 'Square unavailable';
-   } else {
-    btn.setAttribute('aria-label','Square ' + i + ' available');
-    btn.title = 'Square #' + i + ' · available';
-    btn.addEventListener('click', () => openSquare(i));
-   }
+      renderLimit = paidAvailableInFirstBatch === 0
+        ? MAX_SQUARES
+        : INITIAL_SQUARES;
 
-   fragment.appendChild(btn);
-   shown++;
+      dataLoaded = true;
+      render();
+
+      hint.textContent =
+        "Live availability loaded. Choose an available square to view details.";
+    } catch (error) {
+      console.error("Digital Memory Supabase error:", error);
+      dataLoaded = false;
+      grid.innerHTML = "";
+      count.textContent = "—";
+      label.textContent = "Live inventory unavailable";
+      progress.style.width = "0%";
+      expansionStatus.textContent = "Connection needs attention";
+      hint.textContent =
+        "Could not load live availability. Check the Supabase URL/key, public SELECT policy, and browser console.";
+    }
   }
 
-  grid.appendChild(fragment);
+  function openSquare(number) {
+    if (!dataLoaded || statusOf(number) !== "available") return;
 
-  count.textContent = shown.toLocaleString('en-IN') + ' / ' + renderLimit.toLocaleString('en-IN');
-  label.textContent = availableCount.toLocaleString('en-IN') + ' available · ' + occupiedCount.toLocaleString('en-IN') + ' unavailable';
+    activeSquare = number;
+    modalTitle.textContent =
+      "Square #" + String(number).padStart(4, "0");
+    modalText.textContent =
+      "This square is currently available. The one-time participation fee is ₹" +
+      PRICE + ".";
+    modalNotice.textContent =
+      "Booking and payment are not active yet. No payment will be taken.";
+    action.textContent = "Continue · ₹" + PRICE;
+    action.disabled = false;
+    modal.classList.add("open");
+    close.focus();
+  }
 
-  const unavailable = renderLimit - availableCount;
-  progress.style.width = (unavailable / renderLimit * 100) + '%';
+  function render() {
+    const query = search.value.trim().toLowerCase();
+    const mode = filter.value;
 
-  expansionStatus.textContent = renderLimit === MAX_SQUARES
-   ? 'Expanded collection · 2,000 squares'
-   : '1,000-square collection';
+    grid.innerHTML = "";
+    const fragment = document.createDocumentFragment();
+    let shown = 0;
+    let availableCount = 0;
+    let unavailableCount = 0;
 
-  hint.textContent = renderLimit === MAX_SQUARES
-   ? 'The expanded collection is now open.'
-   : 'Choose an available square to view its participation fee.';
- }
+    for (let number = 1; number <= renderLimit; number++) {
+      const status = statusOf(number);
 
- action.addEventListener('click', function(){
-  if(activeSquare === null) return;
+      if (status === "available") availableCount++;
+      else unavailableCount++;
 
-  // Preview only. Do not mark a square occupied or claim a booking.
-  // Real booking requires a server-side reservation and verified payment.
-  modalNotice.textContent = 'Online booking is not active yet. No payment has been taken.';
-  action.textContent = 'Booking not active';
-  action.disabled = true;
- });
+      if (mode === "available" && status !== "available") continue;
+      if (mode === "occupied" && status === "available") continue;
+      if (
+        query &&
+        !String(number).includes(query) &&
+        !("square " + number).includes(query)
+      ) continue;
 
- function closeModal(){
-  modal.classList.remove('open');
-  action.disabled = false;
-  activeSquare = null;
- }
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className =
+        "square " + colors[(number * 7 + number % 5) % colors.length];
+      button.dataset.number = String(number);
 
- search.addEventListener('input', render);
- filter.addEventListener('change', render);
- close.addEventListener('click', closeModal);
- dismiss.addEventListener('click', closeModal);
- modal.addEventListener('click', e => {
-  if(e.target === modal) closeModal();
- });
- document.addEventListener('keydown', e => {
-  if(e.key === 'Escape') closeModal();
- });
+      if (status !== "available") {
+        button.classList.add(status === "reserved" ? "reserved" : "occupied");
+        button.disabled = true;
+        button.setAttribute("aria-label", "Square " + number + " unavailable");
+        button.title = "Square unavailable";
+      } else {
+        button.setAttribute("aria-label", "Square " + number + " available");
+        button.title = "Square #" + number + " · available";
+        button.addEventListener("click", () => openSquare(number));
+      }
 
- render();
+      fragment.appendChild(button);
+      shown++;
+    }
+
+    grid.appendChild(fragment);
+    count.textContent =
+      shown.toLocaleString("en-IN") + " / " +
+      renderLimit.toLocaleString("en-IN");
+    label.textContent =
+      availableCount.toLocaleString("en-IN") + " available · " +
+      unavailableCount.toLocaleString("en-IN") + " unavailable";
+
+    const unavailable = renderLimit - availableCount;
+    progress.style.width =
+      (unavailable / renderLimit * 100) + "%";
+
+    expansionStatus.textContent = renderLimit === MAX_SQUARES
+      ? "Expanded collection · 2,000 squares"
+      : "1,000-square collection";
+  }
+
+  action.addEventListener("click", function () {
+    if (activeSquare === null) return;
+    modalNotice.textContent =
+      "Booking is not active yet. No payment has been taken.";
+    action.textContent = "Booking not active";
+    action.disabled = true;
+  });
+
+  function closeModal() {
+    modal.classList.remove("open");
+    action.disabled = false;
+    activeSquare = null;
+  }
+
+  search.addEventListener("input", render);
+  filter.addEventListener("change", render);
+  close.addEventListener("click", closeModal);
+  dismiss.addEventListener("click", closeModal);
+  modal.addEventListener("click", (event) => {
+    if (event.target === modal) closeModal();
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeModal();
+  });
+
+  loadPixels();
 })();
 </script>
 
